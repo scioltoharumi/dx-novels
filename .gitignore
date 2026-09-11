@@ -1,0 +1,10 @@
+# ビルド成果物（GitHub Actions が生成して配信する）
+site/dist/
+
+node_modules/
+.env
+
+# OS
+Thumbs.db
+.DS_Store
+desktop.ini

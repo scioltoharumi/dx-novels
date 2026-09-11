@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="light dark">
+<title>DX小説</title>
+<script>
+// 画面が描かれる前に保存済みの表示設定を当てる（配色・文字サイズのちらつき防止）
+(function () {
+  try {
+    var p = JSON.parse(localStorage.getItem("dxn:prefs") || "{}"), r = document.documentElement;
+    if (p.theme && p.theme !== "auto") r.setAttribute("data-theme", p.theme);
+    if (p.fs) r.style.setProperty("--fs", p.fs + "px");
+    if (p.lh) r.style.setProperty("--lh", p.lh);
+    if (p.font === "serif") r.style.setProperty("--font", "var(--serif)");
+  } catch (e) {}
+})();
+</script>
+<link rel="stylesheet" href="style.css?v={{V}}">
+</head>
+<body>
+
+<!-- ===== 一覧 ===== -->
+<div id="index" class="view">
+  <div class="wrap">
+    <header class="hero">
+      <h1>DX小説</h1>
+      <p class="lead">株式会社ヤマビコの人びとが、ひとつずつ仕組みを覚えていく話。</p>
+    </header>
+
+    <a id="resume" class="resume" href="#/" hidden>
+      <span class="k">前回の続き</span>
+      <span class="t" id="resT"></span>
+      <span class="s" id="resS"></span>
+    </a>
+
+    <div id="list" class="list"></div>
+
+    <footer class="foot">版 {{VERSION}}</footer>
+  </div>
+</div>
+
+<!-- ===== 本文 ===== -->
+<div id="reader" class="view">
+  <div class="bar" id="bar">
+    <a class="ib" href="#/" aria-label="一覧へ戻る">‹ 一覧</a>
+    <div class="ttl" id="barTitle"></div>
+    <button class="ib" id="tocBtn" type="button" aria-label="目次">目次</button>
+    <button class="ib aa" id="setBtn" type="button" aria-label="表示設定">Aa</button>
+    <div class="prog" id="prog"></div>
+  </div>
+
+  <main class="page">
+    <header class="head">
+      <div class="num" id="rNum"></div>
+      <h1 id="rTitle"></h1>
+      <p class="topic" id="rTopic"></p>
+      <p class="meta" id="rMeta"></p>
+    </header>
+    <article id="body" class="body"></article>
+    <nav class="nav" id="nav" aria-label="前後の話"></nav>
+    <footer class="foot">版 {{VERSION}}</footer>
+  </main>
+
+  <div class="scrim" id="scrim" hidden></div>
+
+  <div class="sheet" id="toc" hidden>
+    <div class="sh"><b>目次</b><button class="x" type="button" data-close>閉じる</button></div>
+    <div class="sc">
+      <div class="grp">この話の章</div>
+      <div id="tocSec"></div>
+      <div class="grp">ほかの話</div>
+      <div id="tocAll"></div>
+    </div>
+  </div>
+
+  <div class="sheet" id="settings" hidden>
+    <div class="sh"><b>表示</b><button class="x" type="button" data-close>閉じる</button></div>
+    <div class="sc">
+      <div class="row"><span>文字の大きさ</span>
+        <span class="seg"><button type="button" data-fs="-1" aria-label="小さく">−</button><b id="fsV">18</b><button type="button" data-fs="1" aria-label="大きく">＋</button></span></div>
+      <div class="row"><span>行間</span>
+        <span class="seg"><button type="button" data-lh="-1" aria-label="狭く">−</button><b id="lhV">1.95</b><button type="button" data-lh="1" aria-label="広く">＋</button></span></div>
+      <div class="row"><span>書体</span>
+        <span class="seg"><button type="button" data-font="sans">ゴシック</button><button type="button" data-font="serif">明朝</button></span></div>
+      <div class="row"><span>配色</span>
+        <span class="seg"><button type="button" data-th="auto">自動</button><button type="button" data-th="light">白</button><button type="button" data-th="sepia">セピア</button><button type="button" data-th="dark">黒</button></span></div>
+      <p class="hint">PC では ← → キーで前後の話へ、t キーで目次。設定はこの端末に保存されます。</p>
+    </div>
+  </div>
+</div>
+
+<script>window.__MANIFEST__={{MANIFEST}}</script>
+<script src="app.js?v={{V}}"></script>
+</body>
+</html>

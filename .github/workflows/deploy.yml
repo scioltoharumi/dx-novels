@@ -1,0 +1,45 @@
+# push 契機で 変換 → 検査 → GitHub Pages 反映 まで無人で走る（fudosan-appraisal と同じ形）。
+# 検査に落ちたら build ジョブが止まり deploy に進まない ＝ 壊れた変換を公開しない。
+name: deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      # 依存ゼロなので npm install は不要
+      - name: 原稿を変換
+        run: npm run build
+      - name: 変換結果を検査
+        run: npm test
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

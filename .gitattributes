@@ -1,0 +1,3 @@
+# 改行は LF に統一（Windows の core.autocrlf で CRLF 化された作業コピーを持ち込まない）
+* text=auto eol=lf
+*.png binary

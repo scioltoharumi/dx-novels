@@ -30,7 +30,7 @@ export const DIST = path.join(SITE, "dist");
 
 /** 話ごとの色。表紙の代替表示・進捗バー・年表の点に使う。10色を順に割り当てる */
 export const PALETTE = ["#3b6ea5", "#4f8a5b", "#b5842a", "#6b6bb5", "#2a8a8a", "#b5563b", "#8a6d3b", "#7a5c9e", "#c0392b", "#3b7fa5"];
-const IMG_EXT = ["jpg", "jpeg", "png", "webp"];
+const IMG_EXT = ["svg", "jpg", "jpeg", "png", "webp"];   // svg が先。同名があればベクターを優先する
 
 const esc = s => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 

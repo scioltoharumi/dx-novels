@@ -17,7 +17,7 @@ import { existsSync } from "node:fs";
 import path from "node:path";
 import { ROOT, META, SITE, PALETTE } from "./build.mjs";
 
-const IMG_EXT = ["jpg", "jpeg", "png", "webp"];
+const IMG_EXT = ["svg", "jpg", "jpeg", "png", "webp"];
 const found = (dir, base) => IMG_EXT.map(e => path.join(SITE, "img", dir, `${base}.${e}`)).find(existsSync);
 const foundRoot = base => IMG_EXT.map(e => path.join(SITE, "img", `${base}.${e}`)).find(existsSync);
 

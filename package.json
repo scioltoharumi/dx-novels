@@ -13,6 +13,7 @@
     "serve": "node scripts/serve.mjs",
     "shot": "node scripts/shot.mjs",
     "art": "node scripts/art.mjs",
+    "portrait": "node scripts/portrait.mjs",
     "dev": "node scripts/build.mjs && node scripts/check.mjs && node scripts/serve.mjs"
   }
 }

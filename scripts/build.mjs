@@ -1,10 +1,12 @@
 /**
- * content/*.md → site/dist/
+ * content/*.md + meta/ → site/dist/
  *
- *   index.html          一覧と本文（1枚の HTML。location.hash で画面を切り替える）
+ *   index.html          一覧・あらすじ・人物・本文（1枚の HTML。location.hash で画面を切り替える）
  *   app.js, style.css   site/ からコピー
+ *   img/                site/img/ をそのままコピー（表紙・肖像・キービジュアル）
  *   data/manifest.json  話の一覧（本文は含まない）
  *   data/<id>.json      1話ぶんの本文（HTML 化済み）
+ *   data/meta.json      あらすじ・登場人物（meta/ をまとめたもの）
  *   version.txt         配信中の版（コミットハッシュ＋時刻）
  *
  * 原稿の約束ごと（README 参照）:
@@ -12,16 +14,23 @@
  *   - 1行目の「# 見出し」がタイトル。「（改稿版）」のような版名は表示から外す
  *   - ファイル名の（ ）の中身をテーマとして一覧に添える
  *   - 「## 見出し」が章。目次はこれで作る
+ * meta/ の型は meta/SCHEMA.md。無くてもビルドは通る（あらすじ・人物のページが「準備中」になる）。
  */
-import { readdir, readFile, writeFile, mkdir, rm, copyFile } from "node:fs/promises";
+import { readdir, readFile, writeFile, mkdir, rm, copyFile, cp } from "node:fs/promises";
+import { existsSync } from "node:fs";
 import { execSync } from "node:child_process";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 export const CONTENT = path.join(ROOT, "content");
+export const META = path.join(ROOT, "meta");
 export const SITE = path.join(ROOT, "site");
 export const DIST = path.join(SITE, "dist");
+
+/** 話ごとの色。表紙の代替表示・進捗バー・年表の点に使う。10色を順に割り当てる */
+export const PALETTE = ["#3b6ea5", "#4f8a5b", "#b5842a", "#6b6bb5", "#2a8a8a", "#b5563b", "#8a6d3b", "#7a5c9e", "#c0392b", "#3b7fa5"];
+const IMG_EXT = ["jpg", "jpeg", "png", "webp"];
 
 const esc = s => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 
@@ -130,6 +139,7 @@ export function metaFromName(name) {
 }
 
 const stripEdition = t => t.replace(/\s*[（(]\s*改稿版\s*[）)]\s*$/, "").trim();
+const splitTopic = t => t.split(/[・、,/／]/).map(s => s.trim()).filter(Boolean);
 
 function version() {
   const run = cmd => execSync(cmd, { cwd: ROOT, stdio: ["ignore", "pipe", "ignore"] }).toString().trim();
@@ -147,10 +157,28 @@ function version() {
   return { label: `${sha}${dirty}  ${stamp}`, v: `${sha}${dirty ? "x" : ""}-${stamp.replace(/\D/g, "")}` };
 }
 
+/** meta/ の JSON。無ければ fallback。壊れていれば止める（黙って空にすると気づけない） */
+async function readJSON(file, fallback) {
+  try { return JSON.parse(await readFile(file, "utf8")); }
+  catch (e) {
+    if (e.code === "ENOENT") return fallback;
+    throw new Error(`${path.relative(ROOT, file)} を読めません: ${e.message}`);
+  }
+}
+
+/** site/img/<dir>/<base>.(jpg|png|webp) があれば配信パスを返す */
+function findImage(dir, base) {
+  for (const ext of IMG_EXT) {
+    if (existsSync(path.join(SITE, "img", dir, `${base}.${ext}`))) return `img/${dir}/${base}.${ext}`;
+  }
+  return null;
+}
+
 export async function build() {
   const files = (await readdir(CONTENT)).filter(f => /\.md$/i.test(f)).sort();
   if (files.length === 0) throw new Error(`原稿がありません: ${CONTENT}`);
 
+  /* ---- 本文 ---- */
   const items = [];
   for (const [idx, file] of files.entries()) {
     const md = await readFile(path.join(CONTENT, file), "utf8");
@@ -158,7 +186,7 @@ export async function build() {
     const p = parseMarkdown(md);
     const num = m.num ?? 1000 + idx;
     const id = m.num != null ? `ch${String(num).padStart(2, "0")}` : `n${idx + 1}`;
-    const title = stripEdition(p.title || m.fileTitle || base(file));
+    const title = stripEdition(p.title || m.fileTitle || file.replace(/\.md$/i, ""));
     const chars = [...md.replace(/^#.*$/gm, "").replace(/```[\s\S]*?```/g, "").replace(/\s+/g, "")].length;
     items.push({ id, num, title, topic: m.topic, chars, blocks: p.blocks, sections: p.sections, file, html: p.html });
   }
@@ -166,19 +194,63 @@ export async function build() {
   const dup = items.map(x => x.id).filter((x, i, a) => a.indexOf(x) !== i);
   if (dup.length) throw new Error(`話の番号が重複しています: ${dup.join(", ")}（ファイル名の先頭の数字を直してください）`);
 
+  /* ---- あらすじ・人物（meta/） ---- */
+  const series = await readJSON(path.join(META, "series.json"), null);
+  const charDb = await readJSON(path.join(META, "characters.json"), { groups: [], characters: [] });
+  const novels = {};
+  for (const it of items) novels[it.id] = await readJSON(path.join(META, "novels", `${it.id}.json`), null);
+
+  items.forEach((it, i) => {
+    const n = novels[it.id];
+    it.color = PALETTE[i % PALETTE.length];
+    it.cover = findImage("covers", it.id);
+    it.catch = n?.catch || "";
+    it.tagline = n?.tagline || "";
+    it.themes = (n?.themes && n.themes.length) ? n.themes : splitTopic(it.topic);
+  });
+
+  // 人物: プロフィールに、話ごとの役割と語録を novels/ から集めて足す
+  const characters = (charDb.characters || []).map(c => {
+    const appear = [], quotes = [];
+    for (const it of items) {
+      const n = novels[it.id];
+      if (!n) continue;
+      const cast = (n.cast || []).find(x => x.id === c.id);
+      if (cast) appear.push({ id: it.id, importance: cast.importance || "sub", role: cast.role || "", arc: cast.arc || "" });
+      for (const q of n.quotes || []) if (q.who === c.id) quotes.push({ novel: it.id, text: q.text, context: q.context || "" });
+    }
+    return { ...c, portrait: findImage("characters", c.id), novels: appear, quotes };
+  });
+  const meta = {
+    series,
+    groups: charDb.groups || [],
+    characters,
+    novels: Object.fromEntries(items.map(it => {
+      const n = novels[it.id];
+      if (!n) return [it.id, null];
+      const { castFacts, ...rest } = n;       // castFacts は人物マスタを作るための材料。配信しない
+      return [it.id, rest];
+    })),
+  };
+
+  /* ---- 書き出し ---- */
   const ver = version();
   await rm(DIST, { recursive: true, force: true });
   await mkdir(path.join(DIST, "data"), { recursive: true });
 
   for (const it of items) {
-    const { html, ...meta } = it;
-    await writeFile(path.join(DIST, "data", `${it.id}.json`), JSON.stringify({ ...meta, html }));
+    const { html, ...rest } = it;
+    await writeFile(path.join(DIST, "data", `${it.id}.json`), JSON.stringify({ ...rest, html }));
   }
+  const keyImage = IMG_EXT.map(e => `key.${e}`).find(f => existsSync(path.join(SITE, "img", f)));
   const manifest = {
     v: ver.v, version: ver.label,
-    items: items.map(({ html, ...meta }) => meta),
+    series: series ? { title: series.title, tagline: series.tagline, lead: series.lead, kicker: series.kicker } : null,
+    key: keyImage ? `img/${keyImage}` : null,
+    items: items.map(({ html, ...rest }) => rest),
   };
   await writeFile(path.join(DIST, "data", "manifest.json"), JSON.stringify(manifest));
+  await writeFile(path.join(DIST, "data", "meta.json"), JSON.stringify(meta));
 
   const tpl = await readFile(path.join(SITE, "index.html"), "utf8");
   const html = tpl
@@ -187,17 +259,17 @@ export async function build() {
     .replace(/\{\{V\}\}/g, encodeURIComponent(ver.v));
   await writeFile(path.join(DIST, "index.html"), html);
   for (const f of ["app.js", "style.css"]) await copyFile(path.join(SITE, f), path.join(DIST, f));
+  if (existsSync(path.join(SITE, "img"))) await cp(path.join(SITE, "img"), path.join(DIST, "img"), { recursive: true });
   await writeFile(path.join(DIST, "version.txt"), ver.label);
   await writeFile(path.join(DIST, ".nojekyll"), "");
 
   const total = items.reduce((s, x) => s + x.chars, 0);
+  const withMeta = items.filter(it => novels[it.id]).length;
   console.log(`版 ${ver.label}`);
-  for (const it of items) console.log(`  ${it.id}  ${it.title}（${it.topic}）  ${it.chars.toLocaleString()}字 / ${it.sections.length}章`);
-  console.log(`${items.length} 話・合計 ${total.toLocaleString()} 字 → ${path.relative(ROOT, DIST)}`);
+  for (const it of items) console.log(`  ${it.id}  ${it.title}（${it.topic}）  ${it.chars.toLocaleString()}字 / ${it.sections.length}章${novels[it.id] ? "" : "  ※あらすじ未整備"}${it.cover ? "  表紙あり" : ""}`);
+  console.log(`${items.length} 話・合計 ${total.toLocaleString()} 字・あらすじ ${withMeta}/${items.length} 話・人物 ${characters.length} 人（肖像 ${characters.filter(c => c.portrait).length}）→ ${path.relative(ROOT, DIST)}`);
   return manifest;
 }
-
-const base = f => f.replace(/\.md$/i, "");
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   build().catch(e => { console.error(e.message); process.exit(1); });

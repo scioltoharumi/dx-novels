@@ -3,18 +3,23 @@
  * deploy.yml では build のあとに実行し、落ちたらデプロイしない。
  *
  *   node scripts/check.mjs
+ *
+ * 方針: 原稿だけ足した（あらすじ未整備の）話があっても止めない。
+ *       あらすじ・人物のデータが「ある」のに参照が壊れているときは止める。
  */
 import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
 import { CONTENT, DIST } from "./build.mjs";
 
-const fails = [];
+const fails = [], warns = [];
 const ok = (cond, msg) => { if (!cond) fails.push(msg); };
+const warn = (cond, msg) => { if (!cond) warns.push(msg); };
 
 const md = (await readdir(CONTENT)).filter(f => /\.md$/i.test(f));
 const manifest = JSON.parse(await readFile(path.join(DIST, "data", "manifest.json"), "utf8"));
 ok(manifest.items.length === md.length, `一覧の話数 ${manifest.items.length} が原稿 ${md.length} 件と一致しない`);
 
+/* ---- 本文 ---- */
 for (const it of manifest.items) {
   const j = JSON.parse(await readFile(path.join(DIST, "data", `${it.id}.json`), "utf8"));
   ok(j.html.length > 0, `${it.id}: 本文が空`);
@@ -41,16 +46,49 @@ for (const it of manifest.items) {
   ok(it.title && !/改稿版/.test(it.title), `${it.id}: タイトルに版名が残っている（${it.title}）`);
   ok(it.blocks === (j.html.match(/^<(p|h[23]|div|blockquote|pre|ul|ol)\b/gm) || []).length,
     `${it.id}: ブロック数 ${it.blocks} と本文の要素数が食い違う（読書位置の復元がずれる）`);
+  ok(/^#[0-9a-f]{6}$/i.test(it.color || ""), `${it.id}: 色が割り当てられていない`);
 }
 
+/* ---- あらすじ・人物 ---- */
+const meta = JSON.parse(await readFile(path.join(DIST, "data", "meta.json"), "utf8"));
+const charIds = new Set(meta.characters.map(c => c.id));
+const groupIds = new Set(meta.groups.map(g => g.id));
+ok(new Set(meta.characters.map(c => c.id)).size === meta.characters.length, "人物 id が重複している");
+
+for (const it of manifest.items) {
+  const n = meta.novels[it.id];
+  warn(!!n, `${it.id}: あらすじ（meta/novels/${it.id}.json）が無い。ページは「準備中」表示になる`);
+  if (!n) continue;
+  const j = JSON.parse(await readFile(path.join(DIST, "data", `${it.id}.json`), "utf8"));
+  ok(n.catch && n.synopsis, `${it.id}: catch か synopsis が空`);
+  ok((n.chapters || []).length === j.sections.length, `${it.id}: あらすじの章数 ${(n.chapters || []).length} が本文の見出し数 ${j.sections.length} と一致しない`);
+  (n.chapters || []).forEach((c, i) => ok(c.id === j.sections[i]?.id, `${it.id}: chapters[${i}].id=${c.id} が本文の ${j.sections[i]?.id} と食い違う`));
+  for (const c of n.cast || []) ok(charIds.has(c.id), `${it.id}: cast の人物 "${c.id}" が characters.json に無い`);
+  for (const q of n.quotes || []) ok(q.who === "narration" || charIds.has(q.who), `${it.id}: quotes の人物 "${q.who}" が characters.json に無い`);
+  for (const c of n.cast || []) ok(["main", "sub", "cameo"].includes(c.importance), `${it.id}: cast "${c.id}" の importance が不正（${c.importance}）`);
+}
+for (const c of meta.characters) {
+  ok(c.name, `人物 ${c.id}: name が空`);
+  ok(groupIds.has(c.group), `人物 ${c.id}: group "${c.group}" が groups に無い`);
+  ok(["main", "sub", "cameo"].includes(c.importance), `人物 ${c.id}: importance が不正（${c.importance}）`);
+  warn(c.novels.length >= 1, `人物 ${c.id}（${c.name}）: どの話の cast にも出てこない`);
+  for (const r of c.relations || []) ok(charIds.has(r.to), `人物 ${c.id}: relations の相手 "${r.to}" が居ない`);
+}
+if (meta.series) {
+  ok(meta.series.title, "series.json: title が空");
+  for (const t of meta.series.timeline || []) ok(manifest.items.some(it => it.id === t.novel), `series.json: timeline の novel "${t.novel}" が無い`);
+}
+
+/* ---- index.html ---- */
 const html = await readFile(path.join(DIST, "index.html"), "utf8");
 ok(html.includes("__MANIFEST__=") && !html.includes("{{"), "index.html の埋め込み（{{…}}）が未完了");
 ok(/name="robots"\s+content="noindex/.test(html), "index.html に noindex が無い");
 ok(html.includes(`app.js?v=`) && html.includes(`style.css?v=`), "index.html の app.js / style.css に版パラメータが無い");
 
+for (const w of warns) console.warn("  注意: " + w);
 if (fails.length) {
   console.error(`検査 NG（${fails.length} 件）`);
   for (const f of fails) console.error("  - " + f);
   process.exit(1);
 }
-console.log(`検査 OK: ${manifest.items.length} 話・版 ${manifest.version}`);
+console.log(`検査 OK: ${manifest.items.length} 話・人物 ${meta.characters.length} 人・版 ${manifest.version}${warns.length ? `（注意 ${warns.length} 件）` : ""}`);

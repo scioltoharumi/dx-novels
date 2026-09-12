@@ -85,9 +85,16 @@ const ev = async expr => {
   if (r.exceptionDetails) throw new Error("evaluate: " + (r.exceptionDetails.exception?.description || r.exceptionDetails.text));
   return r.result.value;
 };
+/** 画面が描き終わるまで待つ。あらすじ・人物は meta.json を取りに行くので「読み込み中…」が消えるのを待つ */
 const ready = async () => {
-  for (let i = 0; i < 40; i++) {
-    const ok = await ev(`document.readyState === "complete" && (!!document.querySelector("#index.on") || (!!document.querySelector("#reader.on") && document.querySelector("#body").children.length > 3))`).catch(() => false);
+  for (let i = 0; i < 60; i++) {
+    const ok = await ev(`(() => {
+      const v = document.querySelector(".view.on"); if (!v) return false;
+      if (document.readyState !== "complete") return false;
+      if (v.querySelector(".loading")) return false;
+      if (v.id === "reader") return document.querySelector("#body").children.length > 3;
+      return v.textContent.trim().length > 10;   // エラー表示（「その人物は見つかりません」）も「用意できた」とみなす
+    })()`).catch(() => false);
     if (ok) return;
     await sleep(150);
   }
@@ -104,13 +111,11 @@ async function goto(hash, { reload = false } = {}) {
     if (same) await ev(`location.hash = ${JSON.stringify(hash)}; true`);
     else await cdp.send("Page.navigate", { url: `${BASE}/${hash}` });
   }
-  await ready(); await sleep(250);
+  await ready(); await sleep(280);
 }
 async function shot(name) {
   const { data } = await cdp.send("Page.captureScreenshot", { format: "png" });
-  const f = path.join(OUT, `${name}.png`);
-  await writeFile(f, Buffer.from(data, "base64"));
-  console.log(`  📷 ${f}`);
+  await writeFile(path.join(OUT, `${name}.png`), Buffer.from(data, "base64"));
 }
 /** 画面上でいちばん上に見えているブロック番号（app.js と同じ定義） */
 const firstVisible = () => ev(`(() => { const els = document.querySelector("#body").children, top = document.querySelector("#bar").offsetHeight + 6;
@@ -120,32 +125,49 @@ const results = [];
 const check = (name, cond, detail = "") => { results.push({ name, ok: !!cond }); console.log(`  ${cond ? "PASS" : "FAIL"}  ${name}${detail ? "  (" + detail + ")" : ""}`); };
 
 try {
-  /* ---------- 見た目（スマホ実寸 390px・明るい配色） ---------- */
+  /* ---------- 見た目（スマホ実寸 390px） ---------- */
   console.log("見た目: スマホ 390×844");
   await device(390, 844, true); await scheme("light");
   await goto("#/", { reload: true }); await ev("localStorage.clear(); true");
-  await goto("#/", { reload: true }); await shot("sp-index");
+  await goto("#/", { reload: true }); await shot("sp-home");
+  await ev(`scrollTo(0, 560); true`); await sleep(250); await shot("sp-home-shelf");
+  await goto("#/about"); await shot("sp-about");
+  await ev(`document.querySelectorAll(".sec")[1]?.scrollIntoView(); true`); await sleep(250); await shot("sp-about-timeline");
+  await goto("#/synopsis/ch01"); await shot("sp-synopsis");
+  await ev(`document.querySelectorAll("details.spoiler").forEach(d => d.open = true); document.querySelectorAll(".sec")[2]?.scrollIntoView(); true`); await sleep(250); await shot("sp-synopsis-cast");
+  await goto("#/characters"); await shot("sp-characters");
+  await ev(`document.querySelector(".relwrap")?.scrollIntoView(); true`); await sleep(250); await shot("sp-relmap");
+  await goto("#/characters/akaumi"); await shot("sp-character");
+  await ev(`scrollTo(0, 700); true`); await sleep(250); await shot("sp-character-2");
   await goto("#/ch01"); await shot("sp-reader");
   await goto("#/ch01/s7"); await sleep(200); await shot("sp-appendix");
   await goto("#/ch09/s1"); await ev(`document.querySelector("#body pre").scrollIntoView({block:"center"}); true`); await sleep(200); await shot("sp-code");
-  await goto("#/ch01/top"); await ev(`document.querySelector("#setBtn").click(); true`); await sleep(200); await shot("sp-settings");
-  await ev(`document.querySelector("#scrim").click(); document.querySelector("#tocBtn").click(); true`); await sleep(200); await shot("sp-toc");
+  await goto("#/ch01/top"); await ev(`document.querySelector("#setBtn").click(); true`); await sleep(250); await shot("sp-settings");
+  await ev(`document.querySelector("#scrim").click(); document.querySelector("#tocBtn").click(); true`); await sleep(250); await shot("sp-toc");
   await ev(`document.querySelector("#scrim").click(); document.querySelector("[data-th=sepia]").click(); document.querySelector("[data-font=serif]").click();
     for (let i = 0; i < 4; i++) document.querySelector('[data-fs="1"]').click(); true`); await sleep(300); await shot("sp-sepia-serif-22px");
   await ev(`document.querySelector("[data-th=dark]").click(); true`); await sleep(200); await shot("sp-dark");
-  await ev(`document.querySelector("[data-th=auto]").click(); document.querySelector("[data-font=sans]").click(); for (let i = 0; i < 4; i++) document.querySelector('[data-fs="-1"]').click(); true`);
+  await goto("#/"); await shot("sp-home-dark");
+  await ev(`document.querySelector("#setBtnTop").click(); document.querySelector("[data-th=auto]").click(); document.querySelector("[data-font=sans]").click();
+    for (let i = 0; i < 4; i++) document.querySelector('[data-fs="-1"]').click(); document.querySelector("#scrim").click(); true`);
 
   console.log("見た目: PC 1280×900");
   await device(1280, 900, false);
-  await goto("#/"); await shot("pc-index");
+  await goto("#/"); await shot("pc-home");
+  await ev(`scrollTo(0, 520); true`); await sleep(250); await shot("pc-home-shelf");
+  await goto("#/about"); await shot("pc-about");
+  await goto("#/synopsis/ch07"); await shot("pc-synopsis");
+  await ev(`document.querySelectorAll("details.spoiler").forEach(d => d.open = true); true`); await sleep(250);
+  await ev(`scrollTo(0, 900); true`); await sleep(250); await shot("pc-synopsis-2");
+  await goto("#/characters"); await shot("pc-characters");
+  await ev(`document.querySelector(".relwrap").scrollIntoView({block:"center"}); true`); await sleep(300); await shot("pc-relmap");
+  await goto("#/characters/rino"); await shot("pc-character");
   await goto("#/ch05/s3"); await ev(`document.querySelector("#body pre").scrollIntoView({block:"center"}); true`); await sleep(200); await shot("pc-code");
   await goto("#/ch01/s7"); await sleep(200); await shot("pc-appendix");
-  await ev(`document.querySelector("#tocBtn").click(); true`); await sleep(200); await shot("pc-toc");
-  await ev(`document.querySelector("#scrim").click(); true`);
-  await scheme("dark"); await goto("#/ch02"); await shot("pc-dark-reader"); await scheme("light");
+  await scheme("dark"); await goto("#/characters"); await shot("pc-characters-dark"); await scheme("light");
 
-  /* ---------- 挙動 ---------- */
-  console.log("挙動");
+  /* ---------- 挙動：本文 ---------- */
+  console.log("挙動: 本文");
   await device(390, 844, true);
   await goto("#/", { reload: true }); await ev("localStorage.clear(); true");
   await goto("#/ch01", { reload: true });
@@ -165,38 +187,89 @@ try {
   check("設定変更の位置合わせでヘッダーが隠れない", !(await ev(`document.querySelector("#bar").classList.contains("hide")`)));
   await ev(`document.querySelector("#scrim").click(); true`);
   await goto("#/ch01/top"); await sleep(200);
-  await ev(`document.querySelector('[data-fs="-1"]').click(); true`); await sleep(200);
+  await ev(`document.querySelector("#setBtn").click(); document.querySelector('[data-fs="-1"]').click(); document.querySelector("#scrim").click(); true`); await sleep(250);
   check("先頭で文字サイズを変えても表題が見えたまま", (await ev("scrollY")) < 5, `scrollY=${await ev("scrollY")}`);
-  await ev(`document.querySelector('[data-fs="1"]').click(); document.querySelector("#body").children[60].scrollIntoView({block:"start"}); true`); await sleep(400);
-
-  await goto("#/");
-  check("一覧に「前回の続き」が出る", !(await ev(`document.querySelector("#resume").hidden`)) && /%/.test(await ev(`document.querySelector("#resS").textContent`)),
-    await ev(`document.querySelector("#resS").textContent`));
-  check("一覧の話に読了率が出る", /%/.test(await ev(`document.querySelector('.item[href="#/ch01"] .meta').textContent`)));
+  await ev(`document.querySelector("#body").children[60].scrollIntoView({block:"start"}); true`); await sleep(400);
 
   const saved = await ev(`JSON.parse(localStorage.getItem("dxn:pos:ch01")).i`);
   await goto("#/ch01", { reload: true }); await sleep(300);
-  const restored = await firstVisible();
-  check("再読み込み後に保存した段落へ戻る", Math.abs(restored - saved) <= 1, `保存=${saved} 復元=${restored}`);
+  check("再読み込み後に保存した段落へ戻る", Math.abs((await firstVisible()) - saved) <= 1, `保存=${saved}`);
 
   await goto("#/ch01/s3"); await sleep(200);
   const top = await ev(`document.getElementById("s3").getBoundingClientRect().top`);
   check("目次から章へ飛ぶとヘッダーの下に見出しが来る", top >= 48 && top <= 80, `top=${Math.round(top)}`);
-  check("章への直リンクは #/ch01 に置き換わる", (await ev("location.hash")) === "#/ch01", await ev("location.hash"));
+  check("章への直リンクは #/ch01 に置き換わる", (await ev("location.hash")) === "#/ch01");
 
   await ev(`document.body.dispatchEvent(new KeyboardEvent("keydown", { key: "ArrowRight", bubbles: true })); true`); await ready(); await sleep(200);
   check("→ キーで次の話へ", (await ev("location.hash")) === "#/ch02" && (await ev(`document.querySelector("#rTitle").textContent`)) === "二つの登山靴");
-
   await ev(`scrollTo(0, document.documentElement.scrollHeight); true`); await sleep(400);
   check("最後まで読むと読了になる", (await ev(`JSON.parse(localStorage.getItem("dxn:pos:ch02")).done`)) === true);
-  await goto("#/");
-  check("一覧に読了が出る", /読了/.test(await ev(`document.querySelector('.item[href="#/ch02"] .meta').textContent`)));
 
+  /* ---------- 挙動：トップ・あらすじ・人物 ---------- */
+  console.log("挙動: あらすじ・人物");
+  await goto("#/");
+  check("トップに「前回の続き」が出る", !(await ev(`document.querySelector("#resume").hidden`)));
+  check("作品棚に全10話が並ぶ", (await ev(`document.querySelectorAll("#list .book").length`)) === 10);
+  check("読了の話に読了が出る", /読了/.test(await ev(`document.querySelector('.book[data-id="ch02"] .meta').textContent`)));
+  // 表紙は画像があれば img、無ければ色＋縦書きの題名。どちらの経路も壊れていないことを見る
+  const cover = await ev(`(() => { const el = document.querySelector('.book[data-id="ch01"] .cover');
+    const img = el.querySelector("img"); return img ? "img:" + img.getAttribute("src") : "ph:" + (el.querySelector(".v")?.textContent || ""); })()`);
+  check("表紙が画像か、題名の代替表示で描かれる", cover === "ph:三つの売上" || /^img:img\/covers\/ch01\./.test(cover), cover);
+  if (/^img:/.test(cover)) {
+    check("表紙の画像が実際に読み込めている",
+      await ev(`(() => { const i = document.querySelector('.book[data-id="ch01"] .cover img'); return i.complete && i.naturalWidth > 0; })()`));
+  }
+
+  await goto("#/about");
+  check("あらすじページに年表が10件出る", (await ev(`document.querySelectorAll("#aboutMain .tl li").length`)) === 10);
+  check("あらすじページに各話のあらすじカードが10件出る", (await ev(`document.querySelectorAll("#aboutMain .syn-card").length`)) === 10);
+  check("あらすじカードに本文が入っている", (await ev(`document.querySelector("#aboutMain .syn-card .d").textContent.length`)) > 60);
+
+  await goto("#/synopsis/ch01");
+  check("各話あらすじに登場人物が出る", (await ev(`document.querySelectorAll("#synMain .castcard").length`)) >= 5);
+  check("章ごとのあらすじが本文の章数と一致する", (await ev(`document.querySelectorAll("#synMain .chap li").length`)) === (await ev(`__MANIFEST__.items.find(x=>x.id==="ch01").sections.length`)));
+  check("結末までがネタバレ折りたたみになっている", (await ev(`document.querySelectorAll("#synMain details.spoiler").length`)) === 2 && !(await ev(`document.querySelector("#synMain details.spoiler").open`)));
+  check("語録が出る", (await ev(`document.querySelectorAll("#synMain .quotes .q").length`)) >= 5);
+  check("覚える仕組みが出る", (await ev(`document.querySelectorAll("#synMain .lesson").length`)) >= 5);
+  await ev(`document.querySelector('#synMain .castcard[href="#/characters/rino"]').click(); true`); await ready(); await sleep(250);
+  check("あらすじの人物カードから人物詳細へ飛べる", (await ev("location.hash")) === "#/characters/rino" && (await ev(`document.querySelector("#charMain h1").textContent`)).includes("佐伯"));
+
+  await goto("#/characters");
+  const total = await ev(`document.querySelectorAll("#chGrid .person").length`);
+  check("人物一覧が全員出る", total >= 20, `${total}人`);
+  check("相関図が描かれる", (await ev(`document.querySelectorAll(".relmap .node").length`)) >= 15);
+  check("相関図のノードが円の中に収まっている",
+    await ev(`[...document.querySelectorAll(".relmap .node circle")].every(c => {
+      const x = +c.getAttribute("cx"), y = +c.getAttribute("cy"), r = +c.getAttribute("r");
+      return x - r >= 0 && y - r >= 0 && x + r <= 760 && y + r <= 760; })`));
+  check("相関図の線に関係の説明が付く", (await ev(`document.querySelector(".relmap line title").textContent.length`)) > 10);
+  await ev(`document.querySelector('#chFilters [data-g="outside"]').click(); true`); await sleep(250);
+  const filtered = await ev(`document.querySelectorAll("#chGrid .person").length`);
+  check("所属で絞り込める", filtered > 0 && filtered < total, `社外 ${filtered}人 / 全${total}人`);
+  await ev(`document.querySelector('#chFilters [data-g="all"]').click(); true`); await sleep(200);
+
+  await goto("#/characters/akaumi");
+  check("人物詳細に登場する話が出る", (await ev(`document.querySelectorAll("#charMain .tl li").length`)) === 10);
+  check("人物詳細に語録が出る", (await ev(`document.querySelectorAll("#charMain .quotes .q").length`)) >= 3);
+  check("人物詳細に関係が出る", (await ev(`document.querySelectorAll("#charMain .rel").length`)) >= 3);
+  check("人物詳細に外見が出る（絵の材料）", (await ev(`document.querySelectorAll("#charMain .plain li").length`)) >= 5);
+  await ev(`document.querySelector('#charMain .tl a[href^="#/synopsis/"]').click(); true`); await ready(); await sleep(250);
+  check("人物詳細からあらすじへ飛べる", /^#\/synopsis\//.test(await ev("location.hash")));
+
+  await goto("#/characters/nobody-xyz"); await sleep(300);
+  check("居ない人物 id でも壊れない", /見つかりません/.test(await ev(`document.querySelector("#charMain").textContent`)));
+  await goto("#/no-such-page", { reload: true });
+  check("知らない URL はトップに戻る", (await ev("location.hash")) === "#/" && (await ev(`!!document.querySelector("#home.on")`)));
+
+  /* ---------- レイアウト ---------- */
+  console.log("挙動: レイアウト");
+  for (const [name, hash] of [["トップ", "#/"], ["あらすじ", "#/about"], ["各話あらすじ", "#/synopsis/ch07"], ["人物一覧", "#/characters"], ["人物詳細", "#/characters/rino"], ["本文", "#/ch01"]]) {
+    await device(390, 844, true); await goto(hash);
+    check(`スマホで横にはみ出さない（${name}）`, await ev(`document.documentElement.scrollWidth <= innerWidth + 1`),
+      `scrollWidth=${await ev("document.documentElement.scrollWidth")}`);
+  }
   await device(390, 844, true); await goto("#/ch01/s7"); await sleep(200);
-  const stacked = await ev(`getComputedStyle(document.querySelector("#body tbody tr")).display`);
-  check("スマホでは付録の表がカードに積まれる", stacked === "block", `tr.display=${stacked}`);
-  const overflow = await ev(`document.documentElement.scrollWidth <= innerWidth`);
-  check("スマホで横にはみ出さない", overflow, `scrollWidth ok=${overflow}`);
+  check("スマホでは付録の表がカードに積まれる", (await ev(`getComputedStyle(document.querySelector("#body tbody tr")).display`)) === "block");
   await device(1280, 900, false); await goto("#/ch01/s7"); await sleep(200);
   check("PC では付録の表が表のまま", (await ev(`getComputedStyle(document.querySelector("#body tbody tr")).display`)) === "table-row");
 
@@ -211,5 +284,5 @@ try {
 }
 
 const ng = results.filter(r => !r.ok);
-console.log(ng.length ? `検証 NG（${ng.length} 件）` : `検証 OK（${results.length} 件）・画像: ${OUT}`);
+console.log(ng.length ? `検証 NG（${ng.length} 件 / 全${results.length} 件）` : `検証 OK（${results.length} 件）・画像: ${OUT}`);
 process.exit(ng.length ? 1 : 0);

@@ -22,24 +22,64 @@
 </head>
 <body>
 
-<!-- ===== 一覧 ===== -->
-<div id="index" class="view">
-  <div class="wrap">
-    <header class="hero">
-      <h1>DX小説</h1>
-      <p class="lead">株式会社ヤマビコの人びとが、ひとつずつ仕組みを覚えていく話。</p>
-    </header>
+<!-- ===== 共通ナビ（本文画面では隠す） ===== -->
+<nav class="topnav" id="topnav">
+  <a class="brand" href="#/">DX小説</a>
+  <div class="tabs">
+    <a href="#/" data-tab="home">作品</a>
+    <a href="#/about" data-tab="about">あらすじ</a>
+    <a href="#/characters" data-tab="characters">登場人物</a>
+  </div>
+  <button class="ib aa" id="setBtnTop" type="button" aria-label="表示設定">Aa</button>
+</nav>
 
+<!-- ===== トップ ===== -->
+<div id="home" class="view">
+  <header class="hero" id="hero">
+    <div class="hero-in">
+      <div class="kicker" id="heroKicker">連作小説</div>
+      <h1 id="heroTitle">DX小説</h1>
+      <p class="tag" id="heroTag"></p>
+      <p class="lead" id="heroLead"></p>
+      <div class="cta" id="heroCta"></div>
+    </div>
+  </header>
+  <main class="wrap">
     <a id="resume" class="resume" href="#/" hidden>
       <span class="k">前回の続き</span>
       <span class="t" id="resT"></span>
       <span class="s" id="resS"></span>
     </a>
-
-    <div id="list" class="list"></div>
-
+    <section>
+      <h2 class="sec">作品<small id="listSub"></small></h2>
+      <div id="list" class="shelf"></div>
+    </section>
+    <section class="tiles">
+      <a class="tile" href="#/about"><span class="ti">📖</span><span><b>あらすじ・世界観</b><small>舞台のヤマビコと、三年の歩み</small></span></a>
+      <a class="tile" href="#/characters"><span class="ti">👥</span><span><b>登場人物</b><small>人物紹介と相関図</small></span></a>
+    </section>
     <footer class="foot">版 {{VERSION}}</footer>
-  </div>
+  </main>
+</div>
+
+<!-- ===== あらすじ・世界観 ===== -->
+<div id="about" class="view">
+  <main class="wrap" id="aboutMain"></main>
+</div>
+
+<!-- ===== 各話あらすじ ===== -->
+<div id="synopsis" class="view">
+  <main class="wrap" id="synMain"></main>
+</div>
+
+<!-- ===== 登場人物 ===== -->
+<div id="characters" class="view">
+  <main class="wrap" id="charsMain"></main>
+</div>
+
+<!-- ===== 人物詳細 ===== -->
+<div id="character" class="view">
+  <main class="wrap" id="charMain"></main>
 </div>
 
 <!-- ===== 本文 ===== -->
@@ -58,37 +98,40 @@
       <h1 id="rTitle"></h1>
       <p class="topic" id="rTopic"></p>
       <p class="meta" id="rMeta"></p>
+      <p class="links" id="rLinks"></p>
     </header>
     <article id="body" class="body"></article>
     <nav class="nav" id="nav" aria-label="前後の話"></nav>
     <footer class="foot">版 {{VERSION}}</footer>
   </main>
 
-  <div class="scrim" id="scrim" hidden></div>
-
   <div class="sheet" id="toc" hidden>
     <div class="sh"><b>目次</b><button class="x" type="button" data-close>閉じる</button></div>
     <div class="sc">
-      <div class="grp">この話の章</div>
+      <div class="grp">この話</div>
+      <div id="tocLinks"></div>
+      <div class="grp">章</div>
       <div id="tocSec"></div>
       <div class="grp">ほかの話</div>
       <div id="tocAll"></div>
     </div>
   </div>
+</div>
 
-  <div class="sheet" id="settings" hidden>
-    <div class="sh"><b>表示</b><button class="x" type="button" data-close>閉じる</button></div>
-    <div class="sc">
-      <div class="row"><span>文字の大きさ</span>
-        <span class="seg"><button type="button" data-fs="-1" aria-label="小さく">−</button><b id="fsV">18</b><button type="button" data-fs="1" aria-label="大きく">＋</button></span></div>
-      <div class="row"><span>行間</span>
-        <span class="seg"><button type="button" data-lh="-1" aria-label="狭く">−</button><b id="lhV">1.95</b><button type="button" data-lh="1" aria-label="広く">＋</button></span></div>
-      <div class="row"><span>書体</span>
-        <span class="seg"><button type="button" data-font="sans">ゴシック</button><button type="button" data-font="serif">明朝</button></span></div>
-      <div class="row"><span>配色</span>
-        <span class="seg"><button type="button" data-th="auto">自動</button><button type="button" data-th="light">白</button><button type="button" data-th="sepia">セピア</button><button type="button" data-th="dark">黒</button></span></div>
-      <p class="hint">PC では ← → キーで前後の話へ、t キーで目次。設定はこの端末に保存されます。</p>
-    </div>
+<!-- ===== 表示設定（全画面共通） ===== -->
+<div class="scrim" id="scrim" hidden></div>
+<div class="sheet" id="settings" hidden>
+  <div class="sh"><b>表示</b><button class="x" type="button" data-close>閉じる</button></div>
+  <div class="sc">
+    <div class="row"><span>文字の大きさ</span>
+      <span class="seg"><button type="button" data-fs="-1" aria-label="小さく">−</button><b id="fsV">18</b><button type="button" data-fs="1" aria-label="大きく">＋</button></span></div>
+    <div class="row"><span>行間</span>
+      <span class="seg"><button type="button" data-lh="-1" aria-label="狭く">−</button><b id="lhV">1.95</b><button type="button" data-lh="1" aria-label="広く">＋</button></span></div>
+    <div class="row"><span>書体</span>
+      <span class="seg"><button type="button" data-font="sans">ゴシック</button><button type="button" data-font="serif">明朝</button></span></div>
+    <div class="row"><span>配色</span>
+      <span class="seg"><button type="button" data-th="auto">自動</button><button type="button" data-th="light">白</button><button type="button" data-th="sepia">セピア</button><button type="button" data-th="dark">黒</button></span></div>
+    <p class="hint">文字の大きさと行間は本文に効きます。PC では ← → キーで前後の話へ、t キーで目次。設定はこの端末に保存されます。</p>
   </div>
 </div>
 

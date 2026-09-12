@@ -246,12 +246,23 @@ try {
   await goto("#/characters");
   const total = await ev(`document.querySelectorAll("#chGrid .person").length`);
   check("人物一覧が全員出る", total >= 20, `${total}人`);
-  check("相関図が描かれる", (await ev(`document.querySelectorAll(".relmap .node").length`)) >= 15);
-  check("相関図のノードが円の中に収まっている",
-    await ev(`[...document.querySelectorAll(".relmap .node circle")].every(c => {
+  check("相関図が描かれる", (await ev(`document.querySelectorAll(".relmap .rnode").length`)) >= 15);
+  check("相関図に所属の帯が出る", (await ev(`document.querySelectorAll(".relmap .rband").length`)) >= 2);
+  check("相関図のノードが図の中に収まっている",
+    await ev(`[...document.querySelectorAll(".relmap .dot")].every(c => {
       const x = +c.getAttribute("cx"), y = +c.getAttribute("cy"), r = +c.getAttribute("r");
-      return x - r >= 0 && y - r >= 0 && x + r <= 760 && y + r <= 760; })`));
-  check("相関図の線に関係の説明が付く", (await ev(`document.querySelector(".relmap line title").textContent.length`)) > 10);
+      return x - r >= 0 && y - r >= 0 && x + r <= 800 && y + r <= 800; })`));
+  // 線が何の関係かは、選んだ人の説明が文章で出ることで分かる
+  check("既定で主要人物が選ばれ、関係の説明が出る",
+    (await ev(`document.querySelector("#relmap").classList.contains("picked")`)) &&
+    (await ev(`document.querySelectorAll("#relCap .rc-list li").length`)) >= 3);
+  await ev(`document.querySelector('#relmap .rnode[data-id="tachibana"]').dispatchEvent(new MouseEvent("click",{bubbles:true})); true`);
+  await sleep(300);
+  check("人物を選ぶとその人の線だけが濃くなる",
+    (await ev(`document.querySelectorAll("#relmap .redge.on").length`)) >= 2 &&
+    (await ev(`document.querySelectorAll("#relmap .redge").length`)) > (await ev(`document.querySelectorAll("#relmap .redge.on").length`)));
+  check("選んだ人の関係が文章で出る", /橘/.test(await ev(`document.querySelector("#relCap").textContent`))
+    && (await ev(`document.querySelector("#relCap .rc-list small").textContent.length`)) > 5);
   await ev(`document.querySelector('#chFilters [data-g="outside"]').click(); true`); await sleep(250);
   const filtered = await ev(`document.querySelectorAll("#chGrid .person").length`);
   check("所属で絞り込める", filtered > 0 && filtered < total, `社外 ${filtered}人 / 全${total}人`);

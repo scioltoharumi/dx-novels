@@ -246,6 +246,7 @@ async function showCharacters() {
   document.querySelectorAll("#chFilters button").forEach(b => b.onclick = () => { charFilter = b.dataset.g; render(); });
   if (!meta.groups.some(g => g.id === charFilter)) charFilter = "all";
   render();
+  wireRelmap(meta);
 }
 
 function personCard(c, meta) {
@@ -261,49 +262,136 @@ function personCard(c, meta) {
     </span></a>`;
 }
 
-/** 相関図。主要を内側の輪、準主要を外側の輪に並べ、relations を線で結ぶ */
+/** 人物ごとの関係を、双方向で集める（相手からしか書かれていない関係も拾う） */
+function relationsOf(meta, id) {
+  const out = new Map();
+  const me = meta.charById[id];
+  for (const r of (me?.relations || [])) if (r.to !== id && meta.charById[r.to]) out.set(r.to, r.how || "");
+  for (const o of meta.characters) {
+    if (o.id === id) continue;
+    for (const r of (o.relations || [])) if (r.to === id && !out.has(o.id)) out.set(o.id, r.how || "");
+  }
+  return [...out].map(([to, how]) => ({ ch: meta.charById[to], how })).filter(x => x.ch);
+}
+
+/**
+ * 相関図。線が何を意味するのか分からない、を避けるための作り。
+ *   - 位置に意味を持たせる（所属ごとに円弧を分け、外側に所属の帯を出す）
+ *   - 線は中心へ向けて弓なりにして、束ねて見せる（直線を交差させると読めない）
+ *   - 既定では薄く、人を選ぶとその人の線だけを濃くし、下に関係の説明を全部出す
+ */
 function relmapHTML(meta) {
-  const main = meta.characters.filter(c => c.importance === "main");
-  const sub = meta.characters.filter(c => c.importance === "sub");
-  const nodes = main.concat(sub);
+  const nodes = meta.characters.filter(c => c.importance !== "cameo");
   if (nodes.length < 3) return "";
-  const idx = Object.fromEntries(nodes.map((c, i) => [c.id, i]));
+  const W = 800, cx = W / 2, cy = W / 2, R = 228;
 
-  const W = 760, H = 760, cx = W / 2, cy = H / 2;
-  const ring = (n, i, R, rot) => {
-    const a = -Math.PI / 2 + rot + i / n * Math.PI * 2;
-    return [+(cx + R * Math.cos(a)).toFixed(1), +(cy + R * Math.sin(a)).toFixed(1)];
-  };
-  // 内側は主要のみ（外側と角度をずらして重なりを避ける）。sub が無ければ1輪に落とす
-  const rIn = sub.length ? 155 : 260, rOut = 305;
-  const pos = nodes.map((c, i) => i < main.length
-    ? ring(main.length, i, rIn, Math.PI / main.length)
-    : ring(sub.length, i - main.length, rOut, 0));
+  // 所属ごとに連続した円弧へ割り当てる
+  const groups = meta.groups.map(g => ({ ...g, list: nodes.filter(n => n.group === g.id) })).filter(g => g.list.length);
+  const GAP = 0.17;                                  // 所属のあいだの隙間（ラジアン）
+  const avail = Math.PI * 2 - GAP * groups.length;
+  const pos = {}, arcs = [];
+  let a = -Math.PI / 2 + GAP / 2;
+  for (const g of groups) {
+    const span = avail * (g.list.length / nodes.length);
+    arcs.push({ ...g, a0: a, a1: a + span });
+    g.list.forEach((c, i) => {
+      const t = a + span * ((i + 0.5) / g.list.length);
+      pos[c.id] = [+(cx + R * Math.cos(t)).toFixed(1), +(cy + R * Math.sin(t)).toFixed(1), t];
+    });
+    a += span + GAP;
+  }
 
+  // 線。同じ組み合わせは1本にまとめる
   const seen = new Set(), edges = [];
   for (const c of nodes) for (const r of (c.relations || [])) {
-    if (!(r.to in idx) || r.to === c.id) continue;
+    if (!pos[r.to] || r.to === c.id) continue;
     const key = [c.id, r.to].sort().join("|");
     if (seen.has(key)) continue;
-    seen.add(key); edges.push({ a: idx[c.id], b: idx[r.to], how: r.how });
+    seen.add(key); edges.push([c.id, r.to]);
   }
-  const lines = edges.map(e =>
-    `<line x1="${pos[e.a][0]}" y1="${pos[e.a][1]}" x2="${pos[e.b][0]}" y2="${pos[e.b][1]}"><title>${esc(nodes[e.a].name)} — ${esc(nodes[e.b].name)}${e.how ? `：${esc(e.how)}` : ""}</title></line>`).join("");
+  const curves = edges.map(([p, q]) => {
+    const [x0, y0] = pos[p], [x1, y1] = pos[q];
+    const mx = (x0 + x1) / 2, my = (y0 + y1) / 2;
+    const bx = cx + (mx - cx) * 0.26, by = cy + (my - cy) * 0.26;   // 中心へ弓なりに寄せる
+    return `<path class="redge" data-a="${p}" data-b="${q}" d="M ${x0} ${y0} Q ${n1(bx)} ${n1(by)} ${x1} ${y1}"/>`;
+  }).join("");
 
-  const circles = nodes.map((c, i) => {
-    const [x, y] = pos[i], color = groupColor(c), R = i < main.length ? 30 : 23;
+  // 所属の帯と名前
+  const band = arcs.map(g => {
+    const r = R + 58, big = g.a1 - g.a0 > Math.PI ? 1 : 0;
+    const p0 = [cx + r * Math.cos(g.a0), cy + r * Math.sin(g.a0)];
+    const p1 = [cx + r * Math.cos(g.a1), cy + r * Math.sin(g.a1)];
+    const tm = (g.a0 + g.a1) / 2, lr = r + 17;
+    // 「株式会社」は図では冗長で、右端からはみ出す。凡例では正式名を出している
+    const short = g.name.replace(/^株式会社/, "");
+    return `<path class="rband" d="M ${n1(p0[0])} ${n1(p0[1])} A ${r} ${r} 0 ${big} 1 ${n1(p1[0])} ${n1(p1[1])}" stroke="${g.color}"/>
+      <text class="rgname" x="${n1(cx + lr * Math.cos(tm))}" y="${n1(cy + lr * Math.sin(tm))}" fill="${g.color}"
+        text-anchor="${anchorAt(Math.cos(tm))}" dy=".35em">${esc(short)}</text>`;
+  }).join("");
+
+  const dots = nodes.map(c => {
+    const [x, y, t] = pos[c.id], color = groupColor(c), rr = c.importance === "main" ? 23 : 18;
     const face = c.portrait
-      ? `<clipPath id="cp-${esc(c.id)}"><circle cx="${x}" cy="${y}" r="${R - 2}"/></clipPath><image href="${esc(c.portrait)}" x="${x - R + 2}" y="${y - R + 2}" width="${(R - 2) * 2}" height="${(R - 2) * 2}" clip-path="url(#cp-${esc(c.id)})" preserveAspectRatio="xMidYMid slice"/>`
-      : `<text class="ini" x="${x}" y="${y}" dy=".36em" style="font-size:${i < main.length ? 24 : 18}px">${esc(initial(c.name))}</text>`;
-    const lab = short(c.name.replace(/\s+/g, ""), 7);
-    return `<a href="#/characters/${esc(c.id)}" aria-label="${esc(c.name)}"><g class="node${i < main.length ? " m" : ""}"><circle cx="${x}" cy="${y}" r="${R}" fill="${color}"/>${face}<text class="lab" x="${x}" y="${y + R + 17}">${esc(lab)}<title>${esc(c.name)}</title></text></g></a>`;
+      ? `<clipPath id="cp-${esc(c.id)}"><circle cx="${x}" cy="${y}" r="${rr - 2}"/></clipPath><image href="${esc(c.portrait)}" x="${x - rr + 2}" y="${y - rr + 2}" width="${(rr - 2) * 2}" height="${(rr - 2) * 2}" clip-path="url(#cp-${esc(c.id)})" preserveAspectRatio="xMidYMid slice"/>`
+      : `<text class="ini" x="${x}" y="${y}" dy=".36em" style="font-size:${rr - 5}px">${esc(initial(c.name))}</text>`;
+    const lx = cx + (R + 26) * Math.cos(t), ly = cy + (R + 26) * Math.sin(t);
+    return `<g class="rnode${c.importance === "main" ? " m" : ""}" data-id="${esc(c.id)}" tabindex="0" role="button" aria-label="${esc(c.name)} の関係を見る">
+      <circle class="hit" cx="${x}" cy="${y}" r="${rr + 12}"/>
+      <circle class="dot" cx="${x}" cy="${y}" r="${rr}" fill="${color}"/>${face}
+      <text class="lab" x="${n1(lx)}" y="${n1(ly)}" text-anchor="${anchorAt(Math.cos(t))}" dy=".34em">${esc(short(c.name.replace(/\s+/g, ""), 7))}</text></g>`;
   }).join("");
 
   const legend = meta.groups.map(g => `<span class="lg"><i style="background:${g.color}"></i>${esc(g.name)}</span>`).join("");
   return `<section><h2 class="sec">相関図</h2>
-    <p class="muted small">内側が主要人物、外側が準主要。線に触れると関係が出ます。人物を押すと詳細へ。<span class="sp-only">図は横にスクロールできます。</span></p>
+    <p class="muted small">円のどこに居るかが所属を表します。<b>人を選ぶと、その人の線だけが濃くなり、関係の中身が下に出ます。</b><span class="sp-only">図は横にスクロールできます。</span></p>
     <div class="legend">${legend}</div>
-    <div class="relwrap"><svg class="relmap" viewBox="0 0 ${W} ${H}" role="img" aria-label="人物相関図">${lines}${circles}</svg></div></section>`;
+    <div class="relbox">
+      <div class="relwrap"><svg class="relmap" id="relmap" viewBox="0 0 ${W} ${W}" role="img" aria-label="人物相関図">
+        <g class="edges">${curves}</g>${band}${dots}</svg></div>
+      <div class="relcap" id="relCap"></div>
+    </div></section>`;
+}
+const n1 = v => Math.round(v * 10) / 10;
+const anchorAt = c => c > 0.25 ? "start" : c < -0.25 ? "end" : "middle";
+
+/** 相関図の選択。人を選ぶと線を絞り、関係の中身を文章で出す */
+function wireRelmap(meta) {
+  const svg = $("#relmap"), cap = $("#relCap");
+  if (!svg || !cap) return;
+  const reset = () => {
+    svg.classList.remove("picked");
+    svg.querySelectorAll(".redge,.rnode").forEach(e => e.classList.remove("on", "near", "sel"));
+    cap.innerHTML = `<p class="muted small">人物を選ぶと、その人の関係がここに出ます。</p>`;
+  };
+  const pick = id => {
+    const c = meta.charById[id];
+    if (!c) return;
+    const rel = relationsOf(meta, id);
+    const near = new Set(rel.map(r => r.ch.id));
+    svg.classList.add("picked");
+    svg.querySelectorAll(".redge").forEach(e =>
+      e.classList.toggle("on", e.dataset.a === id || e.dataset.b === id));
+    svg.querySelectorAll(".rnode").forEach(nd => {
+      nd.classList.toggle("sel", nd.dataset.id === id);
+      nd.classList.toggle("near", near.has(nd.dataset.id));
+    });
+    cap.innerHTML = `<div class="rc-head">${avatarHTML(c)}<div><b>${esc(c.name)}</b>
+        <small>${esc(affLine(c, meta.groupById[c.group]))}</small></div>
+        <span class="spacer"></span><a class="btn sm ghost" href="#/characters/${esc(c.id)}">人物ページへ</a></div>
+      ${rel.length ? `<ul class="rc-list">${rel.map(r =>
+        `<li><a href="#/characters/${esc(r.ch.id)}">${avatarHTML(r.ch)}<span><b>${esc(r.ch.name)}</b><small>${esc(r.how || "関係あり")}</small></span></a></li>`).join("")}</ul>`
+        : `<p class="muted small">この人物の関係は登録されていません。</p>`}`;
+  };
+  svg.querySelectorAll(".rnode").forEach(nd => {
+    const id = nd.dataset.id;
+    nd.addEventListener("click", () => pick(id));
+    nd.addEventListener("pointerenter", e => { if (e.pointerType === "mouse") pick(id); });
+    nd.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); pick(id); } });
+  });
+  svg.addEventListener("click", e => { if (!e.target.closest(".rnode")) reset(); });
+  reset();
+  const first = meta.characters.find(c => c.importance === "main");
+  if (first) pick(first.id);
 }
 
 /* ---------- 人物詳細 ---------- */

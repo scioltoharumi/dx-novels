@@ -1,280 +1,376 @@
 /**
- * 肖像を SVG の線画として組み立てる（試作。まずは3人）。
+ * 肖像を SVG のペン画として組み立てる（試作。まずは3人）。
  *
- *   node scripts/portrait.mjs   → site/img/characters/<id>.svg を書き出す
+ *   npm run portrait   → site/img/characters/<id>.svg
  *
- * 単行本の巻頭の白黒ページに寄せた線画。ペンで描いた絵にはならないが、
- *   - 25人の絵柄が構造として完全に揃う
- *   - 44px でも 128px でも劣化しない（1枚 数KB）
- *   - 骨格・髪・襟・小物を数値で持てるので、あとから一部だけ直せる
- * という利点がある。
+ * 線はすべて「塗りのリボン」で描く（scripts/penlib.mjs）。SVG の stroke は幅が一定で、
+ * どう描いても図形記号に見えるため使わない。入りと抜きのある線にすることで、
+ * Gペンで引いた漫画の線に近づける。
  *
- * 円形に切り抜かれる前提なので、四隅には何も置かない。
- * 小さく表示したときは線ではなく「髪と服の黒い塊」が効くので、髪はベタ塗りにしている。
+ * 円形に切り抜かれる前提なので四隅には何も置かない。
+ * 小さく表示したときは線より「髪の黒い塊」が効くので、髪はベタで、房の先を尖らせる。
  */
 import { writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
+import { ink, blob, round } from "./penlib.mjs";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const OUT = path.join(ROOT, "site", "img", "characters");
 
-const W = 512;                 // 画面の一辺。円の中心は (256,256)、半径 256
-const INK = "#17150f";
-const PAPER = "#f7f4ed";       // サイトの肖像の下地と同じ色
-const n = v => Math.round(v * 10) / 10;
+const W = 512;
+const INK = "#141210";
+const PAPER = "#f7f4ed";
 
-/** 全員に共通の基準。人物ごとに geom で上書きして骨格を変える */
+/* ================= 共通の骨格 ================= */
 const BASE = {
   cx: 256,
-  topY: 80,        // 頭蓋の上
-  chinY: 322,      // 顎
-  halfW: 86,       // 頬のいちばん広いところ
-  jawW: 56,        // 顎の幅
-  cheek: 52,       // 頬の張り（大きいほど丸顔）
-  eyeY: 205,       // 目の高さ。上から 40%
-  eyeX: 40,
-  eyeW: 23, eyeH: 13,
-  browY: 170, browW: 29, browWeight: 4.6, browTilt: 0,
-  noseY: 246,
-  mouthY: 278,
-  neckW: 50,
-  neckY: 384,
+  crown: 94,      // 頭蓋の上端
+  chin: 322,      // 顎先
+  temple: 80,     // こめかみの張り出し
+  cheek: 74,      // 頬骨の幅
+  jaw: 48,        // 顎の幅
+  eyeY: 206,
+  eyeX: 42,
+  eyeW: 38, eyeH: 23,   // 漫画の目。実物より大きめ
+  irisR: 12,
+  browY: 168, browW: 31,
+  noseY: 248,
+  mouthY: 282,
+  neckY: 372,     // 肩のはじまり。低いと首が長く見える
 };
 
-/* ---------- 骨格 ---------- */
-const midY = g => (g.topY + g.chinY) / 2;
-
-/** 顔の輪郭。頭蓋から頬、顎へ */
-const facePath = g => {
-  const m = midY(g);
-  return `M ${g.cx - g.halfW} ${m - 30}
-  C ${g.cx - g.halfW} ${g.topY + 22}, ${g.cx - g.halfW * 0.6} ${g.topY}, ${g.cx} ${g.topY}
-  C ${g.cx + g.halfW * 0.6} ${g.topY}, ${g.cx + g.halfW} ${g.topY + 22}, ${g.cx + g.halfW} ${m - 30}
-  C ${g.cx + g.halfW} ${m + g.cheek}, ${g.cx + g.jawW} ${g.chinY - 38}, ${g.cx} ${g.chinY}
-  C ${g.cx - g.jawW} ${g.chinY - 38}, ${g.cx - g.halfW} ${m + g.cheek}, ${g.cx - g.halfW} ${m - 30} Z`;
-};
-
-/** 首と肩 */
-const bodyPath = g => `M ${g.cx - 196} 512
-  C ${g.cx - 188} ${g.neckY + 44}, ${g.cx - 142} ${g.neckY + 6}, ${g.cx - 62} ${g.neckY}
-  L ${g.cx + 62} ${g.neckY}
-  C ${g.cx + 142} ${g.neckY + 6}, ${g.cx + 188} ${g.neckY + 44}, ${g.cx + 196} 512 Z`;
-
-const neckLines = g => `<path d="M ${g.cx - g.neckW} ${g.chinY - 18} C ${g.cx - g.neckW + 2} ${g.chinY + 34}, ${g.cx - g.neckW - 2} ${g.chinY + 50}, ${g.cx - 62} ${g.neckY}" stroke-width="4.6"/>
-  <path d="M ${g.cx + g.neckW} ${g.chinY - 18} C ${g.cx + g.neckW - 2} ${g.chinY + 34}, ${g.cx + g.neckW + 2} ${g.chinY + 50}, ${g.cx + 62} ${g.neckY}" stroke-width="4.6"/>`;
-
-/* ---------- 顔の部品 ---------- */
-function eye(g, x) {
-  const { eyeY: y, eyeW: w, eyeH: h, eyeDroop: d = 0 } = g;
-  return `<path d="M ${n(x - w)} ${n(y + 3 + d)} C ${n(x - w * 0.5)} ${n(y - h)}, ${n(x + w * 0.5)} ${n(y - h)}, ${n(x + w)} ${n(y + d * 0.4)}" stroke-width="5.2"/>
-    <path d="M ${n(x - w * 0.76)} ${n(y + 5 + d)} C ${n(x - w * 0.35)} ${n(y + h * 0.66)}, ${n(x + w * 0.35)} ${n(y + h * 0.66)}, ${n(x + w * 0.8)} ${n(y + 3 + d * 0.4)}" stroke-width="2.2"/>
-    <circle cx="${n(x)}" cy="${n(y + h * 0.15 + d * 0.5)}" r="${n(h * 0.56)}" fill="${INK}" stroke="none"/>`;
+/** 顔の輪郭。こめかみ→頬骨→顎。左右対称に作る */
+function faceShape(g) {
+  const { cx, crown, chin, temple, cheek, jaw } = g;
+  return round([
+    [cx, crown],
+    [cx + temple, crown + 46],
+    [cx + cheek, 232],
+    [cx + jaw + 10, 292],
+    [cx, chin],
+    [cx - jaw - 10, 292],
+    [cx - cheek, 232],
+    [cx - temple, crown + 46],
+  ], { tension: 0.55 });
 }
-function brow(g, x, side) {
-  const y = g.browY, t = g.browTilt, L = g.browW;
-  return `<path d="M ${n(x - side * L)} ${n(y + t)} C ${n(x - side * 8)} ${n(y - 7 + t * 0.3)}, ${n(x + side * 10)} ${n(y - 5)}, ${n(x + side * L)} ${n(y + 2)}" stroke-width="${g.browWeight}"/>`;
-}
-const nose = g => `<path d="M ${g.cx - 8} ${g.noseY - 28} C ${g.cx - 14} ${g.noseY - 4}, ${g.cx - 11} ${g.noseY + 4}, ${g.cx + 4} ${g.noseY + 3}" stroke-width="3.2"/>`;
 
-/** 斜線のハッチング。region の中だけに線を引く */
-let hatchId = 0;
-function hatch(region, { angle = 42, gap = 11, width = 2.6 } = {}) {
-  const id = `h${++hatchId}`;
-  const rad = angle * Math.PI / 180, dx = Math.cos(rad), dy = Math.sin(rad), L = 700;
-  const lines = [];
-  for (let i = -60; i < 60; i++) {
+/** 顎の輪郭線（右半分・左半分を別々に、抜きのある線で） */
+function jawLines(g) {
+  const { cx, crown, chin, temple, cheek, jaw } = g;
+  const side = s => ink([
+    [cx + s * temple, crown + 50],
+    [cx + s * cheek, 232],
+    [cx + s * (jaw + 8), 288],
+    [cx + s * 10, chin - 3],
+  ], { w: 11, profile: "belly", shift: 0.14 });
+  return side(1) + " " + side(-1);
+}
+
+/* ================= 目 ================= */
+/**
+ * 漫画の目。上まぶたを太い抜きのある線で、瞳はベタ、ハイライトは紙の色で抜く。
+ *   tilt  つり目（正）／たれ目（負）
+ *   open  まぶたの開き（1 が標準）
+ */
+function eye(g, side, o = {}) {
+  const { tilt = 0, open = 1, lash = 1, lidW = 13, irisScale = 1 } = o;
+  const x = g.cx + side * g.eyeX, y = g.eyeY;
+  const w = g.eyeW, h = g.eyeH * open;
+  const out = [];
+
+  // 上まぶた。目頭から目尻へ、途中がいちばん太い
+  out.push(`<path d="${ink([
+    [x - side * w * 0.52, y + 4 - tilt * 0.5],
+    [x - side * w * 0.15, y - h * 0.52],
+    [x + side * w * 0.24, y - h * 0.46 - tilt * 0.4],
+    [x + side * w * 0.52, y - 2 - tilt],
+  ], { w: lidW, profile: "belly", shift: -0.1 })}"/>`);
+
+  // まつげ（目尻に短く跳ねる）
+  if (lash) out.push(`<path d="${ink([
+    [x + side * w * 0.4, y - h * 0.34 - tilt * 0.7],
+    [x + side * w * 0.62, y - h * 0.52 - tilt * 1.1],
+  ], { w: 7 * lash, profile: "tail" })}"/>`);
+
+  // 瞳。上まぶたに少しかぶる
+  const ir = g.irisR * irisScale;
+  out.push(`<ellipse cx="${x}" cy="${y + 2}" rx="${ir}" ry="${ir * 1.18}" fill="${INK}"/>`);
+  out.push(`<circle cx="${x - side * ir * 0.34}" cy="${y - ir * 0.42}" r="${ir * 0.36}" fill="${PAPER}"/>`);
+
+  // 下まぶた。細く短く
+  out.push(`<path d="${ink([
+    [x - side * w * 0.36, y + h * 0.5],
+    [x + side * w * 0.1, y + h * 0.62],
+    [x + side * w * 0.42, y + h * 0.42],
+  ], { w: 4.6, profile: "both" })}"/>`);
+  return out.join("");
+}
+
+function brow(g, side, o = {}) {
+  const { tilt = 0, w = 13, arch = 10 } = o;
+  const x = g.cx + side * g.eyeX;
+  return `<path d="${ink([
+    [x - side * g.browW * 0.92, g.browY + tilt + 4],
+    [x - side * g.browW * 0.2, g.browY - arch * 0.5 + tilt * 0.4],
+    [x + side * g.browW * 0.5, g.browY - arch],
+    [x + side * g.browW, g.browY - arch * 0.3],
+  ], { w, profile: "tail", shift: -0.14 })}"/>`;
+}
+
+const nose = (g, o = {}) => `<path d="${ink([
+  [g.cx - 6, g.noseY - 26],
+  [g.cx - 13, g.noseY - 4],
+  [g.cx - 2, g.noseY + 3],
+], { w: o.w ?? 6.5, profile: "head" })}"/>`;
+
+/** 口。curve 正で笑う、負で不機嫌。open で開く */
+function mouth(g, o = {}) {
+  const { curve = 0, w = 7, len = 22, open = 0 } = o;
+  const y = g.mouthY;
+  const line = `<path d="${ink([
+    [g.cx - len, y - curve * 0.3],
+    [g.cx, y + curve],
+    [g.cx + len, y - curve * 0.3],
+  ], { w, profile: "both" })}"/>`;
+  if (!open) return line;
+  return line + `<path d="${round([[g.cx - len * 0.8, y + 2], [g.cx, y + open], [g.cx + len * 0.8, y + 2]])}" fill="${INK}"/>`;
+}
+
+/* ================= ハッチング ================= */
+let hid = 0;
+function hatch(region, { angle = 44, gap = 11, w = 3.4, profile = "both" } = {}) {
+  const id = `h${++hid}`;
+  const rad = angle * Math.PI / 180, dx = Math.cos(rad), dy = Math.sin(rad), L = 620;
+  const paths = [];
+  for (let i = -46; i < 46; i++) {
     const px = -dy * i * gap + 256, py = dx * i * gap + 256;
-    lines.push(`M ${n(px - dx * L)} ${n(py - dy * L)} L ${n(px + dx * L)} ${n(py + dy * L)}`);
+    paths.push(ink([[px - dx * L, py - dy * L], [px, py], [px + dx * L, py + dy * L]], { w, profile, per: 4 }));
   }
   return { def: `<clipPath id="${id}"><path d="${region}"/></clipPath>`,
-    use: `<g clip-path="url(#${id})" stroke-width="${width}"><path d="${lines.join(" ")}"/></g>` };
+    use: `<g clip-path="url(#${id})"><path d="${paths.join(" ")}"/></g>` };
 }
 
-/** 眼鏡。shape は oval / round / square */
-function glasses(g, shape, weight) {
-  const w = weight === "thick" ? 6.5 : 3.2;
-  const y = g.eyeY + 1, x = g.eyeX + 2;
-  const lens = cx => shape === "square"
-    ? `<rect x="${n(cx - 35)}" y="${n(y - 25)}" width="70" height="48" rx="6"/>`
-    : shape === "round" ? `<circle cx="${n(cx)}" cy="${n(y - 1)}" r="31"/>`
-      : `<ellipse cx="${n(cx)}" cy="${n(y - 1)}" rx="35" ry="22"/>`;
-  return `<g stroke-width="${w}" fill="none">${lens(g.cx - x)}${lens(g.cx + x)}
-    <path d="M ${n(g.cx - x + 35)} ${n(y - 3)} L ${n(g.cx + x - 35)} ${n(y - 3)}"/>
-    <path d="M ${n(g.cx - x - 35)} ${n(y - 6)} L ${n(g.cx - g.halfW - 1)} ${n(y - 13)}"/>
-    <path d="M ${n(g.cx + x + 35)} ${n(y - 6)} L ${n(g.cx + g.halfW + 1)} ${n(y - 13)}"/></g>`;
-}
+/* ================= 体 ================= */
+const bodyShape = g => round([
+  [g.cx, g.neckY - 6], [g.cx + 150, g.neckY + 26], [g.cx + 200, 512],
+  [g.cx, 512], [g.cx - 200, 512], [g.cx - 150, g.neckY + 26],
+], { tension: 0.4 });
 
-/* ---------- 襟 ---------- */
-const collar = {
-  cardigan: g => ({
-    tone: "mid",
-    region: `${bodyPath(g)} M ${g.cx - 62} ${g.neckY} L ${g.cx} ${g.neckY + 96} L ${g.cx + 62} ${g.neckY} Z`,
-    lines: `<path d="M ${g.cx - 62} ${g.neckY} L ${g.cx - 6} ${g.neckY + 100}" stroke-width="5"/>
-      <path d="M ${g.cx + 62} ${g.neckY} L ${g.cx + 6} ${g.neckY + 100}" stroke-width="5"/>
-      <path d="M ${g.cx - 6} ${g.neckY + 100} L ${g.cx - 6} 512" stroke-width="4"/>
-      <path d="M ${g.cx + 6} ${g.neckY + 100} L ${g.cx + 6} 512" stroke-width="4"/>`,
-  }),
-  hoodie: g => ({
-    tone: "dark",
-    region: `${bodyPath(g)} M ${g.cx - 66} ${g.neckY} C ${g.cx - 34} ${g.neckY + 46}, ${g.cx + 34} ${g.neckY + 46}, ${g.cx + 66} ${g.neckY} Z`,
-    lines: `<path d="M ${g.cx - 100} ${g.neckY + 20} C ${g.cx - 60} ${g.neckY + 72}, ${g.cx + 60} ${g.neckY + 72}, ${g.cx + 100} ${g.neckY + 20}" stroke-width="5.5"/>
-      <path d="M ${g.cx - 66} ${g.neckY} C ${g.cx - 34} ${g.neckY + 46}, ${g.cx + 34} ${g.neckY + 46}, ${g.cx + 66} ${g.neckY}" stroke-width="4.4"/>
-      <path d="M ${g.cx - 16} ${g.neckY + 74} L ${g.cx - 22} 512" stroke-width="3.2"/>
-      <path d="M ${g.cx + 16} ${g.neckY + 74} L ${g.cx + 22} 512" stroke-width="3.2"/>`,
-  }),
-  vest: g => ({
-    tone: "dark",
-    region: `${bodyPath(g)} M ${g.cx - 58} ${g.neckY} L ${g.cx} ${g.neckY + 86} L ${g.cx + 58} ${g.neckY} Z`,
-    lines: `<path d="M ${g.cx - 58} ${g.neckY} L ${g.cx - 28} ${g.neckY + 52} L ${g.cx} ${g.neckY + 28}" stroke-width="4.6"/>
-      <path d="M ${g.cx + 58} ${g.neckY} L ${g.cx + 28} ${g.neckY + 52} L ${g.cx} ${g.neckY + 28}" stroke-width="4.6"/>
-      <path d="M ${g.cx} ${g.neckY + 28} L ${g.cx} ${g.neckY + 90}" stroke-width="3.8"/>
-      <path d="M ${g.cx - 28} ${g.neckY + 52} L ${g.cx} ${g.neckY + 90} L ${g.cx + 28} ${g.neckY + 52}" stroke-width="4.6"/>`,
-  }),
-};
-const TONE = {
-  light: [],
-  mid: [{ angle: 42, gap: 13, width: 2.4 }],
-  dark: [{ angle: 42, gap: 10, width: 2.6 }, { angle: -42, gap: 12, width: 2.2 }],
-  darkest: [{ angle: 42, gap: 8, width: 2.8 }, { angle: -42, gap: 8, width: 2.6 }],
+const neckLines = g => {
+  const s = side => ink([
+    [g.cx + side * 42, g.chin - 22],
+    [g.cx + side * 45, g.chin + 20],
+    [g.cx + side * 56, g.neckY - 2],
+  ], { w: 7, profile: "mid" });
+  return `<path d="${s(1)}"/><path d="${s(-1)}"/>`;
 };
 
-/* ---------- 組み立て ---------- */
+/** 顎の下の影。漫画で顔を立体に見せる要 */
+const jawShadow = g => `<path d="${round([
+  [g.cx - 46, g.chin - 20], [g.cx, g.chin + 4], [g.cx + 46, g.chin - 20],
+  [g.cx + 40, g.chin + 12], [g.cx, g.chin + 26], [g.cx - 40, g.chin + 12],
+], { tension: 0.4 })}" fill="${INK}" opacity="0.14"/>`;
+
+/* ================= 組み立て ================= */
 function build(c) {
-  hatchId = 0;
+  hid = 0;
   const g = { ...BASE, ...(c.geom || {}) };
   const defs = [], L = [];
   const add = h => { defs.push(h.def); return h.use; };
-  const cloth = c.cloth(g);
+  const cl = c.cloth(g);
 
-  L.push(`<path d="${bodyPath(g)}" fill="${PAPER}" stroke="none"/>`);
-  L.push(...(TONE[cloth.tone] || []).map(o => add(hatch(cloth.region, o))));
-  L.push(`<g fill="none">${cloth.lines}</g>`, `<g fill="none">${neckLines(g)}</g>`);
+  L.push(`<path d="${bodyShape(g)}" fill="${PAPER}"/>`);
+  for (const o of cl.tone || []) L.push(add(hatch(cl.region ?? bodyShape(g), o)));
+  L.push(`<g fill="${INK}">${cl.lines}</g>`);
+  L.push(`<g fill="${INK}">${neckLines(g)}</g>`);
 
-  if (c.hair.back) L.push(`<path d="${c.hair.back}" fill="${INK}" stroke="${INK}" stroke-width="3"/>`);
-  L.push(`<path d="${facePath(g)}" fill="${PAPER}" stroke="${INK}" stroke-width="6.2"/>`);
+  if (c.hairBack) L.push(`<path d="${c.hairBack(g)}" fill="${INK}"/>`);
+  L.push(`<path d="${faceShape(g)}" fill="${PAPER}"/>`);
   if (c.ears) {
-    const m = midY(g);
-    L.push(`<path d="M ${g.cx - g.halfW + 3} ${m - 4} C ${g.cx - g.halfW - 17} ${m - 14}, ${g.cx - g.halfW - 17} ${m + 26}, ${g.cx - g.halfW + 5} ${m + 26}" stroke-width="4"/>
-      <path d="M ${g.cx + g.halfW - 3} ${m - 4} C ${g.cx + g.halfW + 17} ${m - 14}, ${g.cx + g.halfW + 17} ${m + 26}, ${g.cx + g.halfW - 5} ${m + 26}" stroke-width="4"/>`);
+    const e = side => ink([
+      [g.cx + side * (g.temple - 2), 214],
+      [g.cx + side * (g.temple + 15), 226],
+      [g.cx + side * (g.temple - 4), 254],
+    ], { w: 6, profile: "both" });
+    L.push(`<g fill="${INK}"><path d="${e(1)}"/><path d="${e(-1)}"/></g>`);
   }
-  if (c.hair.front) L.push(`<path d="${c.hair.front}" fill="${INK}" stroke="${INK}" stroke-width="3"/>`);
-  if (c.hair.extra) L.push(c.hair.extra);
-  if (c.hair.strokes) L.push(`<g fill="none" stroke="${PAPER}" stroke-width="2.6">${c.hair.strokes}</g>`);
+  L.push(`<g fill="${INK}">${jawLines(g)}</g>`);
+  L.push(jawShadow(g));
+  if (c.hairFront) L.push(`<path d="${c.hairFront(g)}" fill="${INK}"/>`);
+  if (c.hairShine) L.push(`<path d="${c.hairShine(g)}" fill="${PAPER}"/>`);
 
-  L.push(eye(g, g.cx - g.eyeX), eye(g, g.cx + g.eyeX), brow(g, g.cx - g.eyeX, -1), brow(g, g.cx + g.eyeX, 1), nose(g), c.mouth(g));
+  L.push(`<g fill="${INK}">`,
+    eye(g, -1, c.eye), eye(g, 1, c.eye),
+    brow(g, -1, c.brow), brow(g, 1, c.brow),
+    nose(g, c.nose), mouth(g, c.mouth), `</g>`);
+
   if (c.hatches) for (const h of c.hatches(g)) L.push(add(hatch(h.region, h.opts)));
-  if (c.faceExtra) L.push(`<g fill="none">${c.faceExtra(g)}</g>`);
-  if (c.glasses) L.push(glasses(g, c.glasses.shape, c.glasses.weight));
-  if (c.props) L.push(`<g fill="none">${c.props(g)}</g>`);
+  if (c.extra) L.push(`<g fill="${INK}">${c.extra(g)}</g>`);
+  if (c.glasses) L.push(c.glasses(g));
+  if (c.props) L.push(`<g fill="${INK}">${c.props(g)}</g>`);
 
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${W}" width="${W}" height="${W}" role="img" aria-label="${c.name}">
 <title>${c.name}</title><defs>${defs.join("")}</defs>
 <rect width="${W}" height="${W}" fill="${PAPER}"/>
-<g stroke="${INK}" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<g fill="${INK}" stroke="none" fill-rule="nonzero">
 ${L.join("\n")}
 </g></svg>`;
 }
 
-/* ---------- 人物 ---------- */
+/* ================= 襟 ================= */
+const cloth = {
+  cardigan: g => ({
+    tone: [{ angle: 46, gap: 14, w: 3.2 }],
+    region: `${bodyShape(g)} ${round([[g.cx, g.neckY + 108], [g.cx + 74, g.neckY - 4], [g.cx + 92, 512], [g.cx - 92, 512], [g.cx - 74, g.neckY - 4]], { tension: 0.3 })}`,
+    lines: `<path d="${ink([[g.cx - 76, g.neckY - 4], [g.cx - 34, g.neckY + 58], [g.cx - 8, g.neckY + 106]], { w: 9, profile: "mid" })}"/>
+      <path d="${ink([[g.cx + 76, g.neckY - 4], [g.cx + 34, g.neckY + 58], [g.cx + 8, g.neckY + 106]], { w: 9, profile: "mid" })}"/>
+      <path d="${ink([[g.cx - 8, g.neckY + 106], [g.cx - 8, 512]], { w: 6, profile: "head" })}"/>
+      <path d="${ink([[g.cx + 8, g.neckY + 106], [g.cx + 8, 512]], { w: 6, profile: "head" })}"/>`,
+  }),
+  hoodie: g => ({
+    tone: [{ angle: 46, gap: 9, w: 3 }, { angle: -46, gap: 10, w: 2.6 }],
+    lines: `<path d="${ink([[g.cx - 112, g.neckY + 18], [g.cx, g.neckY + 78], [g.cx + 112, g.neckY + 18]], { w: 10, profile: "mid" })}"/>
+      <path d="${ink([[g.cx - 74, g.neckY - 6], [g.cx, g.neckY + 44], [g.cx + 74, g.neckY - 6]], { w: 8, profile: "mid" })}"/>
+      <path d="${ink([[g.cx - 20, g.neckY + 80], [g.cx - 26, 512]], { w: 6, profile: "head" })}"/>
+      <path d="${ink([[g.cx + 20, g.neckY + 80], [g.cx + 26, 512]], { w: 6, profile: "head" })}"/>`,
+  }),
+  vest: g => ({
+    tone: [{ angle: 46, gap: 10, w: 3 }, { angle: -46, gap: 11, w: 2.6 }],
+    region: `${bodyShape(g)} ${round([[g.cx, g.neckY + 96], [g.cx + 64, g.neckY - 4], [g.cx + 92, 512], [g.cx - 92, 512], [g.cx - 64, g.neckY - 4]], { tension: 0.3 })}`,
+    lines: `<path d="${ink([[g.cx - 64, g.neckY - 4], [g.cx - 30, g.neckY + 52], [g.cx, g.neckY + 30]], { w: 8, profile: "mid" })}"/>
+      <path d="${ink([[g.cx + 64, g.neckY - 4], [g.cx + 30, g.neckY + 52], [g.cx, g.neckY + 30]], { w: 8, profile: "mid" })}"/>
+      <path d="${ink([[g.cx - 30, g.neckY + 52], [g.cx, g.neckY + 98], [g.cx + 30, g.neckY + 52]], { w: 8, profile: "mid" })}"/>
+      <path d="${ink([[g.cx, g.neckY + 30], [g.cx, g.neckY + 96]], { w: 5.5, profile: "mid" })}"/>`,
+  }),
+};
+
+/* ================= 人物 ================= */
 const CHARS = [
   {
     id: "rino", name: "佐伯 梨乃", ears: false,
-    // 20代半ば。細面、外ハネのミディアムボブ＋前髪
-    geom: { halfW: 82, jawW: 50, cheek: 46, eyeW: 24, eyeH: 15, browWeight: 4.2, browTilt: 3, browW: 27 },
-    hair: {
-      back: `M 144 296 C 124 188, 146 50, 256 46 C 366 50, 388 188, 368 296
-             C 378 318, 354 334, 338 314 C 350 234, 350 150, 256 144
-             C 162 150, 162 234, 174 314 C 158 334, 134 318, 144 296 Z`,
-      // 前髪。頭頂は必ず顔の輪郭の上端（topY）より上から始める。下げると隙間が白い帯になる
-      front: `M 168 152 C 176 106, 214 64, 256 64 C 300 64, 340 106, 346 154
-              C 338 178, 328 188, 318 192 C 314 162, 294 142, 266 142
-              C 230 142, 200 160, 186 194 C 176 188, 172 172, 168 152 Z`,
-      // 髪のつや。生え際ではなく、髪の塊の内側に置く（生え際に置くとヘアバンドに見える）
-      strokes: `<path d="M 184 214 C 178 250, 178 280, 182 302"/>
-        <path d="M 330 216 C 336 252, 336 282, 332 304"/>`,
-    },
-    mouth: g => `<path d="M ${g.cx - 19} ${g.mouthY} C ${g.cx - 6} ${g.mouthY + 6}, ${g.cx + 6} ${g.mouthY + 6}, ${g.cx + 19} ${g.mouthY - 1}" stroke-width="4.2"/>`,
-    cloth: collar.cardigan,
-    props: g => `<path d="M ${g.cx - 44} ${g.neckY + 8} L ${g.cx - 14} ${g.neckY + 118}" stroke-width="4"/>
-      <path d="M ${g.cx + 44} ${g.neckY + 8} L ${g.cx + 14} ${g.neckY + 118}" stroke-width="4"/>
-      <g transform="rotate(-10 368 456)">
-        <path d="M 334 412 L 404 412 L 404 502 L 334 502 Z" fill="${PAPER}" stroke="${INK}" stroke-width="4.4"/>
-        <path d="M 346 432 L 392 432 M 346 452 L 392 452 M 346 472 L 380 472" stroke-width="2.4"/>
+    geom: { temple: 78, cheek: 72, jaw: 45, chin: 318, eyeW: 39, eyeH: 25, irisR: 12.5, browY: 166 },
+    // 外ハネのボブ。顔の輪郭から出すぎないよう、左右は 100px 以内に収める
+    hairBack: g => blob([
+      [256, 54], [318, 70], [350, 132], [348, 210], [356, 292], [330, 282],
+      [324, 212], [318, 152], [256, 132], [194, 152], [188, 212], [182, 282],
+      [156, 292], [164, 210], [162, 132], [194, 70],
+    ], { bulge: [12, 12, 8, 5, -9, 7, 7, 10, 10, 7, 7, -9, 5, 8, 12, 12] }),
+    // 前髪。中央で軽く分かれ、目の少し上まで下りる
+    hairFront: g => blob([
+      [256, 66], [324, 104], [338, 182], [318, 202], [312, 152], [284, 132],
+      [254, 162], [224, 134], [198, 154], [194, 200], [174, 180], [188, 104],
+    ], { bulge: [13, 8, -4, 5, -6, -7, -7, -7, -6, 5, -4, 8] }),
+    hairShine: g => blob([[212, 106], [242, 96], [236, 118], [206, 130]], { bulge: 4 }),
+    eye: { tilt: 2, lidW: 13, lash: 1.1 },
+    brow: { tilt: 3, w: 8, arch: 8 },
+    mouth: { curve: 6, w: 6, len: 18 },
+    cloth: cloth.cardigan,
+    props: g => `<path d="${ink([[g.cx - 50, g.neckY + 4], [g.cx - 30, g.neckY + 70], [g.cx - 14, g.neckY + 116]], { w: 6, profile: "mid" })}"/>
+      <path d="${ink([[g.cx + 50, g.neckY + 4], [g.cx + 30, g.neckY + 70], [g.cx + 14, g.neckY + 116]], { w: 6, profile: "mid" })}"/>
+      <g transform="rotate(-10 372 456)">
+        <path d="${round([[338, 412], [406, 412], [406, 504], [338, 504]], { tension: 0.05 })}" fill="${PAPER}"/>
+        <path d="${ink([[338, 412], [406, 412], [406, 504], [338, 504], [338, 412]], { w: 6, profile: "flat", tension: 0.05 })}"/>
+        <path d="${ink([[350, 436], [394, 436]], { w: 4, profile: "both" })}"/>
+        <path d="${ink([[350, 458], [394, 458]], { w: 4, profile: "both" })}"/>
+        <path d="${ink([[350, 480], [382, 480]], { w: 4, profile: "both" })}"/>
       </g>`,
   },
   {
     id: "akaumi", name: "赤海 慧", ears: false,
-    // 30代半ば。四角い顎、重い眉、伸びた短髪。頬がこけている
-    geom: { halfW: 90, jawW: 70, cheek: 60, chinY: 330, eyeW: 22, eyeH: 11, eyeDroop: 2,
-      browY: 176, browWeight: 6.4, browTilt: -5, browW: 32, mouthY: 284, noseY: 250 },
-    hair: {
-      // 頭を覆う塊。耳のあたりまでで、肩には落ちない。上の輪郭をぎざつかせる
-      back: `M 148 232 C 132 150, 146 44, 200 30 C 216 44, 232 30, 248 22
-             C 260 40, 274 28, 290 34 C 306 24, 322 40, 338 34
-             C 380 58, 386 152, 366 232 C 358 200, 348 170, 336 148
-             L 178 148 C 166 170, 156 200, 148 232 Z`,
-      front: `M 164 196 C 170 112, 206 60, 256 60 C 310 60, 346 114, 350 200
-              C 336 168, 322 150, 306 142 C 286 166, 250 172, 226 158
-              C 206 168, 186 180, 176 206 C 172 204, 166 200, 164 196 Z`,
-    },
-    mouth: g => `<path d="M ${g.cx - 23} ${g.mouthY + 1} L ${g.cx + 23} ${g.mouthY}" stroke-width="4.6"/>`,
-    // 無精髭。顎の輪郭に沿った細い帯と、鼻の下の小さな帯に分ける（塊にするとマスクに見える）
+    geom: { temple: 84, cheek: 78, jaw: 58, chin: 330, crown: 96, eyeW: 36, eyeH: 17, irisR: 10,
+      browY: 174, browW: 33, noseY: 252, mouthY: 290 },
+    // 伸びて散らかった短髪。房を尖らせるが、顔から出すぎないように
+    hairBack: g => blob([
+      [232, 50], [268, 60], [296, 46], [322, 64], [348, 58], [358, 112],
+      [348, 160], [356, 218], [334, 206], [328, 160], [320, 132], [256, 120],
+      [192, 132], [184, 160], [178, 206], [156, 218], [164, 160], [154, 112],
+      [166, 56], [196, 68],
+    ], { bulge: [-8, -8, -8, -8, 6, -6, -5, 5, 5, 7, 7, 5, 5, -5, -6, 6, -8, -8, -8, -8] }),
+    hairFront: g => blob([
+      [256, 66], [318, 98], [340, 176], [326, 208], [314, 164], [290, 140],
+      [268, 178], [242, 142], [216, 176], [196, 148], [180, 202], [170, 168],
+      [194, 98],
+    ], { bulge: [11, 7, -5, 4, -8, -10, -10, -10, -8, -8, 4, -5, 7] }),
+    eye: { tilt: 5, open: 0.9, lidW: 12, lash: 0, irisScale: 0.95 },
+    brow: { tilt: -5, w: 12, arch: 4 },
+    nose: { w: 7 },
+    mouth: { curve: -2, w: 6.5, len: 23 },
+    // 無精髭。顎の輪郭に沿った細い帯と、鼻の下の小さな帯
     hatches: g => [
-      { region: `M ${g.cx - 76} ${g.mouthY - 6} C ${g.cx - 68} ${g.chinY - 18}, ${g.cx - 36} ${g.chinY + 4}, ${g.cx} ${g.chinY + 2}
-                 C ${g.cx + 36} ${g.chinY + 4}, ${g.cx + 68} ${g.chinY - 18}, ${g.cx + 76} ${g.mouthY - 6}
-                 C ${g.cx + 62} ${g.mouthY + 8}, ${g.cx + 34} ${g.chinY - 20}, ${g.cx} ${g.chinY - 22}
-                 C ${g.cx - 34} ${g.chinY - 20}, ${g.cx - 62} ${g.mouthY + 8}, ${g.cx - 76} ${g.mouthY - 6} Z`,
-        opts: { angle: 82, gap: 6, width: 1.7 } },
-      { region: `M ${g.cx - 26} ${g.mouthY - 20} C ${g.cx - 12} ${g.mouthY - 26}, ${g.cx + 12} ${g.mouthY - 26}, ${g.cx + 26} ${g.mouthY - 20}
-                 L ${g.cx + 22} ${g.mouthY - 7} C ${g.cx + 10} ${g.mouthY - 12}, ${g.cx - 10} ${g.mouthY - 12}, ${g.cx - 22} ${g.mouthY - 7} Z`,
-        opts: { angle: 82, gap: 6, width: 1.7 } },
+      { region: round([
+          [g.cx - 72, g.mouthY - 4], [g.cx - 48, g.chin - 12], [g.cx, g.chin - 2], [g.cx + 48, g.chin - 12],
+          [g.cx + 72, g.mouthY - 4], [g.cx + 52, g.mouthY + 10], [g.cx, g.chin - 26], [g.cx - 52, g.mouthY + 10],
+        ], { tension: 0.32 }), opts: { angle: 80, gap: 6, w: 2.2, profile: "both" } },
+      { region: round([[g.cx - 24, g.mouthY - 20], [g.cx, g.mouthY - 26], [g.cx + 24, g.mouthY - 20],
+          [g.cx + 18, g.mouthY - 8], [g.cx, g.mouthY - 13], [g.cx - 18, g.mouthY - 8]], { tension: 0.3 }),
+        opts: { angle: 80, gap: 5.5, w: 2, profile: "both" } },
     ],
-    faceExtra: g => `<path d="M ${g.cx - 62} ${g.eyeY + 20} L ${g.cx - 24} ${g.eyeY + 22}" stroke-width="2.4"/>
-      <path d="M ${g.cx - 58} ${g.eyeY + 30} L ${g.cx - 28} ${g.eyeY + 31}" stroke-width="2"/>
-      <path d="M ${g.cx + 62} ${g.eyeY + 20} L ${g.cx + 24} ${g.eyeY + 22}" stroke-width="2.4"/>
-      <path d="M ${g.cx + 58} ${g.eyeY + 30} L ${g.cx + 28} ${g.eyeY + 31}" stroke-width="2"/>
-      <path d="M ${g.cx - 66} ${midY(g) + 38} C ${g.cx - 58} ${midY(g) + 68}, ${g.cx - 52} ${midY(g) + 84}, ${g.cx - 48} ${midY(g) + 96}" stroke-width="2.4"/>
-      <path d="M ${g.cx + 66} ${midY(g) + 38} C ${g.cx + 58} ${midY(g) + 68}, ${g.cx + 52} ${midY(g) + 84}, ${g.cx + 48} ${midY(g) + 96}" stroke-width="2.4"/>`,
-    cloth: collar.hoodie,
-    props: g => `<g transform="rotate(7 408 252)">
-        <path d="M 408 348 L 408 182" stroke-width="5"/>
-        <path d="M 408 152 C 430 152, 432 176, 430 190 C 428 204, 388 204, 386 190 C 384 176, 386 152, 408 152 Z" fill="${PAPER}" stroke="${INK}" stroke-width="4.4"/>
-        <path d="M 408 206 C 430 206, 432 228, 430 240 C 428 254, 388 254, 386 240 C 384 228, 386 206, 408 206 Z" fill="${PAPER}" stroke="${INK}" stroke-width="4.4"/>
-        <path d="M 408 258 C 430 258, 432 280, 430 292 C 428 306, 388 306, 386 292 C 384 280, 386 258, 408 258 Z" fill="${PAPER}" stroke="${INK}" stroke-width="4.4"/>
-        <path d="M 396 166 C 402 172, 412 170, 418 164 M 396 220 C 402 226, 412 224, 418 218 M 396 272 C 402 278, 412 276, 418 270" stroke-width="2.2"/>
+    extra: g => {
+      const bag = side => ink([
+        [g.cx + side * 64, g.eyeY + 22], [g.cx + side * 40, g.eyeY + 30], [g.cx + side * 22, g.eyeY + 26],
+      ], { w: 5, profile: "both" }) + " " + ink([
+        [g.cx + side * 58, g.eyeY + 36], [g.cx + side * 34, g.eyeY + 41],
+      ], { w: 3.6, profile: "both" });
+      const cheekLine = side => ink([
+        [g.cx + side * 70, 250], [g.cx + side * 62, 286], [g.cx + side * 56, 306],
+      ], { w: 4.4, profile: "both" });
+      return `<path d="${bag(1)}"/><path d="${bag(-1)}"/><path d="${cheekLine(1)}"/><path d="${cheekLine(-1)}"/>`;
+    },
+    cloth: cloth.hoodie,
+    props: g => `<g transform="rotate(7 410 254)">
+        <path d="${ink([[410, 352], [410, 300], [410, 186]], { w: 7, profile: "mid" })}"/>
+        <path d="${round([[410, 150], [434, 176], [410, 202], [386, 176]], { tension: 0.6 })}" fill="${PAPER}"/>
+        <path d="${ink([[410, 150], [434, 176], [410, 202], [386, 176], [410, 150]], { w: 6, profile: "flat", tension: 0.6 })}"/>
+        <path d="${round([[410, 208], [434, 234], [410, 260], [386, 234]], { tension: 0.6 })}" fill="${PAPER}"/>
+        <path d="${ink([[410, 208], [434, 234], [410, 260], [386, 234], [410, 208]], { w: 6, profile: "flat", tension: 0.6 })}"/>
+        <path d="${round([[410, 266], [434, 292], [410, 318], [386, 292]], { tension: 0.6 })}" fill="${PAPER}"/>
+        <path d="${ink([[410, 266], [434, 292], [410, 318], [386, 292], [410, 266]], { w: 6, profile: "flat", tension: 0.6 })}"/>
       </g>`,
   },
   {
     id: "tachibana", name: "橘", ears: true,
-    // 30代後半。細い輪郭、後ろでまとめた髪で額と耳が出る。細い楕円の眼鏡
-    geom: { halfW: 80, jawW: 48, cheek: 42, eyeW: 22, eyeH: 11, browY: 166, browWeight: 3.8, browTilt: -3, browW: 28 },
-    hair: {
-      // 頭に沿う薄い塊。耳より上で終わる
-      back: `M 160 196 C 150 92, 196 42, 256 40 C 316 42, 362 92, 352 196
-             C 348 176, 344 160, 340 150 L 172 150 C 168 160, 164 176, 160 196 Z`,
-      front: `M 170 168 C 176 104, 210 60, 256 60 C 302 60, 336 104, 342 168
-              C 330 136, 298 120, 256 120 C 214 120, 182 136, 170 168 Z`,
-      // まとめ髪。後頭部でくくった束が首の横からのぞく
-      extra: `<path d="M 352 172 C 372 190, 384 218, 380 250 C 376 276, 362 290, 348 288" fill="${INK}" stroke="${INK}" stroke-width="3"/>`,
+    geom: { temple: 76, cheek: 70, jaw: 43, chin: 316, eyeW: 36, eyeH: 19, irisR: 10.5, browY: 164, browW: 30 },
+    // 後ろでまとめた髪。頭に沿わせ、束は首の右横へ短く垂らす
+    hairBack: g => blob([
+      [256, 62], [318, 84], [334, 150], [336, 186], [352, 212], [356, 262],
+      [340, 284], [326, 268], [334, 226], [320, 198], [318, 152], [256, 132],
+      [194, 152], [192, 198], [178, 186], [178, 150], [194, 84],
+    ], { bulge: [11, 8, 3, -5, -7, -6, 5, 6, 5, 3, 6, 6, 3, -5, 3, 8] }),
+    // まとめ髪なので前髪はなく、生え際だけ。中央をわずかに下げて富士額にする
+    hairFront: g => blob([
+      [256, 72], [318, 100], [330, 158], [312, 146], [286, 132], [256, 140],
+      [226, 132], [200, 146], [182, 158], [194, 100],
+    ], { bulge: [11, 4, -3, -5, -3, -3, -5, -3, 4, 11] }),
+    hairShine: g => blob([[216, 98], [252, 88], [246, 104], [212, 116]], { bulge: 3 }),
+    eye: { tilt: 6, open: 0.86, lidW: 11, lash: 0.8, irisScale: 0.95 },
+    brow: { tilt: -3, w: 7, arch: 6 },
+    mouth: { curve: -1, w: 5.5, len: 17 },
+    glasses: g => {
+      const y = g.eyeY - 1, x = g.eyeX + 3;
+      const lens = cx => round([[cx, y - 23], [cx + 37, y], [cx, y + 23], [cx - 37, y]], { tension: 0.62 });
+      const rim = cx => ink([[cx, y - 23], [cx + 37, y], [cx, y + 23], [cx - 37, y], [cx, y - 23]], { w: 5, profile: "flat", tension: 0.62 });
+      return `<g fill="${INK}">
+        <path d="${rim(g.cx - x)}"/><path d="${rim(g.cx + x)}"/>
+        <path d="${ink([[g.cx - x + 37, y - 4], [g.cx, y - 9], [g.cx + x - 37, y - 4]], { w: 5, profile: "mid" })}"/>
+        <path d="${ink([[g.cx - x - 37, y - 5], [g.cx - g.temple - 2, y - 14]], { w: 5, profile: "tail" })}"/>
+        <path d="${ink([[g.cx + x + 37, y - 5], [g.cx + g.temple + 2, y - 14]], { w: 5, profile: "tail" })}"/>
+        <path d="${blob([[g.cx - x - 24, y - 14], [g.cx - x - 4, y - 19], [g.cx - x - 10, y - 6], [g.cx - x - 28, y - 2]], { bulge: 2 })}" fill="${PAPER}" opacity=".9"/>
+        <path d="${blob([[g.cx + x - 28, y - 14], [g.cx + x - 8, y - 19], [g.cx + x - 14, y - 6], [g.cx + x - 32, y - 2]], { bulge: 2 })}" fill="${PAPER}" opacity=".9"/>
+      </g>`;
     },
-    mouth: g => `<path d="M ${g.cx - 18} ${g.mouthY} L ${g.cx + 18} ${g.mouthY - 1}" stroke-width="4"/>`,
-    glasses: { shape: "oval", weight: "thin" },
-    cloth: collar.vest,
+    cloth: cloth.vest,
   },
 ];
 
 export async function generate() {
   await mkdir(OUT, { recursive: true });
-  const made = [];
   for (const c of CHARS) {
     const svg = build(c);
     await writeFile(path.join(OUT, `${c.id}.svg`), svg, "utf8");
-    made.push({ id: c.id, name: c.name, bytes: Buffer.byteLength(svg) });
+    console.log(`  ${c.id.padEnd(11)} ${c.name.padEnd(8)} ${(Buffer.byteLength(svg) / 1024).toFixed(1)} KB`);
   }
-  for (const m of made) console.log(`  ${m.id.padEnd(11)} ${m.name.padEnd(8)} ${(m.bytes / 1024).toFixed(1)} KB`);
-  console.log(`${made.length} 枚を ${path.relative(ROOT, OUT)} に書き出しました`);
-  return made;
+  console.log(`${CHARS.length} 枚を ${path.relative(ROOT, OUT)} に書き出しました`);
 }
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) await generate();

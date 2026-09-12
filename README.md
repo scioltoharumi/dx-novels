@@ -1,6 +1,6 @@
-# dx-novels — DX小説リーダー
+# dx-novels — 『平熱』リーダー
 
-Fable に書かせた DX 題材の小説群を、PC でもスマホでも読みやすく表示するリーダー。
+連作小説『平熱 — 株式会社ヤマビコの三年』（全10話）を、PC でもスマホでも読みやすく表示するリーダー。
 本文に加えて、あらすじ・世界観・登場人物・相関図を持つ。閲覧専用でサーバーは持たない。
 
 要件・設計判断・進捗は `00_admin/steering/20260910-dx-novels-reader/` に集約している（SSoT）。
@@ -40,9 +40,9 @@ Actions を手で動かす場面はない。反映されたかは画面いちば
 
 拡張子は `.svg` `.jpg` `.jpeg` `.png` `.webp` のどれでもよい（同名があれば svg を優先）。人物の `<id>` は `meta/characters.json` の `id`。
 
-### コードで描く線画（`npm run portrait`）
+### コードで描く線画（`npm run portrait` / `npm run key`）
 
-`scripts/portrait.mjs` が **25人ぶん**の肖像を SVG の線画として組み立てる。いま site に入っているのはこれ。
+`scripts/portrait.mjs` が **25人ぶん**の肖像を、`scripts/keyvisual.mjs` が **トップの背景**（四階の小部屋の夜）を SVG の線画として組み立てる。いま site に入っているのはこれ。
 
 - 線は一定幅の `stroke` ではなく、**中心線に沿って太さの変わる塗りのリボン**として作る（`scripts/penlib.mjs` の `ink()`）。これで入りと抜きのある、ペンで引いた線になる
 - 髪型・襟・皺・小物は `scripts/portrait-parts.mjs` の型から選ぶ。25人を個別に描くとばらけるので、骨格と部品の組み合わせだけを人物ごとに決める
@@ -119,7 +119,9 @@ dx-novels/
 ├── scripts/
 │   ├── build.mjs           content/ + meta/ → site/dist/
 │   ├── check.mjs           検査（章数の一致・未変換記号・人物参照の整合）
-│   ├── shot.mjs            見た目と挙動の検証（47項目）＋スクリーンショット
+│   ├── shot.mjs            見た目と挙動の検証（49項目）＋スクリーンショット
+│   ├── portrait.mjs        肖像25人ぶんの線画を組み立てる（部品は portrait-parts.mjs、線は penlib.mjs）
+│   ├── keyvisual.mjs       トップの背景（四階の小部屋の夜）を描く
 │   ├── art.mjs             絵の発注書の生成
 │   └── serve.mjs           ローカル確認用の静的サーバー
 └── .github/workflows/deploy.yml   push → build → check → Pages
@@ -150,7 +152,7 @@ dx-novels/
 
 ```powershell
 npm run dev        # 変換 → 検査 → http://127.0.0.1:8000/
-npm run shot       # 別ターミナルで。見た目の撮影と挙動 47 項目の検査
+npm run shot       # 別ターミナルで。見た目の撮影と挙動 49 項目の検査
 ```
 
 `file://` では fetch が動かないので、必ずサーバー経由で開く。

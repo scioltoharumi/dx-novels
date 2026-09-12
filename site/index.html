@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
 <meta name="color-scheme" content="light dark">
-<title>DX小説</title>
+<title>{{TITLE}}</title>
 <script>
 // 画面が描かれる前に保存済みの表示設定を当てる（配色・文字サイズのちらつき防止）
 (function () {
@@ -24,7 +24,7 @@
 
 <!-- ===== 共通ナビ（本文画面では隠す） ===== -->
 <nav class="topnav" id="topnav">
-  <a class="brand" href="#/">DX小説</a>
+  <a class="brand" href="#/">{{TITLE}}</a>
   <div class="tabs">
     <a href="#/" data-tab="home">作品</a>
     <a href="#/about" data-tab="about">あらすじ</a>
@@ -38,7 +38,8 @@
   <header class="hero" id="hero">
     <div class="hero-in">
       <div class="kicker" id="heroKicker">連作小説</div>
-      <h1 id="heroTitle">DX小説</h1>
+      <h1 id="heroTitle">{{TITLE}}</h1>
+      <p class="subt" id="heroSub"></p>
       <p class="tag" id="heroTag"></p>
       <p class="lead" id="heroLead"></p>
       <div class="cta" id="heroCta"></div>

@@ -2,7 +2,7 @@
   "name": "dx-novels",
   "version": "0.1.0",
   "private": true,
-  "description": "DX小説リーダー。content/ の Markdown を、PC・スマホで読みやすい静的サイトにする",
+  "description": "小説『平熱』のリーダー。content/ の Markdown を、PC・スマホで読みやすい静的サイトにする",
   "type": "module",
   "engines": {
     "node": ">=20"
@@ -14,6 +14,7 @@
     "shot": "node scripts/shot.mjs",
     "art": "node scripts/art.mjs",
     "portrait": "node scripts/portrait.mjs",
+    "key": "node scripts/keyvisual.mjs",
     "dev": "node scripts/build.mjs && node scripts/check.mjs && node scripts/serve.mjs"
   }
 }

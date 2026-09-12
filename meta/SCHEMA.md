@@ -151,7 +151,7 @@ meta/
 
 ```jsonc
 {
-  "title": "DX小説", "tagline": "…", "lead": "…（100〜200字）",
+  "title": "平熱", "subtitle": "株式会社ヤマビコの三年", "tagline": "…", "lead": "…（100〜200字）",
   "world": { "company": [["社名", "株式会社ヤマビコ"], ["業種", "…"]], "setting": "…" },
   "timeline": [ { "novel": "ch01", "period": "…", "event": "…（40〜80字）" } ]
 }

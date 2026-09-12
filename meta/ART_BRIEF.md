@@ -79,17 +79,17 @@
 
 | 種別 | 枚数 | 用意済み | 未 |
 |---|---|---|---|
-| キービジュアル | 1 | 0 | 1 |
+| キービジュアル | 1 | 1 | 0 |
 | 表紙 | 10 | 0 | 10 |
-| 肖像 | 25 | 0 | 25 |
+| 肖像 | 25 | 25 | 0 |
 
 ---
 
-## キービジュアル
+## キービジュアル　✅ 用意済み
 
 - **ファイル**: `site/img/key.jpg`
 - **形**: 横長 16:9（1920×1080 以上）
-- **誰・何**: DX小説 のトップの背景に薄く敷く1枚。社長の「先月の売上、どれくらい伸びた？」から、三年が始まった。
+- **誰・何**: 平熱 のトップの背景に薄く敷く1枚。社長の「先月の売上、どれくらい伸びた？」から、三年が始まった。
 
 <details><summary>日本語プロンプト（貼り付け用）</summary>
 
@@ -481,7 +481,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 
 ---
 
-## 肖像 rino
+## 肖像 rino　✅ 用意済み
 
 - **ファイル**: `site/img/characters/rino.jpg`
 - **形**: 正方形 1:1（1024×1024 以上・円形に切り抜いて使う）
@@ -520,7 +520,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 
 ---
 
-## 肖像 akaumi
+## 肖像 akaumi　✅ 用意済み
 
 - **ファイル**: `site/img/characters/akaumi.jpg`
 - **形**: 正方形 1:1（1024×1024 以上・円形に切り抜いて使う）
@@ -559,7 +559,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 
 ---
 
-## 肖像 hayase
+## 肖像 hayase　✅ 用意済み
 
 - **ファイル**: `site/img/characters/hayase.jpg`
 - **形**: 正方形 1:1（1024×1024 以上・円形に切り抜いて使う）
@@ -598,7 +598,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 
 ---
 
-## 肖像 mikami
+## 肖像 mikami　✅ 用意済み
 
 - **ファイル**: `site/img/characters/mikami.jpg`
 - **形**: 正方形 1:1（1024×1024 以上・円形に切り抜いて使う）
@@ -637,7 +637,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 
 ---
 
-## 肖像 okochi
+## 肖像 okochi　✅ 用意済み
 
 - **ファイル**: `site/img/characters/okochi.jpg`
 - **形**: 正方形 1:1（1024×1024 以上・円形に切り抜いて使う）
@@ -676,7 +676,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 
 ---
 
-## 肖像 okazaki
+## 肖像 okazaki　✅ 用意済み
 
 - **ファイル**: `site/img/characters/okazaki.jpg`
 - **形**: 正方形 1:1（1024×1024 以上・円形に切り抜いて使う）
@@ -715,7 +715,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 
 ---
 
-## 肖像 tachibana
+## 肖像 tachibana　✅ 用意済み
 
 - **ファイル**: `site/img/characters/tachibana.jpg`
 - **形**: 正方形 1:1（1024×1024 以上・円形に切り抜いて使う）
@@ -754,7 +754,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 
 ---
 
-## 肖像 shimura
+## 肖像 shimura　✅ 用意済み
 
 - **ファイル**: `site/img/characters/shimura.jpg`
 - **形**: 正方形 1:1（1024×1024 以上・円形に切り抜いて使う）
@@ -793,7 +793,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 
 ---
 
-## 肖像 takanashi
+## 肖像 takanashi　✅ 用意済み
 
 - **ファイル**: `site/img/characters/takanashi.jpg`
 - **形**: 正方形 1:1（1024×1024 以上・円形に切り抜いて使う）
@@ -832,7 +832,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 
 ---
 
-## 肖像 morita
+## 肖像 morita　✅ 用意済み
 
 - **ファイル**: `site/img/characters/morita.jpg`
 - **形**: 正方形 1:1（1024×1024 以上・円形に切り抜いて使う）
@@ -871,7 +871,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 
 ---
 
-## 肖像 tanaka
+## 肖像 tanaka　✅ 用意済み
 
 - **ファイル**: `site/img/characters/tanaka.jpg`
 - **形**: 正方形 1:1（1024×1024 以上・円形に切り抜いて使う）
@@ -910,7 +910,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 
 ---
 
-## 肖像 kiriyama
+## 肖像 kiriyama　✅ 用意済み
 
 - **ファイル**: `site/img/characters/kiriyama.jpg`
 - **形**: 正方形 1:1（1024×1024 以上・円形に切り抜いて使う）
@@ -949,7 +949,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 
 ---
 
-## 肖像 sato
+## 肖像 sato　✅ 用意済み
 
 - **ファイル**: `site/img/characters/sato.jpg`
 - **形**: 正方形 1:1（1024×1024 以上・円形に切り抜いて使う）
@@ -988,7 +988,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 
 ---
 
-## 肖像 yanagi
+## 肖像 yanagi　✅ 用意済み
 
 - **ファイル**: `site/img/characters/yanagi.jpg`
 - **形**: 正方形 1:1（1024×1024 以上・円形に切り抜いて使う）
@@ -1027,7 +1027,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 
 ---
 
-## 肖像 kumagai
+## 肖像 kumagai　✅ 用意済み
 
 - **ファイル**: `site/img/characters/kumagai.jpg`
 - **形**: 正方形 1:1（1024×1024 以上・円形に切り抜いて使う）
@@ -1066,7 +1066,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 
 ---
 
-## 肖像 kawabe
+## 肖像 kawabe　✅ 用意済み
 
 - **ファイル**: `site/img/characters/kawabe.jpg`
 - **形**: 正方形 1:1（1024×1024 以上・円形に切り抜いて使う）
@@ -1105,7 +1105,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 
 ---
 
-## 肖像 sanada
+## 肖像 sanada　✅ 用意済み
 
 - **ファイル**: `site/img/characters/sanada.jpg`
 - **形**: 正方形 1:1（1024×1024 以上・円形に切り抜いて使う）
@@ -1144,7 +1144,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 
 ---
 
-## 肖像 nishimura
+## 肖像 nishimura　✅ 用意済み
 
 - **ファイル**: `site/img/characters/nishimura.jpg`
 - **形**: 正方形 1:1（1024×1024 以上・円形に切り抜いて使う）
@@ -1183,7 +1183,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 
 ---
 
-## 肖像 ono
+## 肖像 ono　✅ 用意済み
 
 - **ファイル**: `site/img/characters/ono.jpg`
 - **形**: 正方形 1:1（1024×1024 以上・円形に切り抜いて使う）
@@ -1222,7 +1222,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 
 ---
 
-## 肖像 nomura
+## 肖像 nomura　✅ 用意済み
 
 - **ファイル**: `site/img/characters/nomura.jpg`
 - **形**: 正方形 1:1（1024×1024 以上・円形に切り抜いて使う）
@@ -1261,7 +1261,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 
 ---
 
-## 肖像 yoshida
+## 肖像 yoshida　✅ 用意済み
 
 - **ファイル**: `site/img/characters/yoshida.jpg`
 - **形**: 正方形 1:1（1024×1024 以上・円形に切り抜いて使う）
@@ -1300,7 +1300,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 
 ---
 
-## 肖像 ogawa
+## 肖像 ogawa　✅ 用意済み
 
 - **ファイル**: `site/img/characters/ogawa.jpg`
 - **形**: 正方形 1:1（1024×1024 以上・円形に切り抜いて使う）
@@ -1339,7 +1339,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 
 ---
 
-## 肖像 kaicho
+## 肖像 kaicho　✅ 用意済み
 
 - **ファイル**: `site/img/characters/kaicho.jpg`
 - **形**: 正方形 1:1（1024×1024 以上・円形に切り抜いて使う）
@@ -1378,7 +1378,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 
 ---
 
-## 肖像 shoken_senior
+## 肖像 shoken_senior　✅ 用意済み
 
 - **ファイル**: `site/img/characters/shoken_senior.jpg`
 - **形**: 正方形 1:1（1024×1024 以上・円形に切り抜いて使う）
@@ -1417,7 +1417,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 
 ---
 
-## 肖像 shoken_junior
+## 肖像 shoken_junior　✅ 用意済み
 
 - **ファイル**: `site/img/characters/shoken_junior.jpg`
 - **形**: 正方形 1:1（1024×1024 以上・円形に切り抜いて使う）

@@ -1,4 +1,5 @@
-/* DX小説リーダー。ビルド不要・依存ゼロ。location.hash で画面を切り替える。
+/* 小説リーダー（『平熱』）。ビルド不要・依存ゼロ。location.hash で画面を切り替える。
+ * 書名は meta/series.json が持ち、ビルドが index.html の {{TITLE}} に埋める。ここには書かない。
  *   #/                    トップ（表紙棚）
  *   #/about               あらすじ・世界観（舞台・歩み・各話のあらすじ）
  *   #/synopsis/ch01       各話のあらすじ
@@ -112,10 +113,12 @@ function switchView(name, tab) {
 /* ---------- トップ ---------- */
 function showHome() {
   switchView("home", "home");
-  document.title = SERIES.title || "DX小説";
+  document.title = SERIES.title || "";
   const total = ITEMS.reduce((s, x) => s + x.chars, 0);
   $("#heroKicker").textContent = SERIES.kicker || `連作小説 ・ 全${ITEMS.length}話`;
-  $("#heroTitle").textContent = SERIES.title || "DX小説";
+  $("#heroTitle").textContent = SERIES.title || "";
+  $("#heroSub").textContent = SERIES.subtitle || "";
+  $("#heroSub").hidden = !SERIES.subtitle;
   $("#heroTag").textContent = SERIES.tagline || "";
   $("#heroLead").textContent = SERIES.lead || "";
   if (M.key) { $("#hero").style.setProperty("--key", `url("${M.key}")`); $("#hero").classList.add("img"); }
@@ -159,7 +162,7 @@ function bookCard(it) {
 /* ---------- あらすじ・世界観 ---------- */
 async function showAbout() {
   switchView("about", "about");
-  document.title = `あらすじ・世界観 — ${SERIES.title || "DX小説"}`;
+  document.title = `あらすじ・世界観 — ${SERIES.title || ""}`;
   const main = $("#aboutMain");
   main.innerHTML = `<p class="loading">読み込み中…</p>`;
   scrollTo(0, 0);
@@ -168,7 +171,7 @@ async function showAbout() {
   const s = meta.series || SERIES, w = s.world || {};
   const cast = meta.characters.filter(c => c.importance !== "cameo");
   main.innerHTML = `
-    <header class="ph-head"><div class="kicker">あらすじ・世界観</div><h1>${esc(s.title || "DX小説")}</h1><p class="lead">${esc(s.lead || "")}</p></header>
+    <header class="ph-head"><div class="kicker">あらすじ・世界観</div><h1>${esc(s.title || "")}</h1><p class="lead">${esc(s.lead || "")}</p></header>
     ${w.setting || (w.company || []).length ? `<section><h2 class="sec">舞台</h2><div class="prose">${paras(w.setting)}</div>${kv(w.company)}</section>` : ""}
     ${(s.timeline || []).length ? `<section><h2 class="sec">${esc(s.timelineTitle || "歩み")}</h2><ol class="tl">${s.timeline.map(t => {
       const it = byId(t.novel);
@@ -186,7 +189,7 @@ async function showAbout() {
 async function showSynopsis(id) {
   const it = byId(id);
   switchView("synopsis", "about");
-  document.title = `${it.title} のあらすじ — ${SERIES.title || "DX小説"}`;
+  document.title = `${it.title} のあらすじ — ${SERIES.title || ""}`;
   const main = $("#synMain");
   main.innerHTML = `<p class="loading">読み込み中…</p>`;
   scrollTo(0, 0);
@@ -225,7 +228,7 @@ async function showSynopsis(id) {
 let charFilter = "all";
 async function showCharacters() {
   switchView("characters", "characters");
-  document.title = `登場人物 — ${SERIES.title || "DX小説"}`;
+  document.title = `登場人物 — ${SERIES.title || ""}`;
   const main = $("#charsMain");
   main.innerHTML = `<p class="loading">読み込み中…</p>`;
   scrollTo(0, 0);
@@ -404,7 +407,7 @@ async function showCharacter(id) {
   try { meta = await loadMeta(); } catch (e) { main.innerHTML = errHTML(e); return; }
   const c = meta.charById[id];
   if (!c) { main.innerHTML = `<p class="err" style="margin-top:24px">その人物は見つかりません。<a href="#/characters">人物一覧へ</a></p>`; return; }
-  document.title = `${c.name} — 登場人物 — ${SERIES.title || "DX小説"}`;
+  document.title = `${c.name} — 登場人物 — ${SERIES.title || ""}`;
   const g = meta.groupById[c.group] || {};
   const list = meta.characters, i = list.indexOf(c), prev = list[i - 1], next = list[i + 1];
   const novels = (c.novels || []).map(n => ({ ...n, it: byId(n.id) })).filter(n => n.it);
@@ -525,7 +528,7 @@ async function showReader(id, sec) {
   $("#rMeta").textContent = `約${fmt(it.chars)}字 ・ 読了まで約${mins(it.chars)}分`;
   $("#rLinks").innerHTML = `<a href="#/synopsis/${id}">あらすじ</a><a href="#/characters">登場人物</a>`;
   $("#barTitle").textContent = `${label(it)}　${it.title}`;
-  document.title = `${it.title} — ${SERIES.title || "DX小説"}`;
+  document.title = `${it.title} — ${SERIES.title || ""}`;
   body.innerHTML = '<p class="loading">読み込み中…</p>';
   renderNav(it);
   renderToc(it, it.sections);

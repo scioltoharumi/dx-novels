@@ -245,7 +245,7 @@ export async function build() {
   const keyImage = IMG_EXT.map(e => `key.${e}`).find(f => existsSync(path.join(SITE, "img", f)));
   const manifest = {
     v: ver.v, version: ver.label,
-    series: series ? { title: series.title, tagline: series.tagline, lead: series.lead, kicker: series.kicker } : null,
+    series: series ? { title: series.title, subtitle: series.subtitle, tagline: series.tagline, lead: series.lead, kicker: series.kicker } : null,
     key: keyImage ? `img/${keyImage}` : null,
     items: items.map(({ html, ...rest }) => rest),
   };
@@ -256,6 +256,7 @@ export async function build() {
   const html = tpl
     .replace(/\{\{MANIFEST\}\}/g, JSON.stringify(manifest).replace(/</g, "\\u003c"))
     .replace(/\{\{VERSION\}\}/g, esc(ver.label))
+    .replace(/\{\{TITLE\}\}/g, esc(series?.title || "作品集"))
     .replace(/\{\{V\}\}/g, encodeURIComponent(ver.v));
   await writeFile(path.join(DIST, "index.html"), html);
   for (const f of ["app.js", "style.css"]) await copyFile(path.join(SITE, f), path.join(DIST, f));

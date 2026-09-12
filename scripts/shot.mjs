@@ -16,6 +16,15 @@ import { existsSync } from "node:fs";
 import path from "node:path";
 import os from "node:os";
 
+// この検証はブラウザを1つ丸ごと起動する。空きメモリが足りないと、
+// エラーも出さずに途中で落ちる（外から kill される）ので、先に知らせる。
+const freeGB = os.freemem() / 1024 ** 3;
+if (freeGB < 1.5) {
+  console.warn(`⚠ 空きメモリが ${freeGB.toFixed(2)} GB しかありません。`);
+  console.warn("  途中で無言のまま止まることがあります。残っているブラウザを終了してから実行してください:");
+  console.warn("  Get-Process msedge -ErrorAction SilentlyContinue | Stop-Process -Force");
+}
+
 const BASE = (process.env.BASE_URL || "http://127.0.0.1:8000").replace(/\/$/, "");
 const OUT = process.env.SHOT_DIR || path.join(os.tmpdir(), "dx-novels-shots");
 const EXE = process.env.BROWSER_EXE || [

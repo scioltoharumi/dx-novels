@@ -58,7 +58,8 @@ const r1 = v => Math.round(v * 10) / 10;
  *   profile PROFILE の名前
  *   shift   太さの山を前後にずらす（-0.3〜0.3）。手の運びの癖が出る
  */
-export function ink(pts, { w = 8, profile = "both", shift = 0, per = 10, tension = 0.5 } = {}) {
+export function ink(pts, { w = 8, profile = "both", shift = 0, per = 10, tension = 0.5, prec = 1 } = {}) {
+  const rp = v => prec ? Math.round(v * 10) / 10 : Math.round(v);
   const segs = through(pts, false, tension);
   const f = PROFILE[profile] || PROFILE.both;
   const N = segs.length * per;
@@ -76,11 +77,21 @@ export function ink(pts, { w = 8, profile = "both", shift = 0, per = 10, tension
     L.push([x - dy * hw, y + dx * hw]);
     R.push([x + dy * hw, y - dx * hw]);
   }
-  const d = [`M ${r1(L[0][0])} ${r1(L[0][1])}`];
-  for (let i = 1; i < L.length; i++) d.push(`L ${r1(L[i][0])} ${r1(L[i][1])}`);
-  for (let i = R.length - 1; i >= 0; i--) d.push(`L ${r1(R[i][0])} ${r1(R[i][1])}`);
+  const d = [`M ${rp(L[0][0])} ${rp(L[0][1])}`];
+  for (let i = 1; i < L.length; i++) d.push(`L ${rp(L[i][0])} ${rp(L[i][1])}`);
+  for (let i = R.length - 1; i >= 0; i--) d.push(`L ${rp(R[i][0])} ${rp(R[i][1])}`);
   d.push("Z");
   return d.join(" ");
+}
+
+/** 点列を重心へ向かって縮める。塗りの形を一回り小さくして「輪郭線だけ」を作るのに使う */
+export function inset(pts, amount) {
+  const cx = pts.reduce((s, p) => s + p[0], 0) / pts.length;
+  const cy = pts.reduce((s, p) => s + p[1], 0) / pts.length;
+  return pts.map(([x, y]) => {
+    const dx = x - cx, dy = y - cy, m = Math.hypot(dx, dy) || 1;
+    return [x - dx / m * amount, y - dy / m * amount];
+  });
 }
 
 /** 角が尖ったまま膨らむ閉じた形。髪の房や影の塊に使う。

@@ -116,7 +116,15 @@ ${art.concept}
 |---|---|---|
 ${chars.characters.filter(c => art.portraits[c.id]).map(c => `| ${c.name} | ${art.portraits[c.id].age} | ${art.portraits[c.id].tell || "—"} |`).join("\n")}
 
-眼鏡は5人（${chars.characters.filter(c => /眼鏡/.test(art.portraits[c.id]?.tell || "")).map(c => c.name).join("・")}）。形を変えてあるので、**丸と角を取り違えないこと。**
+${(() => {
+  const pick = key => chars.characters.filter(c => art.portraits[c.id]?.[key]).map(c => `${c.name}（${art.portraits[c.id][key]}）`);
+  const g = pick("glasses"), b = pick("beard");
+  return [
+    `**眼鏡はこの ${g.length} 人だけ。** ${g.join(" / ")}　—— 形が違うので取り違えないこと。ほかの ${chars.characters.length - g.length} 人に眼鏡をかけさせない。`,
+    `**髭はこの ${b.length} 人だけ。** ${b.join(" / ")}　—— ほかの人物に髭を生やさない。`,
+    `残りは髪のかたち・襟のかたち・服の明度（白／中間／濃い）で分ける。**同じ組み合わせの人を二人作らない。**`,
+  ].join("\n\n");
+})()}
 
 ## 性別について
 

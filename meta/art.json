@@ -39,6 +39,7 @@
     },
     "akaumi": {
       "age": "30代半ば", "gender": "male", "genderSource": "提案（原稿に記載なし）",
+      "beard": "無精髭",
       "tell": "無精髭＋目の下の隈＋顔の横のからあげ棒",
       "ja": "30代半ばの日本人男性。伸びて無造作に散った黒髪、耳が半分隠れる長さ。無精髭を細かい短線で描く。目の下の隈をハッチングではっきり出す。痩せ型で頬がこけ、頬骨の下に影の線が入る。濃いパーカー（いちばん濃い階調。フードの縁が肩に見える）。顔のすぐ横に、串に刺したからあげ棒を一本、垂直に持っている。表情はほぼ無く、目つきだけが鋭い。",
       "en": "Japanese man in his mid-30s. Overgrown, unkempt black hair long enough to half-cover the ears. Stubble drawn with fine short strokes. Pronounced under-eye shadows built from hatching. Lean, hollow-cheeked, with shadow lines beneath the cheekbones. Dark hoodie (the darkest tone in the cast; the hood's edge visible at the shoulders). Holding a single food skewer vertically right beside his face. Almost no expression; only the gaze is sharp."
@@ -69,6 +70,7 @@
     },
     "tachibana": {
       "age": "30代後半", "gender": "female", "genderSource": "提案（原稿に記載なし）",
+      "glasses": "細い楕円・銀縁",
       "tell": "後ろでまとめた髪＋細い楕円の銀縁眼鏡＋眼鏡を押し上げる指",
       "ja": "30代後半の日本人女性、経理。黒髪を後ろできっちりまとめ、額と耳が完全に出ている。髪はベタ塗り。細い楕円のフレームの眼鏡（線一本ぶんの細さで描く）。輪郭も目つきもシャープで、頬に余分な肉がない。白シャツの上に濃いベスト（濃い階調をクロスハッチで作る）。人差し指と中指を揃えて眼鏡のブリッジを押し上げている。感情を出さない、理詰めで隙のない表情。",
       "en": "Japanese woman in her late 30s, an accountant. Black hair pulled back tightly, forehead and ears fully exposed. Hair filled solid black. Thin oval-framed glasses drawn with a single-width line. Sharp jaw and sharp eyes, no softness in the cheeks. White shirt under a dark vest (the dark tone built from cross-hatching). Index and middle fingers together, pushing the bridge of her glasses up. Unemotional, airtight, logical."
@@ -93,12 +95,14 @@
     },
     "tanaka": {
       "age": "50代後半", "gender": "female", "genderSource": "提案（原稿に記載なし。語尾を伸ばす話し方と「高梨くん」の呼び方から）",
+      "glasses": "老眼鏡・鼻先まで下げてかける",
       "tell": "短いパーマの白髪＋鼻先まで下げた老眼鏡＋湯呑み",
       "ja": "50代後半の日本人女性、営業部のベテラン。短いパーマ髪を、細かく巻いた線の連なりで描く。白髪なのでベタ塗りは使わず、線を疎にして白く残す。老眼鏡を鼻先まで下げてかけ、レンズの上から相手を見ている（これがいちばんの目印）。目尻と口元に細かい皺。中間の濃さのカーディガン。胸の高さに湯呑みを両手で包むように持つ。照れくさそうに目を細めた、穏やかで満足そうな表情。",
       "en": "Japanese woman in her late 50s, a veteran of the sales department. Short permed hair drawn as a chain of tight curled strokes. Since the hair is grey, use no solid fill — keep the strokes sparse so it reads white. Reading glasses slipped down to the tip of her nose, looking at the viewer over the top of the lenses — this is the key identifying detail. Fine wrinkles at the eyes and mouth. Mid-tone cardigan. Holding a teacup at chest height, cupped in both hands. Eyes crinkled, bashful, calm and quietly satisfied."
     },
     "kiriyama": {
       "age": "20代後半", "gender": "male", "genderSource": "提案（原稿に記載なし）",
+      "glasses": "太い黒縁・丸",
       "tell": "跳ねたくせ毛＋太い黒縁の丸眼鏡＋構えたノートとペン",
       "ja": "20代後半の日本人男性、開発者。黒いくせ毛が数か所で跳ねている。太い黒縁の**丸い**眼鏡（線を二重にして太さを出す）。無地の黒いTシャツ（濃い階調、首元は丸首）。胸の高さに大学ノートを開いて構え、もう片手にペンを持ち、今から書き留めようとしている。目が好奇心で見開かれ、口元が少し笑っている。",
       "en": "Japanese man in his late 20s, a developer. Black curly hair sticking out in several places. Thick black-rimmed ROUND glasses (doubled lines to give weight). Plain black crew-neck T-shirt (dark tone). Holding an open notebook at chest height with a pen in the other hand, about to write something down. Eyes wide with curiosity, a small smile at the mouth."
@@ -117,7 +121,8 @@
     },
     "kumagai": {
       "age": "63歳", "gender": "male", "genderSource": "原文明記（六十三歳の男性）",
-      "tell": "白髪の七三＋アームカバー＋胸に抱えた伝票の束",
+      "glasses": "細い銀縁・丸",
+      "tell": "白髪の七三＋細い銀縁の丸眼鏡＋アームカバー＋胸に抱えた伝票の束",
       "ja": "63歳の日本人男性、工場の経理。薄くなった白髪を七三に整える。髪は線を疎にして白く残す。痩せた頬に深い影のハッチング。細い銀縁の**丸い**眼鏡（線一本ぶんの細さ）。白いワイシャツの上に濃い事務用ベスト、前腕に黒いアームカバー（これがいちばんの目印）。胸に紙の伝票の束を両腕で大事そうに抱えている。姿勢を正した、誇りと少しの寂しさが同居した表情。",
       "en": "Japanese man aged 63, factory accountant. Thinning white hair in a neat side part; keep the strokes sparse so it reads white. Gaunt cheeks with deep hatched shadows. Thin silver-rimmed ROUND glasses drawn with a single-width line. White dress shirt under a dark office vest, with black sleeve protectors on the forearms — the key identifying detail. Clutching a bundle of paper vouchers to his chest with both arms, as if precious. Posture straightened; pride and a trace of loneliness together."
     },
@@ -141,6 +146,7 @@
     },
     "ono": {
       "age": "30代後半", "gender": "male", "genderSource": "提案（原稿に記載なし）",
+      "glasses": "太い黒縁・角",
       "tell": "太い黒縁の角眼鏡＋最も濃いスーツ＋動かない口元",
       "ja": "30代後半の日本人男性、公認会計士。黒髪をきっちり整え、乱れが一本もない。太い黒縁の**角ばった**眼鏡（線を二重にして太さを出す。丸眼鏡の桐山・熊谷と形で区別する）。細面で表情がまったく動かない。**25人でいちばん濃い階調のスーツ**（クロスハッチを密に重ねる）、白シャツ、地味なネクタイ。口を閉じたまま相手を見ている。硬質で静かな印象。",
       "en": "Japanese man in his late 30s, a certified public accountant. Black hair perfectly groomed, not a strand loose. Thick black-rimmed RECTANGULAR glasses (doubled lines for weight; the angular shape distinguishes him from the round-glassed Kiriyama and Kumagai). Narrow face, entirely immobile expression. THE DARKEST SUIT OF THE 25 (dense layered cross-hatching), white shirt, sober tie. Watching the viewer with his mouth closed. Hard-edged and quiet."
@@ -165,6 +171,7 @@
     },
     "kaicho": {
       "age": "60代後半", "gender": "male", "genderSource": "提案（原稿に記載なし）",
+      "beard": "短く刈り込んだ白い顎髭",
       "tell": "白い顎髭（25人で唯一）＋深く日に焼けた顔",
       "ja": "60代後半の日本人男性、山岳会の会長。短い白髪と、**短く刈り込んだ白い顎髭**（顎髭があるのは25人でこの人だけ。いちばんの目印）。髪も髭も線を疎にして白く残す。深く日に焼けた顔をハッチングで濃く出し、目尻の皺が放射状に深い。中間の濃さのフリースジャケット、襟が高く立っている。豪快で人望のありそうな笑顔。",
       "en": "Japanese man in his late 60s, chairman of a mountaineering club. Short white hair and A CLOSELY TRIMMED WHITE BEARD — he is the only one of the 25 with a beard, and it is the key identifying detail. Keep both hair and beard sparse in stroke so they read white. Deeply weathered face built up with hatching, with deep radiating crow's feet. Mid-tone fleece jacket with a high standing collar. A broad, well-liked, hearty smile."

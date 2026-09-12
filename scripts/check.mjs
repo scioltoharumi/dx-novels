@@ -91,6 +91,10 @@ try {
     ok(p.ja && p.en, `art.json: portraits.${c.id} の ja / en が揃っていない`);
     ok(["male", "female", "unspecified"].includes(p.gender), `art.json: portraits.${c.id} の gender が不正（${p.gender}）`);
     ok(p.age && p.genderSource, `art.json: portraits.${c.id} の age / genderSource が空`);
+    warn(!!p.tell, `art.json: portraits.${c.id} に tell（白黒での見分けどころ）が無い`);
+    // 白黒なので色名で描き分けられない。色を指す語が残っていたら書き直しの合図
+    const hue = (p.ja || "").match(/(赤|青|緑|黄|紫|茶|桃|橙|水色|紺|ピンク|オレンジ|ベージュ|グリーン|ブルー|レッド|えんじ|からし|オリーブ|スレート|モス|セピア)/);
+    warn(!hue, `art.json: portraits.${c.id} の日本語に色名「${hue && hue[1]}」が残っている（白黒の指定と矛盾する）`);
   }
   for (const id of Object.keys(art.portraits || {}))
     warn(meta.characters.some(c => c.id === id), `art.json: portraits の "${id}" に対応する人物が characters.json に無い`);

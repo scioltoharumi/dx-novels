@@ -159,11 +159,20 @@ a.chip:hover{text-decoration:underline}
 .cover.lg .v{font-size:21px; top:16px; right:15px; bottom:38px; letter-spacing:.08em}
 .cover.lg .n{font-size:13px; left:12px; bottom:10px}
 
-/* 肖像（画像が無ければ姓の一文字） */
+/* 肖像（画像が無ければ姓の一文字）。
+   絵は単行本の巻頭に載るような白黒のペン画なので、どの配色でも「紙に刷った挿絵」に見えるよう、
+   画像の下地は常に紙の色にし、暗い配色のときだけわずかに落とす。所属の色は外周の輪として残る。 */
 .av{display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; border-radius:50%; overflow:hidden;
   background:var(--c,var(--accent)); color:#fff; font-weight:700; font-size:18px; flex:0 0 auto; font-family:var(--serif);
   box-shadow:0 0 0 2px var(--paper), 0 0 0 3px var(--c,var(--accent))}
+.av:not(.ph){background:#f7f4ed}
 .av img{width:100%; height:100%; object-fit:cover; display:block}
+:root[data-theme="dark"] .av img,
+:root[data-theme="dark"] .relmap image{filter:brightness(.9) contrast(1.03)}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]):not([data-theme="sepia"]) .av img,
+  :root:not([data-theme="light"]):not([data-theme="sepia"]) .relmap image{filter:brightness(.9) contrast(1.03)}
+}
 .av.lg{width:64px; height:64px; font-size:26px}
 .av.xl{width:128px; height:128px; font-size:50px; box-shadow:0 0 0 3px var(--paper), 0 0 0 5px var(--c,var(--accent))}
 .avatars{display:flex; flex-wrap:wrap; gap:14px 14px}
@@ -201,6 +210,11 @@ a.chip:hover{text-decoration:underline}
   .syn-hero,.ch-hero{background:linear-gradient(135deg, color-mix(in srgb, var(--c) 16%, var(--paper)), var(--paper) 70%)}
 }
 .ch-hero{align-items:center}
+.ch-hero h1{font-family:var(--serif); font-weight:600; letter-spacing:.08em}
+.ch-hero h1 small{font-family:var(--sans); letter-spacing:.06em}
+.castcard .cn{font-family:var(--serif); font-weight:600; letter-spacing:.03em}
+.castcard .cn small{font-family:var(--sans); font-weight:400}
+.rel b{font-family:var(--serif); letter-spacing:.03em}
 .sh-in{flex:1; min-width:0}
 .sh-in h1{font-size:28px; margin:.15em 0 .3em; line-height:1.3; letter-spacing:.04em}
 .sh-in h1 small{display:block; font-size:13px; color:var(--sub); font-weight:400; letter-spacing:.06em; margin-top:4px}
@@ -255,9 +269,10 @@ details.spoiler > *:not(summary){padding:0 16px 14px}
 .person:hover{box-shadow:var(--shadow); transform:translateY(-1px)}
 .person.imp-cameo{opacity:.85}
 .pb{display:flex; flex-direction:column; gap:4px; min-width:0}
-.pn{font-weight:700; font-size:16px; line-height:1.3}
-.person.imp-main .pn{font-size:17px}
-.pn small{font-weight:400; color:var(--sub); font-size:11px; margin-left:6px; letter-spacing:.04em}
+/* 人物名は明朝。単行本の巻頭の人物紹介に寄せる */
+.pn{font-family:var(--serif); font-weight:600; font-size:17px; line-height:1.35; letter-spacing:.04em}
+.person.imp-main .pn{font-size:18px}
+.pn small{font-family:var(--sans); font-weight:400; color:var(--sub); font-size:11px; margin-left:6px; letter-spacing:.04em}
 .pa{font-size:12px; color:var(--sub)}
 .po{font-size:13px; line-height:1.6}
 .pdots{display:flex; gap:2px; flex-wrap:wrap; margin-top:3px}

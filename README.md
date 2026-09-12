@@ -25,8 +25,8 @@ Actions を手で動かす場面はない。反映されたかは画面いちば
 ### 絵を足す
 
 ```
-1. npm run art        → meta/ART_BRIEF.md に「どのファイルを、どの形で、何を描くか」が出る
-2. site/img/ の下に、その名前で画像を置く
+1. npm run art        → meta/ART_BRIEF.md に、貼り付けられるプロンプトが36枚ぶん出る
+2. 生成した画像を site/img/ の下に、指定の名前で置く
 3. git add / commit / push
 ```
 
@@ -34,11 +34,25 @@ Actions を手で動かす場面はない。反映されたかは画面いちば
 
 | 用途 | パス | 形 |
 |---|---|---|
-| キービジュアル | `site/img/key.jpg` | 横長 16:9（1920×1080 目安） |
-| 表紙 | `site/img/covers/chNN.jpg` | 縦長 2:3（1200×1800 目安） |
-| 肖像 | `site/img/characters/<id>.jpg` | 正方形 1:1（800×800 目安・顔から胸まで） |
+| キービジュアル | `site/img/key.jpg` | 横長 16:9（1920×1080 以上） |
+| 表紙 | `site/img/covers/chNN.jpg` | 縦長 2:3（1200×1800 以上） |
+| 肖像 | `site/img/characters/<id>.jpg` | 正方形 1:1（1024×1024 以上） |
 
 拡張子は `.jpg` `.jpeg` `.png` `.webp` のどれでもよい。人物の `<id>` は `meta/characters.json` の `id`。
+
+**肖像は正方形で作り、アプリが円形に切り抜いて出す。** 表示は 44px（一覧の小）／48px（相関図）／64px（人物カード）／128px（人物ページの見出し）。
+四隅は必ず切り落とされるので、顔を中央に寄せ、頭の上に1割の余白を残し、背景は無地の単色にする。この指定は `meta/art.json` の `portraitComposition` に入っていて、発注書に自動で付く。
+
+プロンプトを直すときは `ART_BRIEF.md` ではなく元データを直す。
+
+| 直したいもの | 直す場所 |
+|---|---|
+| 画風・構図・禁止事項 | `meta/art.json` の `style` / `*Composition` / `avoid` |
+| 個人の見た目・年齢・性別 | `meta/art.json` の `portraits.<id>` |
+| 人物そのもの（名前・所属・紹介文） | `meta/characters.json` |
+
+原稿で性別が明記されているのは **柳（五十代の男性）・川辺（三十代の女性）・熊谷（六十三歳の男性）の3人だけ**で、
+作中に「彼」「彼女」は一度も出てこない。残りは口調と立場から推した提案なので、違えば `gender` を書き換えて `npm run art` をやり直す。
 
 ---
 
@@ -69,6 +83,7 @@ dx-novels/
 │   ├── series.json         世界観・会社・三年の歩み
 │   ├── characters.json     人物マスタ（プロフィール・関係・絵の指示）
 │   ├── novels/chNN.json    話ごとのあらすじ・章別あらすじ・役割・語録・覚える仕組み
+│   ├── art.json            絵の指定（画風・構図・禁止事項・人物ごとの見た目。日英）
 │   └── ART_BRIEF.md        絵の発注書（npm run art が生成。手で編集しない）
 ├── site/
 │   ├── index.html          画面の雛形（{{VERSION}} などをビルドで埋める）

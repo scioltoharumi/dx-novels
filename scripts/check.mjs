@@ -9,7 +9,7 @@
  */
 import { readdir, readFile } from "node:fs/promises";
 import path from "node:path";
-import { CONTENT, DIST } from "./build.mjs";
+import { CONTENT, DIST, ROOT } from "./build.mjs";
 
 const fails = [], warns = [];
 const ok = (cond, msg) => { if (!cond) fails.push(msg); };
@@ -77,6 +77,25 @@ for (const c of meta.characters) {
 if (meta.series) {
   ok(meta.series.title, "series.json: title が空");
   for (const t of meta.series.timeline || []) ok(manifest.items.some(it => it.id === t.novel), `series.json: timeline の novel "${t.novel}" が無い`);
+}
+
+/* ---- 絵の発注データ（meta/art.json）。配信には載らないが、揃っていないと発注書に穴が開く ---- */
+try {
+  const art = JSON.parse(await readFile(path.join(ROOT, "meta", "art.json"), "utf8"));
+  for (const k of ["style", "portraitComposition", "coverComposition", "keyComposition", "avoid"])
+    ok(art[k] && art[k].ja && art[k].en, `art.json: ${k} の ja / en が揃っていない`);
+  for (const c of meta.characters) {
+    const p = (art.portraits || {})[c.id];
+    warn(!!p, `art.json: 人物 ${c.id}（${c.name}）の肖像プロンプトが無い。npm run art で発注書に載らない`);
+    if (!p) continue;
+    ok(p.ja && p.en, `art.json: portraits.${c.id} の ja / en が揃っていない`);
+    ok(["male", "female", "unspecified"].includes(p.gender), `art.json: portraits.${c.id} の gender が不正（${p.gender}）`);
+    ok(p.age && p.genderSource, `art.json: portraits.${c.id} の age / genderSource が空`);
+  }
+  for (const id of Object.keys(art.portraits || {}))
+    warn(meta.characters.some(c => c.id === id), `art.json: portraits の "${id}" に対応する人物が characters.json に無い`);
+} catch (e) {
+  if (e.code !== "ENOENT") fails.push(`meta/art.json を読めません: ${e.message}`);
 }
 
 /* ---- index.html ---- */

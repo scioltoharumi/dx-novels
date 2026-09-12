@@ -8,7 +8,9 @@ meta/
 ├── SCHEMA.md            本書
 ├── series.json          シリーズ全体（世界観・会社・年表）
 ├── characters.json      登場人物マスタ（プロフィール。話ごとの役割は novels/ から集める）
-└── novels/chNN.json     話ごとのあらすじ・章別あらすじ・登場人物の役割・語録・学ぶ仕組み
+├── novels/chNN.json     話ごとのあらすじ・章別あらすじ・登場人物の役割・語録・学ぶ仕組み
+├── art.json             絵の指定（画風・構図・禁止事項・人物ごとの見た目）
+└── ART_BRIEF.md         絵の発注書。`npm run art` が生成する。手で編集しない
 ```
 
 文体は **常体（だ・である）・三人称・現在形中心**。台詞の引用は原文ママ。
@@ -106,14 +108,42 @@ meta/
       "oneLiner": "一文の紹介（40〜70字）",
       "profile": [["入社", "二年目（第1話時点）"], ["前職", "営業事務"]],
       "traits": ["…"], "appearance": ["…"],
-      "relations": [ { "to": "akaumi", "how": "…" } ],
-      "imagePrompt": "絵を描くための見た目メモ（年齢感・髪型・服装・持ち物・表情。100〜200字）"
+      "relations": [ { "to": "akaumi", "how": "…" } ]
     }
   ]
 }
 ```
 
 話ごとの役割（`cast`）と語録（`quotes`）は novels/ から自動で集めるので、ここには書かない。
+**絵の指示はここではなく `art.json` に書く**（物語のデータと制作のデータを混ぜないため）。
+
+---
+
+## art.json（絵の指定）
+
+```jsonc
+{
+  "style":               { "ja": "画風。25人ぶんを同じ絵柄に揃えるための指定", "en": "…" },
+  "portraitComposition": { "ja": "肖像の構図。円形に切り抜く前提の指定", "en": "…" },
+  "coverComposition":    { "ja": "表紙の構図", "en": "…" },
+  "keyComposition":      { "ja": "キービジュアルの構図", "en": "…" },
+  "avoid":               { "ja": "全部に共通の禁止事項", "en": "…" },
+  "genderPolicy": "性別の扱いについての注記",
+  "portraits": {
+    "rino": {
+      "age": "20代半ば",
+      "gender": "female | male | unspecified",
+      "genderSource": "原文明記（…）| 提案（原稿に記載なし）",
+      "ja": "その人の見た目だけを書く（100〜200字）。画風と構図は style / portraitComposition が付くので繰り返さない",
+      "en": "同じ内容の英語"
+    }
+  }
+}
+```
+
+- `npm run art` が `style` + 個別 + `*Composition` + `avoid` を連結して、貼り付けられるプロンプトにする
+- **原稿で性別が明記されているのは 柳・川辺・熊谷 の3人だけ。** 他は `genderSource` に「提案」と書いてあるので、変えてよい
+- 人物を足したら `portraits` にも足す。忘れると `npm test` が注意を出す
 
 ---
 

@@ -596,9 +596,9 @@ $("#toc").addEventListener("click", e => { if (e.target.closest("a")) closeSheet
 document.addEventListener("click", e => { if (e.target.closest("[data-reload]")) location.reload(); });
 
 document.querySelectorAll("[data-fs]").forEach(b => b.onclick = () =>
-  withPos(() => { prefs.fs = clamp(prefs.fs + Number(b.dataset.fs), 14, 32); applyPrefs(); }));
+  withPos(() => { prefs.fs = clamp(prefs.fs + Number(b.dataset.fs), 10, 32); applyPrefs(); }));
 document.querySelectorAll("[data-lh]").forEach(b => b.onclick = () =>
-  withPos(() => { prefs.lh = Math.round(clamp(prefs.lh + Number(b.dataset.lh) * 0.1, 1.4, 2.6) * 100) / 100; applyPrefs(); }));
+  withPos(() => { prefs.lh = Math.round(clamp(prefs.lh + Number(b.dataset.lh) * 0.1, 1.2, 2.6) * 100) / 100; applyPrefs(); }));
 document.querySelectorAll("[data-font]").forEach(b => b.onclick = () =>
   withPos(() => { prefs.font = b.dataset.font; applyPrefs(); }));
 document.querySelectorAll("[data-th]").forEach(b => b.onclick = () => { prefs.theme = b.dataset.th; applyPrefs(); });

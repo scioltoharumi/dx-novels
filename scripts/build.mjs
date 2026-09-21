@@ -128,14 +128,20 @@ export function parseMarkdown(md) {
 /** ファイル名から 番号・テーマ・仮タイトル を取り出す */
 export function metaFromName(name) {
   const base = name.replace(/\.md$/i, "");
-  const num = (base.match(/^\D*?(\d+)/) || [])[1];
+  const num = (base.match(/^\D*?(\d+(?:\.\d+)?)/) || [])[1];   // 06 のほか 06.1 のような枝番も許す
   const topic = (base.match(/[（(]([^）)]+)[）)]/) || [])[1] || "";
   const fileTitle = base
-    .replace(/^\D*?\d+[_\-\s]*/, "")
+    .replace(/^\D*?\d+(?:\.\d+)?[_\-\s]*/, "")
     .replace(/[（(][^）)]*[）)]/g, "")
     .replace(/[_\-\s]*改稿版.*$/, "")
     .replace(/[_\-\s]+$/, "");
   return { num: num ? Number(num) : null, topic, fileTitle };
+}
+
+/** 6 → ch06、6.1 → ch06-1（枝番は id に "-" で付ける。URL や data/ のファイル名に "." を出さない） */
+export function idFromNum(num) {
+  const [ip, fp] = String(num).split(".");
+  return `ch${ip.padStart(2, "0")}${fp ? `-${fp}` : ""}`;
 }
 
 const stripEdition = t => t.replace(/\s*[（(]\s*改稿版\s*[）)]\s*$/, "").trim();
@@ -185,7 +191,7 @@ export async function build() {
     const m = metaFromName(file);
     const p = parseMarkdown(md);
     const num = m.num ?? 1000 + idx;
-    const id = m.num != null ? `ch${String(num).padStart(2, "0")}` : `n${idx + 1}`;
+    const id = m.num != null ? idFromNum(num) : `n${idx + 1}`;
     const title = stripEdition(p.title || m.fileTitle || file.replace(/\.md$/i, ""));
     const chars = [...md.replace(/^#.*$/gm, "").replace(/```[\s\S]*?```/g, "").replace(/\s+/g, "")].length;
     items.push({ id, num, title, topic: m.topic, chars, blocks: p.blocks, sections: p.sections, file, html: p.html });

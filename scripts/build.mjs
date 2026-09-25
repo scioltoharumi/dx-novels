@@ -125,23 +125,34 @@ export function parseMarkdown(md) {
   return { title, sections, blocks: out.length, html: out.join("\n") };
 }
 
-/** ファイル名から 番号・テーマ・仮タイトル を取り出す */
+/** ファイル名から 番号・テーマ・仮タイトル を取り出す。
+ *  ex01_… / 番外編01_… は番外編（本編の番号を持たず、本編のあとに並ぶ。id は ex01） */
 export function metaFromName(name) {
   const base = name.replace(/\.md$/i, "");
-  const num = (base.match(/^\D*?(\d+(?:\.\d+)?)/) || [])[1];   // 06 のほか 06.1 のような枝番も許す
+  const extra = (base.match(/^(?:ex|番外編?)[_\-\s]*(\d+)/i) || [])[1];
+  const num = extra ? null : (base.match(/^\D*?(\d+(?:\.\d+)?)/) || [])[1];   // 06 のほか 06.1 のような枝番も許す
   const topic = (base.match(/[（(]([^）)]+)[）)]/) || [])[1] || "";
   const fileTitle = base
     .replace(/^\D*?\d+(?:\.\d+)?[_\-\s]*/, "")
     .replace(/[（(][^）)]*[）)]/g, "")
     .replace(/[_\-\s]*改稿版.*$/, "")
     .replace(/[_\-\s]+$/, "");
-  return { num: num ? Number(num) : null, topic, fileTitle };
+  return { num: num ? Number(num) : null, extra: extra ? Number(extra) : null, topic, fileTitle };
 }
 
 /** 6 → ch06、6.1 → ch06-1（枝番は id に "-" で付ける。URL や data/ のファイル名に "." を出さない） */
 export function idFromNum(num) {
   const [ip, fp] = String(num).split(".");
   return `ch${ip.padStart(2, "0")}${fp ? `-${fp}` : ""}`;
+}
+
+/** ファイル名から 並び順の番号・id・番外編の番号 を決める（build と art で同じ規則を使う） */
+export function entryFromName(name, idx = 0) {
+  const m = metaFromName(name);
+  // 番外編は本編のあと（900 番台）に並べる。表示は app.js が「番外編」にする
+  const num = m.extra != null ? 900 + m.extra : m.num ?? 1000 + idx;
+  const id = m.extra != null ? `ex${String(m.extra).padStart(2, "0")}` : m.num != null ? idFromNum(num) : `n${idx + 1}`;
+  return { ...m, num, id };
 }
 
 const stripEdition = t => t.replace(/\s*[（(]\s*改稿版\s*[）)]\s*$/, "").trim();
@@ -188,13 +199,12 @@ export async function build() {
   const items = [];
   for (const [idx, file] of files.entries()) {
     const md = await readFile(path.join(CONTENT, file), "utf8");
-    const m = metaFromName(file);
+    const m = entryFromName(file, idx);
     const p = parseMarkdown(md);
-    const num = m.num ?? 1000 + idx;
-    const id = m.num != null ? idFromNum(num) : `n${idx + 1}`;
+    const { num, id } = m;
     const title = stripEdition(p.title || m.fileTitle || file.replace(/\.md$/i, ""));
     const chars = [...md.replace(/^#.*$/gm, "").replace(/```[\s\S]*?```/g, "").replace(/\s+/g, "")].length;
-    items.push({ id, num, title, topic: m.topic, chars, blocks: p.blocks, sections: p.sections, file, html: p.html });
+    items.push({ id, num, extra: m.extra, title, topic: m.topic, chars, blocks: p.blocks, sections: p.sections, file, html: p.html });
   }
   items.sort((a, b) => a.num - b.num || a.file.localeCompare(b.file, "ja"));
   const dup = items.map(x => x.id).filter((x, i, a) => a.indexOf(x) !== i);

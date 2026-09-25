@@ -302,7 +302,7 @@ const BODY = {
   round:     { temple: 84, cheek: 80, jaw: 60, chin: 324, eyeW: 37, eyeH: 20, browY: 170, noseY: 250, mouthY: 286 },
 };
 
-/* ================= 25人 ================= */
+/* ================= 本編25人＋番外編11人 ================= */
 const CHARS = [
   { id: "rino", name: "佐伯 梨乃", geom: BODY.slimYoung, hair: g => HAIR.bob(g),
     eye: { tilt: 2, lidW: 13, lash: 1.1 }, brow: { tilt: 3, w: 8, arch: 8 }, mouth: { curve: 6, w: 6, len: 18 },
@@ -441,6 +441,64 @@ const CHARS = [
     eye: { tilt: 1, open: 0.86, lidW: 11, lash: 0 }, brow: { tilt: 0, w: 9, arch: 3 },
     mouth: { curve: 0, w: 5.5, len: 18 }, wrinkle: "none",
     cloth: g => COLLAR.lapel(g, "dark", 1) },
+
+  /* ---- 番外編『二十三本の川』（大鳥グループ・夜座） ---- */
+  { id: "minato", name: "湊 早紀", geom: BODY.slimYoung, hair: g => HAIR.tied(g),
+    eye: { tilt: 1, open: 0.94, lidW: 12, lash: 1 }, brow: { tilt: 1, w: 8, arch: 7 },
+    mouth: { curve: 1, w: 5.5, len: 17 }, wrinkle: "none",
+    cloth: g => COLLAR.open(g, "light"),
+    props: g => P.lanyard(g) + P.card(g.cx + 6, g.neckY + 104, 104, 70, -6, 3) },
+
+  { id: "saginuma", name: "鷺沼", geom: { ...BODY.gaunt, chin: 334 }, hair: g => HAIR.slickBack(g, "grey"),
+    eye: { tilt: 0, open: 0.82, lidW: 11, lash: 0.3 }, brow: { tilt: -1, w: 8, arch: 6 },
+    mouth: { curve: 3, w: 5.5, len: 18 }, wrinkle: "light",
+    cloth: g => COLLAR.stand(g, "dark"), props: g => P.cup(g) },
+
+  { id: "koga", name: "古賀", geom: BODY.adult, hair: g => HAIR.thinTop(g, "grey"),
+    eye: { tilt: -2, open: 0.78, lidW: 11, lash: 0 }, brow: { tilt: 3, w: 9, arch: 7 },
+    mouth: { curve: 1, w: 6, len: 20 }, wrinkle: "heavy", forehead: true,
+    glasses: { shape: "square", weight: "thin", drop: 16 },
+    cloth: g => COLLAR.cardigan(g, "dark"), props: g => P.pens(g) },
+
+  { id: "kurihara", name: "栗原", geom: BODY.slimYoung, hair: g => HAIR.crew(g, "solid", 2),
+    eye: { tilt: 0, open: 1.06, lidW: 12, lash: 0 }, brow: { tilt: -3, w: 10, arch: 8 },
+    mouth: { curve: 8, w: 6, len: 18 }, wrinkle: "none",
+    cloth: g => COLLAR.crewNeck(g, "mid", 1), props: g => P.card(g.cx + 70, g.neckY + 110, 56, 56, 8, 2) },
+
+  { id: "makabe", name: "真壁", geom: BODY.heavy, hair: g => HAIR.part(g, "grey", 1),
+    eye: { tilt: 2, open: 0.84, lidW: 12, lash: 0 }, brow: { tilt: -5, w: 13, arch: 5 },
+    nose: { w: 8 }, mouth: { curve: -1, w: 7, len: 24 }, wrinkle: "heavy", forehead: true,
+    cloth: g => COLLAR.lapel(g, "dark", 1, 1) },
+
+  { id: "tojo", name: "東條", geom: BODY.slim, hair: g => HAIR.shortWhite(g, "white"),
+    eye: { tilt: 0, open: 0.8, lidW: 11, lash: 0 }, brow: { tilt: 0, w: 9, arch: 4 },
+    mouth: { curve: 1, w: 5.5, len: 18 }, wrinkle: "light",
+    glasses: { shape: "square", weight: "thick" }, cloth: g => COLLAR.lapel(g, "dark", 1) },
+
+  { id: "hatori", name: "羽鳥", geom: BODY.adult, hair: g => HAIR.spiky(g),
+    eye: { tilt: -3, open: 0.86, lidW: 12, lash: 0 }, brow: { tilt: 6, w: 11, arch: 6 },
+    mouth: { curve: 6, w: 6.5, len: 22 }, wrinkle: "light",
+    cloth: g => COLLAR.open(g, "light") },
+
+  { id: "otake", name: "大竹", geom: BODY.heavy, hair: g => HAIR.thinTop(g, "solid"),
+    eye: { tilt: 1, open: 0.8, lidW: 12, lash: 0 }, brow: { tilt: -2, w: 12, arch: 4 },
+    mouth: { curve: -2, w: 7, len: 22 }, wrinkle: "light",
+    cloth: g => COLLAR.stand(g, "mid") },
+
+  { id: "sawai", name: "沢井", geom: BODY.slim, hair: g => HAIR.bob(g),
+    eye: { tilt: 1, open: 0.98, lidW: 12, lash: 1 }, brow: { tilt: 0, w: 8, arch: 8 },
+    mouth: { curve: 7, w: 6, len: 18 }, wrinkle: "none",
+    cloth: g => COLLAR.cardigan(g, "light") },
+
+  { id: "udagawa", name: "宇田川", geom: BODY.slim, hair: g => HAIR.part(g),
+    eye: { tilt: 1, open: 0.88, lidW: 11, lash: 0 }, brow: { tilt: 3, w: 9, arch: 6 },
+    mouth: { curve: 2, w: 5.5, len: 18 }, wrinkle: "none",
+    glasses: { shape: "oval", weight: "thin" }, cloth: g => COLLAR.lapel(g, "mid", 0) },
+
+  { id: "hinata", name: "日向", geom: BODY.slimYoung, ears: true, hair: g => HAIR.shortBob(g),
+    eye: { tilt: 2, open: 1, lidW: 12, lash: 1 }, brow: { tilt: -1, w: 8, arch: 8 },
+    mouth: { curve: 4, w: 5.5, len: 17 }, wrinkle: "none",
+    cloth: g => COLLAR.crewNeck(g, "light", 0) },
 ];
 
 export async function generate() {

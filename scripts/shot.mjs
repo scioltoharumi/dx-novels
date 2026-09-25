@@ -218,7 +218,7 @@ try {
   console.log("挙動: あらすじ・人物");
   await goto("#/");
   check("トップに「前回の続き」が出る", !(await ev(`document.querySelector("#resume").hidden`)));
-  check("作品棚に全10話が並ぶ", (await ev(`document.querySelectorAll("#list .book").length`)) === 10);
+  check("作品棚に全話（番外編を含む）が並ぶ", (await ev(`document.querySelectorAll("#list .book").length === window.__MANIFEST__.items.length`)) === true);
   check("読了の話に読了が出る", /読了/.test(await ev(`document.querySelector('.book[data-id="ch02"] .meta').textContent`)));
   // 表紙は画像があれば img、無ければ色＋縦書きの題名。どちらの経路も壊れていないことを見る
   const cover = await ev(`(() => { const el = document.querySelector('.book[data-id="ch01"] .cover');

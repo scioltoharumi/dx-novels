@@ -12,10 +12,10 @@
  *   個人の見た目・年齢・性別 → meta/art.json の portraits.<id>
  *   人物そのもの（名前・所属・紹介文）→ meta/characters.json
  */
-import { readFile, writeFile } from "node:fs/promises";
+import { readFile, writeFile, readdir } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import path from "node:path";
-import { ROOT, META, SITE, PALETTE } from "./build.mjs";
+import { ROOT, META, SITE, PALETTE, CONTENT, entryFromName } from "./build.mjs";
 
 const IMG_EXT = ["svg", "jpg", "jpeg", "png", "webp"];
 const found = (dir, base) => IMG_EXT.map(e => path.join(SITE, "img", dir, `${base}.${e}`)).find(existsSync);
@@ -25,11 +25,14 @@ const art = JSON.parse(await readFile(path.join(META, "art.json"), "utf8"));
 const series = JSON.parse(await readFile(path.join(META, "series.json"), "utf8"));
 const chars = JSON.parse(await readFile(path.join(META, "characters.json"), "utf8"));
 const groupName = Object.fromEntries((chars.groups || []).map(g => [g.id, g.name]));
+// 話の並びと id は build と同じ規則で決める（分冊の ch06-1、番外編の ex01 も拾う）。表紙の色も build と同じ順で割り当てる
+const entries = (await readdir(path.join(CONTENT))).filter(f => /\.md$/i.test(f)).sort()
+  .map((f, i) => entryFromName(f, i)).sort((a, b) => a.num - b.num);
 const novels = [];
-for (let i = 1; i <= 99; i++) {
-  const id = `ch${String(i).padStart(2, "0")}`;
-  const f = path.join(META, "novels", `${id}.json`);
-  if (existsSync(f)) novels.push(JSON.parse(await readFile(f, "utf8")));
+for (const [i, e] of entries.entries()) {
+  const f = path.join(META, "novels", `${e.id}.json`);
+  const label = e.extra != null ? "番外編" : `第${e.num}話`;
+  if (existsSync(f)) novels.push({ ...JSON.parse(await readFile(f, "utf8")), _label: label, _extra: e.extra != null, _i: i });
 }
 const color = i => PALETTE[i % PALETTE.length];
 
@@ -50,14 +53,16 @@ rows.push({
 });
 
 /* ---- 表紙 ---- */
-novels.forEach((n, i) => {
-  const c = color(i);
-  const body = `第${i + 1}話「${n.title || n.id}」の表紙。この話の芯は「${n.catch}」。扱う題材は ${(n.themes || []).join("・")}。象徴として使えるモチーフ: ${(n.keywords || []).slice(0, 5).join("、")}。舞台は日本の中小企業のオフィス・倉庫・工場のいずれか。基調色は ${c}。`;
-  const bodyEn = `Cover art for episode ${i + 1}, "${n.title || n.id}". The core of this episode: ${n.catch} Subject matter: ${(n.themes || []).join(", ")}. Motifs that can be used symbolically: ${(n.keywords || []).slice(0, 5).join(", ")}. Setting: the office, warehouse, or factory of a small Japanese company. Base color: ${c}.`;
+novels.forEach(n => {
+  const c = color(n._i);
+  const where = n._extra ? "舞台は日本の企業グループのシェアードサービス会社のオフィス（窓の外に河口）" : "舞台は日本の中小企業のオフィス・倉庫・工場のいずれか";
+  const whereEn = n._extra ? "Setting: the office of a Japanese corporate group's shared-services company, with a river mouth outside the window" : "Setting: the office, warehouse, or factory of a small Japanese company";
+  const body = `${n._label}「${n.title || n.id}」の表紙。この話の芯は「${n.catch}」。扱う題材は ${(n.themes || []).join("・")}。象徴として使えるモチーフ: ${(n.keywords || []).slice(0, 5).join("、")}。${where}。基調色は ${c}。`;
+  const bodyEn = `Cover art for ${n._extra ? "the side story" : `episode ${n.id.replace(/^ch0?/, "").replace("-", ".")}`}, "${n.title || n.id}". The core of this episode: ${n.catch} Subject matter: ${(n.themes || []).join(", ")}. Motifs that can be used symbolically: ${(n.keywords || []).slice(0, 5).join(", ")}. ${whereEn}. Base color: ${c}.`;
   rows.push({
     kind: `表紙 ${n.id}`, id: n.id, file: `site/img/covers/${n.id}.jpg`,
     shape: "縦長 2:3（1200×1800 以上）", have: !!found("covers", n.id),
-    what: `第${i + 1}話「${n.title || n.id}」 ${n.catch}`,
+    what: `${n._label}「${n.title || n.id}」 ${n.catch}`,
     ja: block("ja", body, "coverComposition"), en: block("en", bodyEn, "coverComposition"),
   });
 });
@@ -108,9 +113,9 @@ ${art.concept}
 - **頭の上に余白を1割。** 詰めると円の縁で頭頂が切れる
 - **背景は紙の白のまま。** 室内や小物を描くと、円に切られて意味不明な断片になる
 - **色が使えない。** 髪のかたち・眼鏡のかたち・髭・襟のかたち・服の明るさで差を付ける
-- 25人を**同じペンの太さ・同じハッチングの密度で**揃える。1人ずつ作るなら、最初の1枚を参照画像に使うか、同じシード・同じスタイル指定を使い回す
+- 全員を**同じペンの太さ・同じハッチングの密度で**揃える。1人ずつ作るなら、最初の1枚を参照画像に使うか、同じシード・同じスタイル指定を使い回す
 
-### 見分けどころの一覧（白黒で25人を取り違えないための対照表）
+### 見分けどころの一覧（白黒で全員を取り違えないための対照表）
 
 | 人物 | 年齢 | 見分けどころ |
 |---|---|---|

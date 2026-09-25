@@ -29,7 +29,11 @@ const LS = {
 const K = { prefs: "dxn:prefs", last: "dxn:last", pos: id => "dxn:pos:" + id };
 
 const byId = id => ITEMS.find(x => x.id === id);
-const label = it => `第${it.num}話`;
+const EXTRAS = () => ITEMS.filter(x => x.extra).length;
+/** 本編は「第6.1話」、番外編は「番外編」（二つ以上になったら「番外編2」のように番号を付ける） */
+const label = it => it.extra ? `番外編${EXTRAS() > 1 ? it.extra : ""}` : `第${it.num}話`;
+/** 番号だけを出す狭い場所（表紙の隅・目次・人物カードの丸）用 */
+const numTag = (it, pad) => it.extra ? (pad ? "番外" : "外") : pad ? String(it.num).padStart(2, "0") : it.num;
 const fmt = n => Number(n || 0).toLocaleString("ja-JP");
 const mins = chars => Math.max(1, Math.round(chars / 600));   // 黙読 600字/分の目安
 const pct = p => p.done ? 100 : Math.min(99, Math.round((p.i || 0) / Math.max(1, (p.n || 1) - 1) * 100));
@@ -84,7 +88,7 @@ const groupColor = c => (META && META.groupById[c.group] || {}).color || "var(--
 
 function coverHTML(it, cls = "") {
   if (it.cover) return `<span class="cover ${cls}" style="--c:${it.color}"><img src="${esc(it.cover)}" alt="${esc(it.title)}" loading="lazy"></span>`;
-  return `<span class="cover ph ${cls}" style="--c:${it.color}"><span class="v">${esc(it.title)}</span><span class="n">${String(it.num).padStart(2, "0")}</span></span>`;
+  return `<span class="cover ph ${cls}" style="--c:${it.color}"><span class="v">${esc(it.title)}</span><span class="n">${numTag(it, true)}</span></span>`;
 }
 function avatarHTML(c, cls = "") {
   const color = groupColor(c);
@@ -137,7 +141,8 @@ function showHome() {
       : lp.n && lp.i > 0 ? `${pct(lp)}% まで読みました。続きから →` : "最初から読む →";
   } else res.hidden = true;
 
-  $("#listSub").textContent = `全${ITEMS.length}話 ・ 約${fmt(total)}字`;
+  const ex = EXTRAS();
+  $("#listSub").textContent = `全${ITEMS.length - ex}話${ex ? `＋番外編${ex > 1 ? ex : ""}` : ""} ・ 約${fmt(total)}字`;
   $("#list").innerHTML = ITEMS.map(bookCard).join("");
   scrollTo(0, 0);
 }
@@ -219,7 +224,7 @@ async function showSynopsis(id) {
     ${n.full ? `<section><h2 class="sec">結末まで</h2><details class="spoiler"><summary>ネタバレを含みます。開いて読む</summary><div class="prose">${paras(n.full)}</div></details></section>` : ""}
     ${(n.quotes || []).length ? `<section><h2 class="sec">語録</h2><div class="quotes">${n.quotes.map(q => `<blockquote class="q"><p>${esc(q.text)}</p><footer>${q.who && q.who !== "narration" && meta.charById[q.who] ? `<a href="#/characters/${q.who}">${esc(nameOf(q.who))}</a>` : esc(nameOf(q.who || "narration"))}${q.context ? ` ・ ${esc(q.context)}` : ""}</footer></blockquote>`).join("")}</div></section>` : ""}
     ${(n.keywords || []).length || (n.newSystems || []).length ? `<section class="two-col">${(n.keywords || []).length ? `<div><h2 class="sec">キーワード</h2><div class="chips">${chips(n.keywords)}</div></div>` : ""}${(n.newSystems || []).length ? `<div><h2 class="sec">この話で入った仕組み</h2><ul class="plain">${n.newSystems.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>` : ""}</section>` : ""}
-    ${n.companyState ? `<section><h2 class="sec">この話の終わりのヤマビコ</h2><div class="prose state">${paras(n.companyState)}</div></section>` : ""}`}
+    ${n.companyState ? `<section><h2 class="sec">${esc(n.companyStateTitle || "この話の終わりのヤマビコ")}</h2><div class="prose state">${paras(n.companyState)}</div></section>` : ""}`}
     ${navHTML(prev, next, x => `#/synopsis/${x.id}`, "#/about", "あらすじ一覧", x => x.title, "話")}
     ${footHTML()}`;
 }
@@ -261,7 +266,7 @@ function personCard(c, meta) {
       <span class="pn">${esc(c.name)}<small>${esc(c.reading || "")}</small></span>
       <span class="pa">${esc(affLine(c, g))}</span>
       <span class="po">${esc(c.oneLiner || "")}</span>
-      <span class="pdots">${novels.map(it => `<i style="--c:${it.color}" title="${esc(label(it) + " " + it.title)}">${it.num}</i>`).join("")}</span>
+      <span class="pdots">${novels.map(it => `<i style="--c:${it.color}" title="${esc(label(it) + " " + it.title)}">${numTag(it)}</i>`).join("")}</span>
     </span></a>`;
 }
 
@@ -505,7 +510,7 @@ function renderToc(it, sections) {
     `<a href="#/${it.id}/top">冒頭</a>` +
     sections.map(s => `<a href="#/${it.id}/${s.id}">${esc(s.title)}</a>`).join("");
   $("#tocAll").innerHTML = ITEMS.map(x =>
-    `<a href="#/${x.id}" class="${x.id === it.id ? "on" : ""}"><span class="n">${x.num}</span><span>${esc(x.title)}<small>${esc(x.topic)}</small></span></a>`
+    `<a href="#/${x.id}" class="${x.id === it.id ? "on" : ""}"><span class="n">${x.extra ? "番外" : x.num}</span><span>${esc(x.title)}<small>${esc(x.topic)}</small></span></a>`
   ).join("");
 }
 

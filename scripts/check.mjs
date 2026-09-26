@@ -49,6 +49,21 @@ for (const it of manifest.items) {
   ok(/^#[0-9a-f]{6}$/i.test(it.color || ""), `${it.id}: 色が割り当てられていない`);
 }
 
+/* ---- 別冊（content/guides/） ---- */
+for (const it of manifest.items.filter(x => x.guide)) {
+  const g = JSON.parse(await readFile(path.join(DIST, "data", `${it.id}-guide.json`), "utf8"));
+  ok(g.html.length > 0 && g.title, `${it.id}-guide: 別冊が空か、題名が無い`);
+  ok(!/<script/i.test(g.html), `${it.id}-guide: script が混入している`);
+  const text = g.html.replace(/<pre[\s\S]*?<\/pre>/g, "").replace(/<[^>]+>/g, "");
+  ok(!/\*\*|```/.test(text), `${it.id}-guide: 未変換の Markdown 記号（** または \`\`\`）が残っている`);
+  ok(!/^(#{1,4}\s|\||>)/m.test(text), `${it.id}-guide: 未変換の行頭記号（# | >）が残っている`);
+  ok(!/&(?!amp;|lt;|gt;|quot;|#\d+;)/.test(g.html.replace(/<pre[\s\S]*?<\/pre>/g, "")), `${it.id}-guide: エスケープされていない & がある`);
+  for (const s of g.sections) ok(g.html.includes(`id="${s.id}"`), `${it.id}-guide: 節 ${s.id}「${s.title}」の見出しが本文にない`);
+  ok(g.blocks === (g.html.match(/^<(p|h[23]|div|blockquote|pre|ul|ol)\b/gm) || []).length,
+    `${it.id}-guide: ブロック数 ${g.blocks} と本文の要素数が食い違う（読書位置の復元がずれる）`);
+  ok(it.guide.sections === g.sections.length, `${it.id}-guide: 一覧の節数と別冊の節数が食い違う`);
+}
+
 /* ---- あらすじ・人物 ---- */
 const meta = JSON.parse(await readFile(path.join(DIST, "data", "meta.json"), "utf8"));
 const charIds = new Set(meta.characters.map(c => c.id));

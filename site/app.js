@@ -7,6 +7,7 @@
  *   #/characters/rino     人物詳細
  *   #/ch01                本文（この端末で保存した位置から再開）
  *   #/ch01/s3 ・ #/ch01/top   本文の見出しへ ・ 先頭へ
+ *   #/guide/ex01          その話の別冊（実務解説）。#/guide/ex01/s3 で節へ
  * 一覧・本文に要るものは index.html に埋め込み（__MANIFEST__）、あらすじ・人物は data/meta.json を必要になったとき読む。
  * 保存するのは localStorage だけ（表示設定・最後に開いた話・話ごとの読書位置）。
  */
@@ -29,7 +30,11 @@ const LS = {
 const K = { prefs: "dxn:prefs", last: "dxn:last", pos: id => "dxn:pos:" + id };
 
 const byId = id => ITEMS.find(x => x.id === id);
-const label = it => `第${it.num}話`;
+const EXTRAS = () => ITEMS.filter(x => x.extra).length;
+/** 本編は「第6.1話」、番外編は「番外編」（二つ以上になったら「番外編2」のように番号を付ける） */
+const label = it => it.extra ? `番外編${EXTRAS() > 1 ? it.extra : ""}` : `第${it.num}話`;
+/** 番号だけを出す狭い場所（表紙の隅・目次・人物カードの丸）用 */
+const numTag = (it, pad) => it.extra ? (pad ? "番外" : "外") : pad ? String(it.num).padStart(2, "0") : it.num;
 const fmt = n => Number(n || 0).toLocaleString("ja-JP");
 const mins = chars => Math.max(1, Math.round(chars / 600));   // 黙読 600字/分の目安
 const pct = p => p.done ? 100 : Math.min(99, Math.round((p.i || 0) / Math.max(1, (p.n || 1) - 1) * 100));
@@ -84,7 +89,7 @@ const groupColor = c => (META && META.groupById[c.group] || {}).color || "var(--
 
 function coverHTML(it, cls = "") {
   if (it.cover) return `<span class="cover ${cls}" style="--c:${it.color}"><img src="${esc(it.cover)}" alt="${esc(it.title)}" loading="lazy"></span>`;
-  return `<span class="cover ph ${cls}" style="--c:${it.color}"><span class="v">${esc(it.title)}</span><span class="n">${String(it.num).padStart(2, "0")}</span></span>`;
+  return `<span class="cover ph ${cls}" style="--c:${it.color}"><span class="v">${esc(it.title)}</span><span class="n">${numTag(it, true)}</span></span>`;
 }
 function avatarHTML(c, cls = "") {
   const color = groupColor(c);
@@ -137,7 +142,8 @@ function showHome() {
       : lp.n && lp.i > 0 ? `${pct(lp)}% まで読みました。続きから →` : "最初から読む →";
   } else res.hidden = true;
 
-  $("#listSub").textContent = `全${ITEMS.length}話 ・ 約${fmt(total)}字`;
+  const ex = EXTRAS();
+  $("#listSub").textContent = `全${ITEMS.length - ex}話${ex ? `＋番外編${ex > 1 ? ex : ""}` : ""} ・ 約${fmt(total)}字`;
   $("#list").innerHTML = ITEMS.map(bookCard).join("");
   scrollTo(0, 0);
 }
@@ -155,7 +161,7 @@ function bookCard(it) {
       <div class="chips">${chips(it.themes)}</div>
       <div class="meta">約${fmt(it.chars)}字 ・ 約${mins(it.chars)}分 ・ ${it.sections.length}章 ・ <b>${tail}</b></div>
       <span class="pbar"><i style="width:${p.done ? 100 : pc}%"></i></span>
-      <div class="acts"><a class="btn sm" href="#/${it.id}">${pc > 0 && !p.done ? "続きを読む" : "読む"}</a><a class="btn sm ghost" href="#/synopsis/${it.id}">あらすじ</a></div>
+      <div class="acts"><a class="btn sm" href="#/${it.id}">${pc > 0 && !p.done ? "続きを読む" : "読む"}</a><a class="btn sm ghost" href="#/synopsis/${it.id}">あらすじ</a>${it.guide ? `<a class="btn sm ghost" href="#/guide/${it.id}">別冊</a>` : ""}</div>
     </div></article>`;
 }
 
@@ -209,6 +215,7 @@ async function showSynopsis(id) {
         <p class="tag">${esc(n && n.tagline ? n.tagline : it.topic)}</p>
         <div class="chips">${chips(it.themes)}</div>
         <div class="cta"><a class="btn" href="#/${id}">${p.done ? "もう一度読む" : pc > 0 ? `続きから読む（${pc}%）` : "本文を読む"}</a><span class="meta">約${fmt(it.chars)}字 ・ 約${mins(it.chars)}分 ・ ${it.sections.length}章</span></div>
+        ${it.guide ? `<div class="cta"><a class="btn ghost" href="#/guide/${id}">別冊「${esc(it.guide.title)}」を読む</a><span class="meta">約${fmt(it.guide.chars)}字 ・ ${it.guide.sections}節</span></div>` : ""}
       </div>
     </div>
     ${!n ? `<p class="muted" style="margin-top:24px">この話のあらすじは準備中です。</p>` : `
@@ -219,7 +226,7 @@ async function showSynopsis(id) {
     ${n.full ? `<section><h2 class="sec">結末まで</h2><details class="spoiler"><summary>ネタバレを含みます。開いて読む</summary><div class="prose">${paras(n.full)}</div></details></section>` : ""}
     ${(n.quotes || []).length ? `<section><h2 class="sec">語録</h2><div class="quotes">${n.quotes.map(q => `<blockquote class="q"><p>${esc(q.text)}</p><footer>${q.who && q.who !== "narration" && meta.charById[q.who] ? `<a href="#/characters/${q.who}">${esc(nameOf(q.who))}</a>` : esc(nameOf(q.who || "narration"))}${q.context ? ` ・ ${esc(q.context)}` : ""}</footer></blockquote>`).join("")}</div></section>` : ""}
     ${(n.keywords || []).length || (n.newSystems || []).length ? `<section class="two-col">${(n.keywords || []).length ? `<div><h2 class="sec">キーワード</h2><div class="chips">${chips(n.keywords)}</div></div>` : ""}${(n.newSystems || []).length ? `<div><h2 class="sec">この話で入った仕組み</h2><ul class="plain">${n.newSystems.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>` : ""}</section>` : ""}
-    ${n.companyState ? `<section><h2 class="sec">この話の終わりのヤマビコ</h2><div class="prose state">${paras(n.companyState)}</div></section>` : ""}`}
+    ${n.companyState ? `<section><h2 class="sec">${esc(n.companyStateTitle || "この話の終わりのヤマビコ")}</h2><div class="prose state">${paras(n.companyState)}</div></section>` : ""}`}
     ${navHTML(prev, next, x => `#/synopsis/${x.id}`, "#/about", "あらすじ一覧", x => x.title, "話")}
     ${footHTML()}`;
 }
@@ -261,7 +268,7 @@ function personCard(c, meta) {
       <span class="pn">${esc(c.name)}<small>${esc(c.reading || "")}</small></span>
       <span class="pa">${esc(affLine(c, g))}</span>
       <span class="po">${esc(c.oneLiner || "")}</span>
-      <span class="pdots">${novels.map(it => `<i style="--c:${it.color}" title="${esc(label(it) + " " + it.title)}">${it.num}</i>`).join("")}</span>
+      <span class="pdots">${novels.map(it => `<i style="--c:${it.color}" title="${esc(label(it) + " " + it.title)}">${numTag(it)}</i>`).join("")}</span>
     </span></a>`;
 }
 
@@ -499,13 +506,16 @@ function renderNav(it) {
   $("#nav").outerHTML = navHTML(ITEMS[idx - 1], ITEMS[idx + 1], x => `#/${x.id}`, "#/", "一覧へ", x => x.title, "話").replace('<nav class="nav">', '<nav class="nav" id="nav" aria-label="前後の話">');
 }
 
-function renderToc(it, sections) {
-  $("#tocLinks").innerHTML = `<a href="#/synopsis/${it.id}">あらすじ</a><a href="#/characters">登場人物</a>`;
+function renderToc(it, sections, guide) {
+  const base = guide ? `#/guide/${it.id}` : `#/${it.id}`;
+  $("#tocLinks").innerHTML = guide
+    ? `<a href="#/${it.id}">本文</a><a href="#/synopsis/${it.id}">あらすじ</a>`
+    : `<a href="#/synopsis/${it.id}">あらすじ</a>${it.guide ? `<a href="#/guide/${it.id}">別冊</a>` : ""}<a href="#/characters">登場人物</a>`;
   $("#tocSec").innerHTML =
-    `<a href="#/${it.id}/top">冒頭</a>` +
-    sections.map(s => `<a href="#/${it.id}/${s.id}">${esc(s.title)}</a>`).join("");
+    `<a href="${base}/top">冒頭</a>` +
+    sections.map(s => `<a href="${base}/${s.id}">${esc(s.title)}</a>`).join("");
   $("#tocAll").innerHTML = ITEMS.map(x =>
-    `<a href="#/${x.id}" class="${x.id === it.id ? "on" : ""}"><span class="n">${x.num}</span><span>${esc(x.title)}<small>${esc(x.topic)}</small></span></a>`
+    `<a href="#/${x.id}" class="${x.id === it.id && !guide ? "on" : ""}"><span class="n">${x.extra ? "番外" : x.num}</span><span>${esc(x.title)}<small>${esc(x.topic)}</small></span></a>`
   ).join("");
 }
 
@@ -516,39 +526,47 @@ function prefetchNext(it) {
   if ("requestIdleCallback" in window) requestIdleCallback(go, { timeout: 4000 }); else setTimeout(go, 1500);
 }
 
-async function showReader(id, sec) {
+/** guide=true のときは、その話の別冊（実務解説）を同じ読書画面で開く。読書位置は別に覚える */
+async function showReader(id, sec, guide = false) {
   const it = byId(id);
-  if (cur === id) { jump(sec, false); if (sec) history.replaceState(null, "", "#/" + id); return; }
+  const key = guide ? `${id}-guide` : id;      // 表示中のもの・読書位置・データの id
+  const self = guide ? `#/guide/${id}` : `#/${id}`;
+  if (cur === key) { jump(sec, false); if (sec) history.replaceState(null, "", self); return; }
 
   switchView("reader");
-  cur = id; curData = null; lastIdx = -1;
-  $("#rNum").textContent = label(it);
-  $("#rTitle").textContent = it.title;
-  $("#rTopic").textContent = it.topic;
-  $("#rMeta").textContent = `約${fmt(it.chars)}字 ・ 読了まで約${mins(it.chars)}分`;
-  $("#rLinks").innerHTML = `<a href="#/synopsis/${id}">あらすじ</a><a href="#/characters">登場人物</a>`;
-  $("#barTitle").textContent = `${label(it)}　${it.title}`;
-  document.title = `${it.title} — ${SERIES.title || ""}`;
+  cur = key; curData = null; lastIdx = -1;
+  const g = it.guide;
+  $("#rNum").textContent = guide ? `${label(it)}　別冊` : label(it);
+  $("#rTitle").textContent = guide ? g.title : it.title;
+  $("#rTopic").textContent = guide ? `『${it.title}』の実務解説` : it.topic;
+  $("#rMeta").textContent = guide ? `約${fmt(g.chars)}字 ・ ${g.sections}節` : `約${fmt(it.chars)}字 ・ 読了まで約${mins(it.chars)}分`;
+  $("#rLinks").innerHTML = guide
+    ? `<a href="#/${id}">本文へ</a><a href="#/synopsis/${id}">あらすじ</a>`
+    : `<a href="#/synopsis/${id}">あらすじ</a>${g ? `<a href="#/guide/${id}">別冊（実務解説）</a>` : ""}<a href="#/characters">登場人物</a>`;
+  $("#barTitle").textContent = guide ? `${label(it)}　別冊` : `${label(it)}　${it.title}`;
+  document.title = `${guide ? g.title : it.title} — ${SERIES.title || ""}`;
   body.innerHTML = '<p class="loading">読み込み中…</p>';
-  renderNav(it);
-  renderToc(it, it.sections);
+  if (guide) $("#nav").outerHTML = `<nav class="nav" id="nav" aria-label="本文へ戻る"><a class="nb prev" href="#/${id}"><span class="k">← 本文</span><span class="t">${esc(it.title)}</span></a><a class="nb home" href="#/"><span class="k">一覧へ</span></a><a class="nb next" href="#/synopsis/${id}"><span class="k">あらすじ →</span><span class="t">${esc(it.title)}</span></a></nav>`;
+  else renderNav(it);
+  renderToc(it, [], guide);
   scrollTo(0, 0);
 
   let data;
-  try { data = await loadData(id); }
+  try { data = await loadData(key); }
   catch (e) {
-    if (cur !== id) return;
+    if (cur !== key) return;
     body.innerHTML = errHTML(e);
     return;
   }
-  if (cur !== id) return;                      // 読み込み中に別の話へ移った
+  if (cur !== key) return;                     // 読み込み中に別の話へ移った
   curData = data;
   body.innerHTML = data.html;
-  LS.set(K.last, { id, at: Date.now() });
+  if (guide) renderToc(it, data.sections, true);   // 別冊の節は、データを読んでから分かる
+  else { renderToc(it, it.sections); LS.set(K.last, { id, at: Date.now() }); }   // 「続きから読む」は本文だけ
   requestAnimationFrame(() => {
     jump(sec, true);
-    if (sec) history.replaceState(null, "", "#/" + id);   // 見出しへの直リンクは、再読み込み時に保存位置へ戻れるよう消す
-    prefetchNext(it);
+    if (sec) history.replaceState(null, "", self);   // 見出しへの直リンクは、再読み込み時に保存位置へ戻れるよう消す
+    if (!guide) prefetchNext(it);
   });
 }
 
@@ -609,6 +627,7 @@ addEventListener("keydown", e => {
   if (e.key === "Escape") { closeSheets(); return; }
   if (!cur || sheetOpen()) return;
   const idx = ITEMS.findIndex(x => x.id === cur);
+  if (idx < 0) { if (e.key === "t") openSheet("toc"); return; }   // 別冊を読んでいるとき
   if (e.key === "ArrowLeft" && ITEMS[idx - 1]) location.hash = "#/" + ITEMS[idx - 1].id;
   else if (e.key === "ArrowRight" && ITEMS[idx + 1]) location.hash = "#/" + ITEMS[idx + 1].id;
   else if (e.key === "t") openSheet("toc");
@@ -618,8 +637,9 @@ addEventListener("keydown", e => {
 function route() {
   let h = "";
   try { h = decodeURIComponent(location.hash); } catch { h = location.hash; }
-  const [a, b] = h.replace(/^#\/?/, "").split("/");
+  const [a, b, c] = h.replace(/^#\/?/, "").split("/");
   if (!a) showHome();
+  else if (a === "guide" && byId(b) && byId(b).guide) showReader(b, c || "", true);
   else if (a === "about") showAbout();
   else if (a === "synopsis" && byId(b)) showSynopsis(b);
   else if (a === "characters") (b ? showCharacter(b) : showCharacters());

@@ -28,9 +28,9 @@
 - **頭の上に余白を1割。** 詰めると円の縁で頭頂が切れる
 - **背景は紙の白のまま。** 室内や小物を描くと、円に切られて意味不明な断片になる
 - **色が使えない。** 髪のかたち・眼鏡のかたち・髭・襟のかたち・服の明るさで差を付ける
-- 25人を**同じペンの太さ・同じハッチングの密度で**揃える。1人ずつ作るなら、最初の1枚を参照画像に使うか、同じシード・同じスタイル指定を使い回す
+- 全員を**同じペンの太さ・同じハッチングの密度で**揃える。1人ずつ作るなら、最初の1枚を参照画像に使うか、同じシード・同じスタイル指定を使い回す
 
-### 見分けどころの一覧（白黒で25人を取り違えないための対照表）
+### 見分けどころの一覧（白黒で全員を取り違えないための対照表）
 
 | 人物 | 年齢 | 見分けどころ |
 |---|---|---|
@@ -56,11 +56,22 @@
 | 野村 | 40代後半 | 肩で切り揃えた直毛を片耳にかける＋明るい事務ベスト |
 | 吉田 | 40代後半 | 後ろで一つに束ねた髪＋後れ毛＋困り眉 |
 | 小川 | 50代前半 | 白髪混じりの短いパーマ＋胸の高さの紙の綴り |
-| 会長 | 60代後半 | 白い顎髭（25人で唯一）＋深く日に焼けた顔 |
+| 会長 | 60代後半 | 白い顎髭（全員で唯一）＋深く日に焼けた顔 |
 | 証券会社の年上のほう | 40代後半 | こめかみの白髪＋濃いスーツ＋値踏みする穏やかな目 |
 | 証券会社の年下のほう | 20代後半 | 若さと硬い無表情＋細いネクタイ |
+| 湊 早紀 | 30歳前後 | 後ろで一つに結んだ髪＋開襟ブラウス＋首から下げた社員証＋手元のノート |
+| 鷺沼 | 40代 | 後ろへ撫でつけた白髪混じりの髪＋細長い顔＋立ち襟の濃い上着＋ステンレスの水筒 |
+| 古賀 | 60歳 | 薄くなった頭頂の白髪混じり＋下にずらした細い四角の老眼鏡＋カーディガン＋耳にかけた鉛筆 |
+| 栗原 | 24歳 | 短い黒髪＋フード付きの丸首＋指先に貼った付箋 |
+| 真壁 | 55歳 | 白髪混じりの撫でつけた七三＋がっしりした顔＋背広にネクタイ |
+| 東條 | 50代後半 | 短く刈った白髪＋太い四角の眼鏡＋濃い背広 |
+| 羽鳥 | 40代 | 立てた短髪＋開襟シャツ＋困ったように頭をかく手 |
+| 大竹 | 50代 | 薄い頭頂＋立ち襟の作業着＋組んだ腕 |
+| 沢井 | 30代 | 肩までのボブ＋薄手のカーディガン |
+| 宇田川 | 30代 | 七三の黒髪＋細い楕円の眼鏡＋背広（ネクタイなし） |
+| 日向 | 20代後半 | 短いショートボブ＋丸首のカットソー |
 
-**眼鏡はこの 5 人だけ。** 橘（細い楕円・銀縁） / 田中（老眼鏡・鼻先まで下げてかける） / 桐山（太い黒縁・丸） / 熊谷（細い銀縁・丸） / 小野（太い黒縁・角）　—— 形が違うので取り違えないこと。ほかの 20 人に眼鏡をかけさせない。
+**眼鏡はこの 8 人だけ。** 橘（細い楕円・銀縁） / 田中（老眼鏡・鼻先まで下げてかける） / 桐山（太い黒縁・丸） / 熊谷（細い銀縁・丸） / 小野（太い黒縁・角） / 古賀（細い四角・鼻先に下げる） / 東條（太い四角） / 宇田川（細い楕円）　—— 形が違うので取り違えないこと。ほかの 28 人に眼鏡をかけさせない。
 
 **髭はこの 2 人だけ。** 赤海 慧（無精髭） / 会長（短く刈り込んだ白い顎髭）　—— ほかの人物に髭を生やさない。
 
@@ -73,15 +84,15 @@
 | 原文で明記 | 人物 |
 |---|---|
 | 明記あり | 柳・熊谷・川辺 |
-| 提案（変更可） | 佐伯 梨乃・赤海 慧・早瀬・三上 剛・大河内・岡崎・橘・志村・高梨・森田・田中・桐山・佐藤・真田・西村・小野・野村・吉田・小川・会長・証券会社の年上のほう・証券会社の年下のほう |
+| 提案（変更可） | 佐伯 梨乃・赤海 慧・早瀬・三上 剛・大河内・岡崎・橘・志村・高梨・森田・田中・桐山・佐藤・真田・西村・小野・野村・吉田・小川・会長・証券会社の年上のほう・証券会社の年下のほう・湊 早紀・鷺沼・古賀・栗原・真壁・東條・羽鳥・大竹・沢井・宇田川・日向 |
 
 ## 状況
 
 | 種別 | 枚数 | 用意済み | 未 |
 |---|---|---|---|
 | キービジュアル | 1 | 1 | 0 |
-| 表紙 | 10 | 0 | 10 |
-| 肖像 | 25 | 25 | 0 |
+| 表紙 | 12 | 0 | 12 |
+| 肖像 | 36 | 36 | 0 |
 
 ---
 
@@ -94,7 +105,7 @@
 <details><summary>日本語プロンプト（貼り付け用）</summary>
 
 ```text
-単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。25人すべてを同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
 
 神田の雑居ビルの四階にある、窓の小さな薄暗い小部屋。机に三枚のモニターが並び、黒い画面が青白く光っている。机の端に、空の串が何本も立った缶。手前に開いたノートとペン。人物は描かないか、椅子の背に見える後ろ姿のシルエット程度にとどめる。夜。落ち着いた青緑の色調。
 
@@ -108,7 +119,7 @@
 <details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
 
 ```text
-A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All 25 portraits must share identical pen weight, hatching density, and level of detail.
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
 
 A dim small room on the fourth floor of a cramped multi-tenant building in Kanda, Tokyo, with one small window. Three monitors side by side on the desk, their black screens glowing pale blue. At the edge of the desk, a can holding many empty food skewers. In the foreground, an open notebook and a pen. Either no people at all, or at most a silhouette of someone's back over a chair. Night. Muted blue-green palette.
 
@@ -130,7 +141,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>日本語プロンプト（貼り付け用）</summary>
 
 ```text
-単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。25人すべてを同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
 
 第1話「ch01」の表紙。この話の芯は「同じ会社、同じ月の「売上」が、三つある。」。扱う題材は BI・データレイク・DWH・データマート。象徴として使えるモチーフ: こめかみ、平熱、体温、からあげ棒、串の缶。舞台は日本の中小企業のオフィス・倉庫・工場のいずれか。基調色は #3b6ea5。
 
@@ -144,7 +155,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
 
 ```text
-A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All 25 portraits must share identical pen weight, hatching density, and level of detail.
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
 
 Cover art for episode 1, "ch01". The core of this episode: 同じ会社、同じ月の「売上」が、三つある。 Subject matter: BI, データレイク, DWH, データマート. Motifs that can be used symbolically: こめかみ, 平熱, 体温, からあげ棒, 串の缶. Setting: the office, warehouse, or factory of a small Japanese company. Base color: #3b6ea5.
 
@@ -166,7 +177,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>日本語プロンプト（貼り付け用）</summary>
 
 ```text
-単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。25人すべてを同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
 
 第2話「ch02」の表紙。この話の芯は「同じ靴が、五か所で五つの名前を持っていた。」。扱う題材は MDM・マスタデータ管理・名寄せ・ゴールデンレコード・データオーナー。象徴として使えるモチーフ: 二つの登山靴、名前が五つある子供、本当の最新、靴紐、からあげ棒。舞台は日本の中小企業のオフィス・倉庫・工場のいずれか。基調色は #4f8a5b。
 
@@ -180,7 +191,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
 
 ```text
-A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All 25 portraits must share identical pen weight, hatching density, and level of detail.
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
 
 Cover art for episode 2, "ch02". The core of this episode: 同じ靴が、五か所で五つの名前を持っていた。 Subject matter: MDM, マスタデータ管理, 名寄せ, ゴールデンレコード, データオーナー. Motifs that can be used symbolically: 二つの登山靴, 名前が五つある子供, 本当の最新, 靴紐, からあげ棒. Setting: the office, warehouse, or factory of a small Japanese company. Base color: #4f8a5b.
 
@@ -202,7 +213,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>日本語プロンプト（貼り付け用）</summary>
 
 ```text
-単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。25人すべてを同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
 
 第3話「ch03」の表紙。この話の芯は「ログインできる≠何でも見られる。十二本の鍵を一本に寄せる秋」。扱う題材は 認証認可・SSO・ゼロトラスト・SAML・OAuth・OIDC。象徴として使えるモチーフ: 赤海の二行、当たりましたか、からあげ棒、印鑑と印影、三回の往復（六回移動）。舞台は日本の中小企業のオフィス・倉庫・工場のいずれか。基調色は #b5842a。
 
@@ -216,7 +227,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
 
 ```text
-A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All 25 portraits must share identical pen weight, hatching density, and level of detail.
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
 
 Cover art for episode 3, "ch03". The core of this episode: ログインできる≠何でも見られる。十二本の鍵を一本に寄せる秋 Subject matter: 認証認可, SSO, ゼロトラスト, SAML, OAuth・OIDC. Motifs that can be used symbolically: 赤海の二行, 当たりましたか, からあげ棒, 印鑑と印影, 三回の往復（六回移動）. Setting: the office, warehouse, or factory of a small Japanese company. Base color: #b5842a.
 
@@ -238,7 +249,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>日本語プロンプト（貼り付け用）</summary>
 
 ```text
-単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。25人すべてを同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
 
 第4話「ch04」の表紙。この話の芯は「テレビ放映まで一か月半。一つのタップは、どこを通って注文になるのか」。扱う題材は ネットワーク・DNS・TLS・AWS VPC・CDN。象徴として使えるモチーフ: 電話帳（郵便局ではない）、二次会の数字、テントで数えるな、六万五千、去年のカレンダー。舞台は日本の中小企業のオフィス・倉庫・工場のいずれか。基調色は #6b6bb5。
 
@@ -252,7 +263,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
 
 ```text
-A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All 25 portraits must share identical pen weight, hatching density, and level of detail.
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
 
 Cover art for episode 4, "ch04". The core of this episode: テレビ放映まで一か月半。一つのタップは、どこを通って注文になるのか Subject matter: ネットワーク, DNS, TLS, AWS VPC, CDN. Motifs that can be used symbolically: 電話帳（郵便局ではない）, 二次会の数字, テントで数えるな, 六万五千, 去年のカレンダー. Setting: the office, warehouse, or factory of a small Japanese company. Base color: #6b6bb5.
 
@@ -274,7 +285,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>日本語プロンプト（貼り付け用）</summary>
 
 ```text
-単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。25人すべてを同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
 
 第5話「ch05」の表紙。この話の芯は「五十倍が来る前に、サーバーを牛にし、クリックを正本にする」。扱う題材は クラウドインフラ・IaC・コンテナ。象徴として使えるモチーフ: 牛（ペットと家畜）、弁当箱（近い）、造成（当たった）、#2 は消えたのではなく増えた、正本と写し。舞台は日本の中小企業のオフィス・倉庫・工場のいずれか。基調色は #2a8a8a。
 
@@ -288,7 +299,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
 
 ```text
-A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All 25 portraits must share identical pen weight, hatching density, and level of detail.
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
 
 Cover art for episode 5, "ch05". The core of this episode: 五十倍が来る前に、サーバーを牛にし、クリックを正本にする Subject matter: クラウドインフラ, IaC, コンテナ. Motifs that can be used symbolically: 牛（ペットと家畜）, 弁当箱（近い）, 造成（当たった）, #2 は消えたのではなく増えた, 正本と写し. Setting: the office, warehouse, or factory of a small Japanese company. Base color: #2a8a8a.
 
@@ -301,18 +312,18 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 
 ---
 
-## 表紙 ch06
+## 表紙 ch06-1
 
-- **ファイル**: `site/img/covers/ch06.jpg`
+- **ファイル**: `site/img/covers/ch06-1.jpg`
 - **形**: 縦長 2:3（1200×1800 以上）
-- **誰・何**: 第6話「ch06」 「システムを入れろ」の裏にある痛みを、現場で数えるところから始める
+- **誰・何**: 第6.1話「ch06-1」 「システムを入れろ」の裏にある痛みを、型に当てて数えるところから始める
 
 <details><summary>日本語プロンプト（貼り付け用）</summary>
 
 ```text
-単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。25人すべてを同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
 
-第6話「ch06」の表紙。この話の芯は「「システムを入れろ」の裏にある痛みを、現場で数えるところから始める」。扱う題材は 業務改革構想・要件定義・SaaS 選定・システム開発・本番切替。象徴として使えるモチーフ: 天気、右の枠、九割、からあげ棒の角度、請求書に載りますか。舞台は日本の中小企業のオフィス・倉庫・工場のいずれか。基調色は #b5563b。
+第6.1話「ch06-1」の表紙。この話の芯は「「システムを入れろ」の裏にある痛みを、型に当てて数えるところから始める」。扱う題材は 業務改革構想・現状分析・要件定義・SaaS 選定・契約。象徴として使えるモチーフ: 転記マップ、影の仕事、五つの段、四つの箱、空・雨・傘。舞台は日本の中小企業のオフィス・倉庫・工場のいずれか。基調色は #b5563b。
 
 **表紙だけは色を使う**（単行本のカバーにあたる。巻頭の白黒とは別物）。縦長 2:3（1200×1800 以上）。題名の文字は描かない（アプリ側で重ねないため、絵だけで成立させる）。人物を描く場合は顔を寄りすぎない引きで、誰か特定できない程度に。基調色は指定の1色に寄せ、上下に余白の効いた静かな構図にする。肖像と同じく、線がはっきりした落ち着いた画風にする。
 
@@ -324,9 +335,45 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
 
 ```text
-A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All 25 portraits must share identical pen weight, hatching density, and level of detail.
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
 
-Cover art for episode 6, "ch06". The core of this episode: 「システムを入れろ」の裏にある痛みを、現場で数えるところから始める Subject matter: 業務改革構想, 要件定義, SaaS 選定, システム開発, 本番切替. Motifs that can be used symbolically: 天気, 右の枠, 九割, からあげ棒の角度, 請求書に載りますか. Setting: the office, warehouse, or factory of a small Japanese company. Base color: #b5563b.
+Cover art for episode 6.1, "ch06-1". The core of this episode: 「システムを入れろ」の裏にある痛みを、型に当てて数えるところから始める Subject matter: 業務改革構想, 現状分析, 要件定義, SaaS 選定, 契約. Motifs that can be used symbolically: 転記マップ, 影の仕事, 五つの段, 四つの箱, 空・雨・傘. Setting: the office, warehouse, or factory of a small Japanese company. Base color: #b5563b.
+
+COVERS USE COLOR (they correspond to a hardcover's dust jacket, unlike the black-and-white front matter). Portrait 2:3 (1200x1800 or larger). Do not render any title text — the app does not overlay text, so the image must work on its own. If people appear, keep them at a distance so no individual is identifiable. Anchor the palette to the specified base color. Quiet composition with generous vertical breathing room. Keep the same clear-lined, restrained illustration sensibility as the portraits.
+
+No color at all, not even as an accent. No text, logos, watermarks, signatures, or frames. No interior or landscape background. No halftone or screentone. No extreme low/high angle, profile, or back view. Do not cover the face with hands. Do not resemble any real person. Avoid over-idealizing — do not make everyone young and conventionally attractive. Age and occupation should read from the appearance.
+```
+
+</details>
+
+---
+
+## 表紙 ch06-2
+
+- **ファイル**: `site/img/covers/ch06-2.jpg`
+- **形**: 縦長 2:3（1200×1800 以上）
+- **誰・何**: 第6.2話「ch06-2」 切替が成功したときの正しい姿は「誰も気づかない」。そのための型を、設計から定着まで
+
+<details><summary>日本語プロンプト（貼り付け用）</summary>
+
+```text
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+
+第6.2話「ch06-2」の表紙。この話の芯は「切替が成功したときの正しい姿は「誰も気づかない」。そのための型を、設計から定着まで」。扱う題材は 基本設計・プロジェクト管理・テスト・本番切替・チェンジマネジメント。象徴として使えるモチーフ: 冪等、九割、三つの数字、端の値、直すと隣が壊れる。舞台は日本の中小企業のオフィス・倉庫・工場のいずれか。基調色は #8a6d3b。
+
+**表紙だけは色を使う**（単行本のカバーにあたる。巻頭の白黒とは別物）。縦長 2:3（1200×1800 以上）。題名の文字は描かない（アプリ側で重ねないため、絵だけで成立させる）。人物を描く場合は顔を寄りすぎない引きで、誰か特定できない程度に。基調色は指定の1色に寄せ、上下に余白の効いた静かな構図にする。肖像と同じく、線がはっきりした落ち着いた画風にする。
+
+色を使わない（部分的な差し色も禁止）。文字・ロゴ・透かし・署名・枠線を入れない。背景に室内や風景を描かない。網点やスクリーントーンを貼らない。極端なあおりや俯瞰、横顔、後ろ姿にしない。手で顔を隠さない。実在の人物に似せない。過度な美化（全員を若く整った顔にする）をしない。年齢と職種が見た目に出ていること。
+```
+
+</details>
+
+<details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
+
+```text
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
+
+Cover art for episode 6.2, "ch06-2". The core of this episode: 切替が成功したときの正しい姿は「誰も気づかない」。そのための型を、設計から定着まで Subject matter: 基本設計, プロジェクト管理, テスト, 本番切替, チェンジマネジメント. Motifs that can be used symbolically: 冪等, 九割, 三つの数字, 端の値, 直すと隣が壊れる. Setting: the office, warehouse, or factory of a small Japanese company. Base color: #8a6d3b.
 
 COVERS USE COLOR (they correspond to a hardcover's dust jacket, unlike the black-and-white front matter). Portrait 2:3 (1200x1800 or larger). Do not render any title text — the app does not overlay text, so the image must work on its own. If people appear, keep them at a distance so no individual is identifiable. Anchor the palette to the specified base color. Quiet composition with generous vertical breathing room. Keep the same clear-lined, restrained illustration sensibility as the portraits.
 
@@ -346,9 +393,9 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>日本語プロンプト（貼り付け用）</summary>
 
 ```text
-単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。25人すべてを同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
 
-第7話「ch07」の表紙。この話の芯は「黒字なのに、現金がない。三枚の表がつながり、三社の経理が一つになる。」。扱う題材は 財務・シェアードサービス・月次決算・内部統制・監査。象徴として使えるモチーフ: 会計上は、相殺後、三つ、星印、晴れの日の傘。舞台は日本の中小企業のオフィス・倉庫・工場のいずれか。基調色は #8a6d3b。
+第7話「ch07」の表紙。この話の芯は「黒字なのに、現金がない。三枚の表がつながり、三社の経理が一つになる。」。扱う題材は 財務・シェアードサービス・月次決算・内部統制・監査。象徴として使えるモチーフ: 会計上は、相殺後、三つ、星印、晴れの日の傘。舞台は日本の中小企業のオフィス・倉庫・工場のいずれか。基調色は #7a5c9e。
 
 **表紙だけは色を使う**（単行本のカバーにあたる。巻頭の白黒とは別物）。縦長 2:3（1200×1800 以上）。題名の文字は描かない（アプリ側で重ねないため、絵だけで成立させる）。人物を描く場合は顔を寄りすぎない引きで、誰か特定できない程度に。基調色は指定の1色に寄せ、上下に余白の効いた静かな構図にする。肖像と同じく、線がはっきりした落ち着いた画風にする。
 
@@ -360,9 +407,9 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
 
 ```text
-A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All 25 portraits must share identical pen weight, hatching density, and level of detail.
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
 
-Cover art for episode 7, "ch07". The core of this episode: 黒字なのに、現金がない。三枚の表がつながり、三社の経理が一つになる。 Subject matter: 財務, シェアードサービス, 月次決算, 内部統制, 監査. Motifs that can be used symbolically: 会計上は, 相殺後, 三つ, 星印, 晴れの日の傘. Setting: the office, warehouse, or factory of a small Japanese company. Base color: #8a6d3b.
+Cover art for episode 7, "ch07". The core of this episode: 黒字なのに、現金がない。三枚の表がつながり、三社の経理が一つになる。 Subject matter: 財務, シェアードサービス, 月次決算, 内部統制, 監査. Motifs that can be used symbolically: 会計上は, 相殺後, 三つ, 星印, 晴れの日の傘. Setting: the office, warehouse, or factory of a small Japanese company. Base color: #7a5c9e.
 
 COVERS USE COLOR (they correspond to a hardcover's dust jacket, unlike the black-and-white front matter). Portrait 2:3 (1200x1800 or larger). Do not render any title text — the app does not overlay text, so the image must work on its own. If people appear, keep them at a distance so no individual is identifiable. Anchor the palette to the specified base color. Quiet composition with generous vertical breathing room. Keep the same clear-lined, restrained illustration sensibility as the portraits.
 
@@ -382,9 +429,9 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>日本語プロンプト（貼り付け用）</summary>
 
 ```text
-単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。25人すべてを同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
 
-第8話「ch08」の表紙。この話の芯は「何でも入る箱は、何を入れたか忘れる——ERP か、八つ目の箱か」。扱う題材は ERP・生産管理・Fit to Standard・原価計算・統制と証跡。象徴として使えるモチーフ: 何でも入る箱、六秒、からあげ棒、体温、ハコデン。舞台は日本の中小企業のオフィス・倉庫・工場のいずれか。基調色は #7a5c9e。
+第8話「ch08」の表紙。この話の芯は「何でも入る箱は、何を入れたか忘れる——ERP か、八つ目の箱か」。扱う題材は ERP・生産管理・Fit to Standard・原価計算・統制と証跡。象徴として使えるモチーフ: 何でも入る箱、六秒、からあげ棒、体温、ハコデン。舞台は日本の中小企業のオフィス・倉庫・工場のいずれか。基調色は #c0392b。
 
 **表紙だけは色を使う**（単行本のカバーにあたる。巻頭の白黒とは別物）。縦長 2:3（1200×1800 以上）。題名の文字は描かない（アプリ側で重ねないため、絵だけで成立させる）。人物を描く場合は顔を寄りすぎない引きで、誰か特定できない程度に。基調色は指定の1色に寄せ、上下に余白の効いた静かな構図にする。肖像と同じく、線がはっきりした落ち着いた画風にする。
 
@@ -396,9 +443,9 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
 
 ```text
-A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All 25 portraits must share identical pen weight, hatching density, and level of detail.
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
 
-Cover art for episode 8, "ch08". The core of this episode: 何でも入る箱は、何を入れたか忘れる——ERP か、八つ目の箱か Subject matter: ERP, 生産管理, Fit to Standard, 原価計算, 統制と証跡. Motifs that can be used symbolically: 何でも入る箱, 六秒, からあげ棒, 体温, ハコデン. Setting: the office, warehouse, or factory of a small Japanese company. Base color: #7a5c9e.
+Cover art for episode 8, "ch08". The core of this episode: 何でも入る箱は、何を入れたか忘れる——ERP か、八つ目の箱か Subject matter: ERP, 生産管理, Fit to Standard, 原価計算, 統制と証跡. Motifs that can be used symbolically: 何でも入る箱, 六秒, からあげ棒, 体温, ハコデン. Setting: the office, warehouse, or factory of a small Japanese company. Base color: #c0392b.
 
 COVERS USE COLOR (they correspond to a hardcover's dust jacket, unlike the black-and-white front matter). Portrait 2:3 (1200x1800 or larger). Do not render any title text — the app does not overlay text, so the image must work on its own. If people appear, keep them at a distance so no individual is identifiable. Anchor the palette to the specified base color. Quiet composition with generous vertical breathing room. Keep the same clear-lined, restrained illustration sensibility as the portraits.
 
@@ -418,9 +465,9 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>日本語プロンプト（貼り付け用）</summary>
 
 ```text
-単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。25人すべてを同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
 
-第9話「ch09」の表紙。この話の芯は「作ることには終わりがある。運用には、終わりがない。」。扱う題材は 運用保守・ITSM・インシデント管理・変更管理・SRE。象徴として使えるモチーフ: 四つの札、一つの窓口、見ます、今、買っていいか、お問い合わせありがとうございます。舞台は日本の中小企業のオフィス・倉庫・工場のいずれか。基調色は #c0392b。
+第9話「ch09」の表紙。この話の芯は「作ることには終わりがある。運用には、終わりがない。」。扱う題材は 運用保守・ITSM・インシデント管理・変更管理・SRE。象徴として使えるモチーフ: 四つの札、一つの窓口、見ます、今、買っていいか、お問い合わせありがとうございます。舞台は日本の中小企業のオフィス・倉庫・工場のいずれか。基調色は #3b7fa5。
 
 **表紙だけは色を使う**（単行本のカバーにあたる。巻頭の白黒とは別物）。縦長 2:3（1200×1800 以上）。題名の文字は描かない（アプリ側で重ねないため、絵だけで成立させる）。人物を描く場合は顔を寄りすぎない引きで、誰か特定できない程度に。基調色は指定の1色に寄せ、上下に余白の効いた静かな構図にする。肖像と同じく、線がはっきりした落ち着いた画風にする。
 
@@ -432,9 +479,9 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
 
 ```text
-A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All 25 portraits must share identical pen weight, hatching density, and level of detail.
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
 
-Cover art for episode 9, "ch09". The core of this episode: 作ることには終わりがある。運用には、終わりがない。 Subject matter: 運用保守, ITSM, インシデント管理, 変更管理, SRE. Motifs that can be used symbolically: 四つの札, 一つの窓口, 見ます, 今、買っていいか, お問い合わせありがとうございます. Setting: the office, warehouse, or factory of a small Japanese company. Base color: #c0392b.
+Cover art for episode 9, "ch09". The core of this episode: 作ることには終わりがある。運用には、終わりがない。 Subject matter: 運用保守, ITSM, インシデント管理, 変更管理, SRE. Motifs that can be used symbolically: 四つの札, 一つの窓口, 見ます, 今、買っていいか, お問い合わせありがとうございます. Setting: the office, warehouse, or factory of a small Japanese company. Base color: #3b7fa5.
 
 COVERS USE COLOR (they correspond to a hardcover's dust jacket, unlike the black-and-white front matter). Portrait 2:3 (1200x1800 or larger). Do not render any title text — the app does not overlay text, so the image must work on its own. If people appear, keep them at a distance so no individual is identifiable. Anchor the palette to the specified base color. Quiet composition with generous vertical breathing room. Keep the same clear-lined, restrained illustration sensibility as the portraits.
 
@@ -454,9 +501,9 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>日本語プロンプト（貼り付け用）</summary>
 
 ```text
-単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。25人すべてを同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
 
-第10話「ch10」の表紙。この話の芯は「システムは全部動いていた。それでも、靴は一足も出なかった」。扱う題材は BCP・事業継続・DR・BIA・訓練。象徴として使えるモチーフ: 二週間分の靴、付箋とプレート、保険、祈り、四つ。舞台は日本の中小企業のオフィス・倉庫・工場のいずれか。基調色は #3b7fa5。
+第10話「ch10」の表紙。この話の芯は「システムは全部動いていた。それでも、靴は一足も出なかった」。扱う題材は BCP・事業継続・DR・BIA・訓練。象徴として使えるモチーフ: 二週間分の靴、付箋とプレート、保険、祈り、四つ。舞台は日本の中小企業のオフィス・倉庫・工場のいずれか。基調色は #3b6ea5。
 
 **表紙だけは色を使う**（単行本のカバーにあたる。巻頭の白黒とは別物）。縦長 2:3（1200×1800 以上）。題名の文字は描かない（アプリ側で重ねないため、絵だけで成立させる）。人物を描く場合は顔を寄りすぎない引きで、誰か特定できない程度に。基調色は指定の1色に寄せ、上下に余白の効いた静かな構図にする。肖像と同じく、線がはっきりした落ち着いた画風にする。
 
@@ -468,9 +515,45 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
 
 ```text
-A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All 25 portraits must share identical pen weight, hatching density, and level of detail.
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
 
-Cover art for episode 10, "ch10". The core of this episode: システムは全部動いていた。それでも、靴は一足も出なかった Subject matter: BCP, 事業継続, DR, BIA, 訓練. Motifs that can be used symbolically: 二週間分の靴, 付箋とプレート, 保険, 祈り, 四つ. Setting: the office, warehouse, or factory of a small Japanese company. Base color: #3b7fa5.
+Cover art for episode 10, "ch10". The core of this episode: システムは全部動いていた。それでも、靴は一足も出なかった Subject matter: BCP, 事業継続, DR, BIA, 訓練. Motifs that can be used symbolically: 二週間分の靴, 付箋とプレート, 保険, 祈り, 四つ. Setting: the office, warehouse, or factory of a small Japanese company. Base color: #3b6ea5.
+
+COVERS USE COLOR (they correspond to a hardcover's dust jacket, unlike the black-and-white front matter). Portrait 2:3 (1200x1800 or larger). Do not render any title text — the app does not overlay text, so the image must work on its own. If people appear, keep them at a distance so no individual is identifiable. Anchor the palette to the specified base color. Quiet composition with generous vertical breathing room. Keep the same clear-lined, restrained illustration sensibility as the portraits.
+
+No color at all, not even as an accent. No text, logos, watermarks, signatures, or frames. No interior or landscape background. No halftone or screentone. No extreme low/high angle, profile, or back view. Do not cover the face with hands. Do not resemble any real person. Avoid over-idealizing — do not make everyone young and conventionally attractive. Age and occupation should read from the appearance.
+```
+
+</details>
+
+---
+
+## 表紙 ex01
+
+- **ファイル**: `site/img/covers/ex01.jpg`
+- **形**: 縦長 2:3（1200×1800 以上）
+- **誰・何**: 番外編「ex01」 二十三本の川が、一つの河口に流れ込む。一千八百四十四万円の一行は、どこで生まれたのか。
+
+<details><summary>日本語プロンプト（貼り付け用）</summary>
+
+```text
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+
+番外編「ex01」の表紙。この話の芯は「二十三本の川が、一つの河口に流れ込む。一千八百四十四万円の一行は、どこで生まれたのか。」。扱う題材は 入金消込・BPR・情報の清流化・AIエージェント。象徴として使えるモチーフ: 河口、二十三本の川、どこで生まれましたか、癖、名義帳。舞台は日本の企業グループのシェアードサービス会社のオフィス（窓の外に河口）。基調色は #4f8a5b。
+
+**表紙だけは色を使う**（単行本のカバーにあたる。巻頭の白黒とは別物）。縦長 2:3（1200×1800 以上）。題名の文字は描かない（アプリ側で重ねないため、絵だけで成立させる）。人物を描く場合は顔を寄りすぎない引きで、誰か特定できない程度に。基調色は指定の1色に寄せ、上下に余白の効いた静かな構図にする。肖像と同じく、線がはっきりした落ち着いた画風にする。
+
+色を使わない（部分的な差し色も禁止）。文字・ロゴ・透かし・署名・枠線を入れない。背景に室内や風景を描かない。網点やスクリーントーンを貼らない。極端なあおりや俯瞰、横顔、後ろ姿にしない。手で顔を隠さない。実在の人物に似せない。過度な美化（全員を若く整った顔にする）をしない。年齢と職種が見た目に出ていること。
+```
+
+</details>
+
+<details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
+
+```text
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
+
+Cover art for the side story, "ex01". The core of this episode: 二十三本の川が、一つの河口に流れ込む。一千八百四十四万円の一行は、どこで生まれたのか。 Subject matter: 入金消込, BPR, 情報の清流化, AIエージェント. Motifs that can be used symbolically: 河口, 二十三本の川, どこで生まれましたか, 癖, 名義帳. Setting: the office of a Japanese corporate group's shared-services company, with a river mouth outside the window. Base color: #4f8a5b.
 
 COVERS USE COLOR (they correspond to a hardcover's dust jacket, unlike the black-and-white front matter). Portrait 2:3 (1200x1800 or larger). Do not render any title text — the app does not overlay text, so the image must work on its own. If people appear, keep them at a distance so no individual is identifiable. Anchor the palette to the specified base color. Quiet composition with generous vertical breathing room. Keep the same clear-lined, restrained illustration sensibility as the portraits.
 
@@ -493,7 +576,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>日本語プロンプト（貼り付け用）</summary>
 
 ```text
-単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。25人すべてを同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
 
 20代半ばの日本人女性。黒髪のミディアムボブ、毛先が少し外に跳ね、前髪は眉の上で切り揃えてある。髪はベタ塗りに細い線でつやを入れる。細面、目は大きめ、眉が少し寄っている。白いブラウス（線だけで、ほぼ白く抜く）の上に中間の濃さのカーディガン。首から社員証のストラップが一本、まっすぐ下がっている。胸の高さに小さなメモ帳を持ち、角だけが見えている。まだ自信はないが引かない、生真面目な表情。
 
@@ -507,7 +590,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
 
 ```text
-A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All 25 portraits must share identical pen weight, hatching density, and level of detail.
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
 
 Japanese woman in her mid-20s. Black medium bob, ends flicked slightly outward, fringe cut straight above the eyebrows. Hair filled solid black with fine lines for sheen. Slender face, fairly large eyes, brows slightly knitted. White blouse (rendered almost entirely as white paper with outlines only) under a mid-tone cardigan. A single employee-ID lanyard hangs straight down from her neck. Holding a small notepad at chest height, only its corner visible. Earnest expression — not yet confident, but not backing down.
 
@@ -532,7 +615,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>日本語プロンプト（貼り付け用）</summary>
 
 ```text
-単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。25人すべてを同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
 
 30代半ばの日本人男性。伸びて無造作に散った黒髪、耳が半分隠れる長さ。無精髭を細かい短線で描く。目の下の隈をハッチングではっきり出す。痩せ型で頬がこけ、頬骨の下に影の線が入る。濃いパーカー（いちばん濃い階調。フードの縁が肩に見える）。顔のすぐ横に、串に刺したからあげ棒を一本、垂直に持っている。表情はほぼ無く、目つきだけが鋭い。
 
@@ -546,7 +629,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
 
 ```text
-A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All 25 portraits must share identical pen weight, hatching density, and level of detail.
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
 
 Japanese man in his mid-30s. Overgrown, unkempt black hair long enough to half-cover the ears. Stubble drawn with fine short strokes. Pronounced under-eye shadows built from hatching. Lean, hollow-cheeked, with shadow lines beneath the cheekbones. Dark hoodie (the darkest tone in the cast; the hood's edge visible at the shoulders). Holding a single food skewer vertically right beside his face. Almost no expression; only the gaze is sharp.
 
@@ -571,7 +654,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>日本語プロンプト（貼り付け用）</summary>
 
 ```text
-単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。25人すべてを同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
 
 20代前半の日本人男性、新入社員。黒髪の短髪を几帳面に整え、生え際と分け目がはっきりしている。細身で丸みのある輪郭、肌は影をほとんど入れず白く残す。真新しい白いシャツ（ほぼ白抜き）に細いネクタイ。結び目が首の下にきちんと見える。片手を軽く挙げ、指先が肩の高さにある。目を見開いた、まっすぐで屈託のない表情。
 
@@ -585,7 +668,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
 
 ```text
-A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All 25 portraits must share identical pen weight, hatching density, and level of detail.
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
 
 Japanese man in his early 20s, a new hire. Neatly groomed short black hair with a clearly defined hairline and part. Slim, softly rounded jaw; the skin left almost entirely white with minimal shading. Brand-new white shirt (left as white paper) with a slim tie, its knot clearly visible below the throat. One hand raised slightly, fingertips at shoulder height. Wide-open eyes, direct and untroubled.
 
@@ -610,7 +693,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>日本語プロンプト（貼り付け用）</summary>
 
 ```text
-単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。25人すべてを同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
 
 50代前半の日本人男性、営業部長。短く刈った髪、こめかみと生え際に白髪を細い白抜きの線で示す。角張った顔、太い首、恰幅がよく肩幅が広い。白いワイシャツ（白抜き）の襟を開き、第一ボタンを外し、ネクタイは緩んで斜めに垂れている。袖はまくってある。人差し指を自分のこめかみに当てて軽く叩く仕草。口を開けて笑う、声の大きそうな自信満々の表情。目尻に太い笑い皺。
 
@@ -624,7 +707,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
 
 ```text
-A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All 25 portraits must share identical pen weight, hatching density, and level of detail.
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
 
 Japanese man in his early 50s, a sales director. Close-cropped hair, grey at the temples and hairline indicated by fine white gaps in the ink. Square face, thick neck, heavy build with broad shoulders. White dress shirt (left white) with the collar open, top button undone, tie loosened and hanging askew. Sleeves rolled up. Index finger tapping his own temple. Mouth open in a laugh, loud and supremely confident. Heavy crow's feet.
 
@@ -649,7 +732,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>日本語プロンプト（貼り付け用）</summary>
 
 ```text
-単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。25人すべてを同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
 
 60代前半の日本人男性、中小企業の社長。白髪を後ろに撫でつけたオールバック。髪はベタ塗りにせず、細い線の束だけで描いて白さを出す。額が広く、生え際が後退している。柔らかい丸顔、目尻に深い笑い皺を三本ずつ。中間の濃さのジャケットに、ノーネクタイの白シャツ。肩の高さに取っ手付きのコーヒーカップを持っている。人懐こく、少し無責任そうな笑顔。
 
@@ -663,7 +746,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
 
 ```text
-A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All 25 portraits must share identical pen weight, hatching density, and level of detail.
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
 
 Japanese man in his early 60s, president of a small company. White hair swept straight back. Render the hair with thin line bundles only, no solid fill, so it reads as white. High forehead with a receding hairline. Soft round face, three deep laugh lines at each eye. Mid-tone jacket over an open-collar white shirt. Holding a handled coffee cup at shoulder height. Genial, faintly irresponsible smile.
 
@@ -688,7 +771,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>日本語プロンプト（貼り付け用）</summary>
 
 ```text
-単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。25人すべてを同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
 
 30代後半の日本人。総務と情シスを兼ねる、目立たない人。黒髪をきちんと七三に分け、耳がすっきり出ている。特徴の少ない穏やかな顔立ち、表情の線は最小限。中間の濃さのシャツ、胸ポケットにボールペンが三本、頭を揃えて挿さっている（これがいちばんの目印）。控えめに口の端だけで微笑む。言いにくいことを言う前に息を吸った顔。
 
@@ -702,7 +785,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
 
 ```text
-A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All 25 portraits must share identical pen weight, hatching density, and level of detail.
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
 
 Japanese person in their late 30s, handling both general affairs and IT. Black hair in a neat side part, ears fully exposed. Unremarkable, calm features drawn with minimal expression lines. Mid-tone shirt with three ballpoint pens lined up in the breast pocket, caps level — this is the key identifying detail. A restrained smile at the corner of the mouth only. The face of someone who has just drawn breath to say something awkward.
 
@@ -727,7 +810,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>日本語プロンプト（貼り付け用）</summary>
 
 ```text
-単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。25人すべてを同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
 
 30代後半の日本人女性、経理。黒髪を後ろできっちりまとめ、額と耳が完全に出ている。髪はベタ塗り。細い楕円のフレームの眼鏡（線一本ぶんの細さで描く）。輪郭も目つきもシャープで、頬に余分な肉がない。白シャツの上に濃いベスト（濃い階調をクロスハッチで作る）。人差し指と中指を揃えて眼鏡のブリッジを押し上げている。感情を出さない、理詰めで隙のない表情。
 
@@ -741,7 +824,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
 
 ```text
-A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All 25 portraits must share identical pen weight, hatching density, and level of detail.
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
 
 Japanese woman in her late 30s, an accountant. Black hair pulled back tightly, forehead and ears fully exposed. Hair filled solid black. Thin oval-framed glasses drawn with a single-width line. Sharp jaw and sharp eyes, no softness in the cheeks. White shirt under a dark vest (the dark tone built from cross-hatching). Index and middle fingers together, pushing the bridge of her glasses up. Unemotional, airtight, logical.
 
@@ -766,7 +849,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>日本語プロンプト（貼り付け用）</summary>
 
 ```text
-単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。25人すべてを同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
 
 40代前半の日本人男性、商品部。黒いくせ毛がもじゃっと広がり、輪郭が丸い雲のような形になっている。日に焼けた肌をまばらなハッチングで示す。人の良さそうな丸い目。中間の濃さのフリースベストの下にチェックのシャツ（チェックは細い格子線で示す）。首に登山靴の丸紐を一本、両端を垂らしてかけている。今まさに長い話を始めようとしている、嬉しそうに口を開いた表情。
 
@@ -780,7 +863,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
 
 ```text
-A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All 25 portraits must share identical pen weight, hatching density, and level of detail.
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
 
 Japanese man in his early 40s, product department. Black frizzy hair spreading out so the silhouette reads as a round cloud. Tanned skin suggested by sparse hatching. Kind round eyes. Mid-tone fleece vest over a checked shirt (the check indicated with a fine grid of lines). A round hiking bootlace draped around his neck with both ends hanging. Mouth already open, delighted, about to launch into a long story.
 
@@ -805,7 +888,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>日本語プロンプト（貼り付け用）</summary>
 
 ```text
-単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。25人すべてを同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
 
 30代前半の日本人男性、エンジニア。黒髪の前髪が長く、目の上にかかって片目が半分隠れている。痩せ型で色白、肌の影はほとんど入れない。中間の濃さのパーカーの下に黒いTシャツ（襟元だけが濃い）。眉の内側を下げた八の字、口は小さく結ぶ。何も起きていないのに謝りそうな顔。少しうつむき加減だが、目線はこちらへ上げている。
 
@@ -819,7 +902,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
 
 ```text
-A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All 25 portraits must share identical pen weight, hatching density, and level of detail.
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
 
 Japanese man in his early 30s, a software engineer. Long black fringe falling over the eyes, half-hiding one of them. Thin, pale, with almost no shading on the skin. Mid-tone hoodie over a black T-shirt (only the neckline dark). Eyebrows angled down at the inner ends, mouth held small. The face of someone about to apologize though nothing has gone wrong. Head slightly lowered, eyes raised to the viewer.
 
@@ -844,7 +927,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>日本語プロンプト（貼り付け用）</summary>
 
 ```text
-単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。25人すべてを同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
 
 30代半ばの日本人男性、マーケティング。短髪を軽く立てて毛先が散っている。髪はベタ塗りにせず線を重ねて明るめに描く。細身で頬の線がすっきりしている。明るい階調のカジュアルジャケット（ほぼ白抜き）に白いインナー。肩の高さに、細い充電ケーブルを一本つまんで垂らして持ち上げている。眉を上げて口角を曲げた、困りながら笑っている表情。
 
@@ -858,7 +941,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
 
 ```text
-A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All 25 portraits must share identical pen weight, hatching density, and level of detail.
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
 
 Japanese man in his mid-30s, marketing. Short hair lightly spiked, tips scattered. Draw the hair with layered lines rather than solid fill so it reads light. Slim, with a clean cheek line. Light-toned casual jacket (left nearly white) over a white tee. Pinching a thin charging cable and holding it up at shoulder height, the cable hanging free. Eyebrows raised, mouth crooked — laughing while visibly troubled.
 
@@ -883,7 +966,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>日本語プロンプト（貼り付け用）</summary>
 
 ```text
-単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。25人すべてを同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
 
 50代後半の日本人女性、営業部のベテラン。短いパーマ髪を、細かく巻いた線の連なりで描く。白髪なのでベタ塗りは使わず、線を疎にして白く残す。老眼鏡を鼻先まで下げてかけ、レンズの上から相手を見ている（これがいちばんの目印）。目尻と口元に細かい皺。中間の濃さのカーディガン。胸の高さに湯呑みを両手で包むように持つ。照れくさそうに目を細めた、穏やかで満足そうな表情。
 
@@ -897,7 +980,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
 
 ```text
-A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All 25 portraits must share identical pen weight, hatching density, and level of detail.
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
 
 Japanese woman in her late 50s, a veteran of the sales department. Short permed hair drawn as a chain of tight curled strokes. Since the hair is grey, use no solid fill — keep the strokes sparse so it reads white. Reading glasses slipped down to the tip of her nose, looking at the viewer over the top of the lenses — this is the key identifying detail. Fine wrinkles at the eyes and mouth. Mid-tone cardigan. Holding a teacup at chest height, cupped in both hands. Eyes crinkled, bashful, calm and quietly satisfied.
 
@@ -922,7 +1005,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>日本語プロンプト（貼り付け用）</summary>
 
 ```text
-単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。25人すべてを同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
 
 20代後半の日本人男性、開発者。黒いくせ毛が数か所で跳ねている。太い黒縁の**丸い**眼鏡（線を二重にして太さを出す）。無地の黒いTシャツ（濃い階調、首元は丸首）。胸の高さに大学ノートを開いて構え、もう片手にペンを持ち、今から書き留めようとしている。目が好奇心で見開かれ、口元が少し笑っている。
 
@@ -936,7 +1019,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
 
 ```text
-A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All 25 portraits must share identical pen weight, hatching density, and level of detail.
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
 
 Japanese man in his late 20s, a developer. Black curly hair sticking out in several places. Thick black-rimmed ROUND glasses (doubled lines to give weight). Plain black crew-neck T-shirt (dark tone). Holding an open notebook at chest height with a pen in the other hand, about to write something down. Eyes wide with curiosity, a small smile at the mouth.
 
@@ -961,7 +1044,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>日本語プロンプト（貼り付け用）</summary>
 
 ```text
-単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。25人すべてを同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
 
 40代後半の日本人男性、物流倉庫の責任者。短く刈った黒髪で、頭の輪郭が角張って見える。日に焼けた肌を斜線のハッチングで示し、他の人物より濃い。骨太で健康的な顔立ち。濃い階調の作業着の上衣、立ち襟の内側から白いTシャツがのぞく。胸の高さに名刺を一枚、両手で正面に差し出している。まっすぐで飾らない、少し硬い真面目な表情。
 
@@ -975,7 +1058,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
 
 ```text
-A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All 25 portraits must share identical pen weight, hatching density, and level of detail.
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
 
 Japanese man in his late 40s, head of a distribution warehouse. Closely cropped black hair giving the skull a squared silhouette. Tanned skin indicated by diagonal hatching, darker than the rest of the cast. Solid, healthy features. Dark-toned work jacket with a stand collar, a white tee showing at the neck. Offering a business card with both hands, held forward at chest height. Direct, unadorned, slightly stiff and earnest.
 
@@ -1000,7 +1083,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>日本語プロンプト（貼り付け用）</summary>
 
 ```text
-単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。25人すべてを同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
 
 五十代の日本人男性、靴工場の工場長。白髪の混じった短い角刈りで、頭頂が平らに見える。髪は線を疎にして白く残す。四角い顔に深い縦皺が二本、口の両脇に入る。日に焼けた肌。中間の濃さの作業着に襟付きのインナー、胸に工場名のない無地のネームプレート。口を真一文字に結んでいる。胸の高さに、角の丸い古いソーラー電卓を一つ持つ。余計なことを言わない、必要なだけ見返す静かな目。
 
@@ -1014,7 +1097,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
 
 ```text
-A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All 25 portraits must share identical pen weight, hatching density, and level of detail.
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
 
 Japanese man in his 50s, manager of a shoe factory. Short crew cut greying throughout, the crown reading flat. Keep the hair strokes sparse so it reads white. Square face with two deep vertical creases flanking the mouth. Weathered skin. Mid-tone work uniform over a collared inner shirt, with a blank name plate on the chest. Mouth set in a straight line. Holding an old solar calculator with rounded corners at chest height. Quiet eyes that look back exactly as much as needed and no more.
 
@@ -1039,7 +1122,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>日本語プロンプト（貼り付け用）</summary>
 
 ```text
-単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。25人すべてを同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
 
 63歳の日本人男性、工場の経理。薄くなった白髪を七三に整える。髪は線を疎にして白く残す。痩せた頬に深い影のハッチング。細い銀縁の**丸い**眼鏡（線一本ぶんの細さ）。白いワイシャツの上に濃い事務用ベスト、前腕に黒いアームカバー（これがいちばんの目印）。胸に紙の伝票の束を両腕で大事そうに抱えている。姿勢を正した、誇りと少しの寂しさが同居した表情。
 
@@ -1053,7 +1136,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
 
 ```text
-A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All 25 portraits must share identical pen weight, hatching density, and level of detail.
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
 
 Japanese man aged 63, factory accountant. Thinning white hair in a neat side part; keep the strokes sparse so it reads white. Gaunt cheeks with deep hatched shadows. Thin silver-rimmed ROUND glasses drawn with a single-width line. White dress shirt under a dark office vest, with black sleeve protectors on the forearms — the key identifying detail. Clutching a bundle of paper vouchers to his chest with both arms, as if precious. Posture straightened; pride and a trace of loneliness together.
 
@@ -1078,7 +1161,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>日本語プロンプト（貼り付け用）</summary>
 
 ```text
-単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。25人すべてを同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
 
 三十代の日本人女性、SaaS ベンダーの導入担当。黒髪を襟足の低い位置できっちりまとめ、前髪を横に流している。髪はベタ塗りにつやの白線。整った顔立ちで、輪郭も眉も左右の対称がきれい。濃い階調のスーツの襟と、白いインナーのコントラストがはっきりしている。口角を正確に上げた完璧な営業スマイル。**ただし目はまったく笑っておらず、下まぶたが動いていない。** そこが分かるよう、目の周りだけ線を硬く引く。
 
@@ -1092,7 +1175,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
 
 ```text
-A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All 25 portraits must share identical pen weight, hatching density, and level of detail.
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
 
 Japanese woman in her 30s, implementation lead at a SaaS vendor. Black hair gathered into a low bun at the nape, fringe swept to one side. Hair filled solid black with white sheen lines. Neat, symmetrical features — jaw and brows evenly matched. Strong contrast between the dark-toned suit lapels and the white blouse. A perfect sales smile with the corners of the mouth precisely raised. HOWEVER, THE EYES ARE NOT SMILING AT ALL — the lower lids do not move. Draw the lines around the eyes harder than elsewhere so this reads.
 
@@ -1117,7 +1200,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>日本語プロンプト（貼り付け用）</summary>
 
 ```text
-単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。25人すべてを同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
 
 40代前半の日本人男性、生産管理パッケージの導入担当。黒髪の角刈りに近い短髪で、髪の輪郭が直線的。地味で頑丈そうな骨格。中間の濃さの飾り気のないスーツ、白シャツ、柄のない無地のネクタイ。眉も口も水平で、表情がまったく動かない。断るときも同じ顔。まっすぐな視線。
 
@@ -1131,7 +1214,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
 
 ```text
-A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All 25 portraits must share identical pen weight, hatching density, and level of detail.
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
 
 Japanese man in his early 40s, implementation lead for a production-control package. Black hair in a near crew cut with a straight-edged silhouette. Plain, sturdy bone structure. Mid-tone, unadorned suit, white shirt, a completely plain tie. Brows and mouth both horizontal; the expression does not move at all — the same face he wears when refusing a request. Level gaze.
 
@@ -1156,9 +1239,9 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>日本語プロンプト（貼り付け用）</summary>
 
 ```text
-単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。25人すべてを同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
 
-20代後半の日本人女性、サービスデスク。黒髪のショートボブ、毛先が顎の線で内に入る。髪はベタ塗り。**細いヘッドセットを着け、マイクのアームが頬に沿って口元の横まで伸びている**（25人でこの人だけ。いちばんの目印）。明るい階調のシャツ、襟は小さい。感じのよい、よく通る声が想像できる自然な微笑み。丁寧で機敏な印象。
+20代後半の日本人女性、サービスデスク。黒髪のショートボブ、毛先が顎の線で内に入る。髪はベタ塗り。**細いヘッドセットを着け、マイクのアームが頬に沿って口元の横まで伸びている**（全員でこの人だけ。いちばんの目印）。明るい階調のシャツ、襟は小さい。感じのよい、よく通る声が想像できる自然な微笑み。丁寧で機敏な印象。
 
 正方形 1:1（1024×1024 以上）。バストアップ。正面から 15 度以内のわずかな斜め。こちらを見ている。頭頂の上に画面の 10 パーセントほど余白を残し、目の高さを上から 40 パーセントあたりに置く。肩の線が下端にわずかにかかる。背景は紙の白のまま（room・家具・小物・模様・枠線・飾り罫・文字を描かない）。**画像は円形に切り抜いて表示するので、四隅には何も置かない。** 小物は顔のすぐ横か、肩から胸の高さに小さく添える。**色が使えないので、髪のかたち・眼鏡のかたち・髭・襟のかたち・服の明るさ（白／中間／濃い）で区別を付ける。** 44 ピクセルまで縮めても誰か分かること。
 
@@ -1170,9 +1253,9 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
 
 ```text
-A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All 25 portraits must share identical pen weight, hatching density, and level of detail.
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
 
-Japanese woman in her late 20s, service desk. Short black bob, ends turning inward at the jawline. Hair filled solid black. SHE WEARS A SLIM HEADSET WITH THE BOOM MIC RUNNING ALONG HER CHEEK TO THE CORNER OF HER MOUTH — she is the only one of the 25 with this, and it is the key identifying detail. Light-toned shirt with a small collar. A natural, pleasant smile from which a clear carrying voice can be imagined. Polite and quick.
+Japanese woman in her late 20s, service desk. Short black bob, ends turning inward at the jawline. Hair filled solid black. SHE WEARS A SLIM HEADSET WITH THE BOOM MIC RUNNING ALONG HER CHEEK TO THE CORNER OF HER MOUTH — she is the only one of the whole cast with this, and it is the key identifying detail. Light-toned shirt with a small collar. A natural, pleasant smile from which a clear carrying voice can be imagined. Polite and quick.
 
 Square 1:1 (1024x1024 or larger). Head-and-shoulders bust. Facing the viewer, within 15 degrees of frontal. Leave about 10% headroom above the top of the head; place the eyes at roughly 40% from the top. Shoulders just touch the bottom edge. Background: the white of the paper, left plain — no rooms, furniture, objects, patterns, frames, decorative rules, or text. IMPORTANT: the image will be cropped to a circle, so keep all four corners empty. Place any prop right beside the face or at shoulder-to-chest height. SINCE COLOR IS UNAVAILABLE, distinguish characters by hair shape, glasses shape, facial hair, collar shape, and the tonal value of the clothing (white / mid-grey / dark). The character must remain identifiable when scaled down to 44 pixels.
 
@@ -1195,9 +1278,9 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>日本語プロンプト（貼り付け用）</summary>
 
 ```text
-単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。25人すべてを同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
 
-30代後半の日本人男性、公認会計士。黒髪をきっちり整え、乱れが一本もない。太い黒縁の**角ばった**眼鏡（線を二重にして太さを出す。丸眼鏡の桐山・熊谷と形で区別する）。細面で表情がまったく動かない。**25人でいちばん濃い階調のスーツ**（クロスハッチを密に重ねる）、白シャツ、地味なネクタイ。口を閉じたまま相手を見ている。硬質で静かな印象。
+30代後半の日本人男性、公認会計士。黒髪をきっちり整え、乱れが一本もない。太い黒縁の**角ばった**眼鏡（線を二重にして太さを出す。丸眼鏡の桐山・熊谷と形で区別する）。細面で表情がまったく動かない。**全員でいちばん濃い階調のスーツ**（クロスハッチを密に重ねる）、白シャツ、地味なネクタイ。口を閉じたまま相手を見ている。硬質で静かな印象。
 
 正方形 1:1（1024×1024 以上）。バストアップ。正面から 15 度以内のわずかな斜め。こちらを見ている。頭頂の上に画面の 10 パーセントほど余白を残し、目の高さを上から 40 パーセントあたりに置く。肩の線が下端にわずかにかかる。背景は紙の白のまま（room・家具・小物・模様・枠線・飾り罫・文字を描かない）。**画像は円形に切り抜いて表示するので、四隅には何も置かない。** 小物は顔のすぐ横か、肩から胸の高さに小さく添える。**色が使えないので、髪のかたち・眼鏡のかたち・髭・襟のかたち・服の明るさ（白／中間／濃い）で区別を付ける。** 44 ピクセルまで縮めても誰か分かること。
 
@@ -1209,9 +1292,9 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
 
 ```text
-A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All 25 portraits must share identical pen weight, hatching density, and level of detail.
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
 
-Japanese man in his late 30s, a certified public accountant. Black hair perfectly groomed, not a strand loose. Thick black-rimmed RECTANGULAR glasses (doubled lines for weight; the angular shape distinguishes him from the round-glassed Kiriyama and Kumagai). Narrow face, entirely immobile expression. THE DARKEST SUIT OF THE 25 (dense layered cross-hatching), white shirt, sober tie. Watching the viewer with his mouth closed. Hard-edged and quiet.
+Japanese man in his late 30s, a certified public accountant. Black hair perfectly groomed, not a strand loose. Thick black-rimmed RECTANGULAR glasses (doubled lines for weight; the angular shape distinguishes him from the round-glassed Kiriyama and Kumagai). Narrow face, entirely immobile expression. THE DARKEST SUIT OF THE WHOLE CAST (dense layered cross-hatching), white shirt, sober tie. Watching the viewer with his mouth closed. Hard-edged and quiet.
 
 Square 1:1 (1024x1024 or larger). Head-and-shoulders bust. Facing the viewer, within 15 degrees of frontal. Leave about 10% headroom above the top of the head; place the eyes at roughly 40% from the top. Shoulders just touch the bottom edge. Background: the white of the paper, left plain — no rooms, furniture, objects, patterns, frames, decorative rules, or text. IMPORTANT: the image will be cropped to a circle, so keep all four corners empty. Place any prop right beside the face or at shoulder-to-chest height. SINCE COLOR IS UNAVAILABLE, distinguish characters by hair shape, glasses shape, facial hair, collar shape, and the tonal value of the clothing (white / mid-grey / dark). The character must remain identifiable when scaled down to 44 pixels.
 
@@ -1234,7 +1317,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>日本語プロンプト（貼り付け用）</summary>
 
 ```text
-単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。25人すべてを同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
 
 40代後半の日本人女性、経理事務。黒髪を肩の線でまっすぐ切り揃え、片side だけ耳にかけている（片耳だけ出ているのが目印）。髪はベタ塗り。柔らかい輪郭、目尻がやや下がっている。明るい階調の事務用ベストに白いブラウス、襟は丸い。落ち着いた、少し控えめな微笑み。
 
@@ -1248,7 +1331,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
 
 ```text
-A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All 25 portraits must share identical pen weight, hatching density, and level of detail.
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
 
 Japanese woman in her late 40s, accounting clerk. Black hair cut straight at the shoulders, tucked behind one ear only — the exposed single ear is the identifying detail. Hair filled solid black. Soft jawline, outer corners of the eyes slightly downturned. Light-toned office vest over a white blouse with a rounded collar. A settled, slightly reserved smile.
 
@@ -1273,7 +1356,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>日本語プロンプト（貼り付け用）</summary>
 
 ```text
-単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。25人すべてを同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
 
 40代後半の日本人女性、営業事務のパート。黒髪を後ろで一つに束ね、こめかみに後れ毛が数本落ちている（束ねた髪が首の横から少し見える）。髪はベタ塗り。眉の内側を少し下げ、口を横に結んだ、困っているが不機嫌ではない表情。明るい階調の事務用ベストに白いブラウス。
 
@@ -1287,7 +1370,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
 
 ```text
-A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All 25 portraits must share identical pen weight, hatching density, and level of detail.
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
 
 Japanese woman in her late 40s, part-time sales clerk. Black hair tied back in a single bunch, with a few loose strands falling at the temples; the tied hair is just visible past the side of the neck. Hair filled solid black. Inner ends of the eyebrows slightly lowered, mouth set sideways — troubled but not displeased. Light-toned office vest over a white blouse.
 
@@ -1312,7 +1395,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>日本語プロンプト（貼り付け用）</summary>
 
 ```text
-単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。25人すべてを同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
 
 50代前半の日本人女性、営業事務のパート。短いパーマ髪に白髪が混じり、線を疎にして明るく描く（田中より巻きが緩い）。ふっくらした輪郭。明るい階調の事務服、襟は角ばっている。胸の高さに、薄い紙の綴りを一束、片手で持っている。悪びれない、ごく自然な表情。
 
@@ -1326,7 +1409,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
 
 ```text
-A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All 25 portraits must share identical pen weight, hatching density, and level of detail.
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
 
 Japanese woman in her early 50s, part-time sales clerk. Short permed hair with grey mixed through, drawn with sparse strokes so it reads light (looser curl than Tanaka's). Fuller jawline. Light-toned office uniform with a squared collar. Holding a thin bound stack of paper in one hand at chest height. An entirely unselfconscious, natural expression.
 
@@ -1346,14 +1429,14 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 - **誰・何**: 会長（かいちょう）／社外 ・ 杉並山岳会 ・ 会長
 - 杉並山岳会の会長。法人の顧客として、注文の向こう側に名前が出る。
 - **年齢**: 60代後半　**性別**: 男性 — 提案（原稿に記載なし）
-- **見分けどころ**: 白い顎髭（25人で唯一）＋深く日に焼けた顔
+- **見分けどころ**: 白い顎髭（全員で唯一）＋深く日に焼けた顔
 
 <details><summary>日本語プロンプト（貼り付け用）</summary>
 
 ```text
-単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。25人すべてを同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
 
-60代後半の日本人男性、山岳会の会長。短い白髪と、**短く刈り込んだ白い顎髭**（顎髭があるのは25人でこの人だけ。いちばんの目印）。髪も髭も線を疎にして白く残す。深く日に焼けた顔をハッチングで濃く出し、目尻の皺が放射状に深い。中間の濃さのフリースジャケット、襟が高く立っている。豪快で人望のありそうな笑顔。
+60代後半の日本人男性、山岳会の会長。短い白髪と、**短く刈り込んだ白い顎髭**（顎髭があるのは全員でこの人だけ。いちばんの目印）。髪も髭も線を疎にして白く残す。深く日に焼けた顔をハッチングで濃く出し、目尻の皺が放射状に深い。中間の濃さのフリースジャケット、襟が高く立っている。豪快で人望のありそうな笑顔。
 
 正方形 1:1（1024×1024 以上）。バストアップ。正面から 15 度以内のわずかな斜め。こちらを見ている。頭頂の上に画面の 10 パーセントほど余白を残し、目の高さを上から 40 パーセントあたりに置く。肩の線が下端にわずかにかかる。背景は紙の白のまま（room・家具・小物・模様・枠線・飾り罫・文字を描かない）。**画像は円形に切り抜いて表示するので、四隅には何も置かない。** 小物は顔のすぐ横か、肩から胸の高さに小さく添える。**色が使えないので、髪のかたち・眼鏡のかたち・髭・襟のかたち・服の明るさ（白／中間／濃い）で区別を付ける。** 44 ピクセルまで縮めても誰か分かること。
 
@@ -1365,9 +1448,9 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
 
 ```text
-A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All 25 portraits must share identical pen weight, hatching density, and level of detail.
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
 
-Japanese man in his late 60s, chairman of a mountaineering club. Short white hair and A CLOSELY TRIMMED WHITE BEARD — he is the only one of the 25 with a beard, and it is the key identifying detail. Keep both hair and beard sparse in stroke so they read white. Deeply weathered face built up with hatching, with deep radiating crow's feet. Mid-tone fleece jacket with a high standing collar. A broad, well-liked, hearty smile.
+Japanese man in his late 60s, chairman of a mountaineering club. Short white hair and A CLOSELY TRIMMED WHITE BEARD — he is the only one of the whole cast with a beard, and it is the key identifying detail. Keep both hair and beard sparse in stroke so they read white. Deeply weathered face built up with hatching, with deep radiating crow's feet. Mid-tone fleece jacket with a high standing collar. A broad, well-liked, hearty smile.
 
 Square 1:1 (1024x1024 or larger). Head-and-shoulders bust. Facing the viewer, within 15 degrees of frontal. Leave about 10% headroom above the top of the head; place the eyes at roughly 40% from the top. Shoulders just touch the bottom edge. Background: the white of the paper, left plain — no rooms, furniture, objects, patterns, frames, decorative rules, or text. IMPORTANT: the image will be cropped to a circle, so keep all four corners empty. Place any prop right beside the face or at shoulder-to-chest height. SINCE COLOR IS UNAVAILABLE, distinguish characters by hair shape, glasses shape, facial hair, collar shape, and the tonal value of the clothing (white / mid-grey / dark). The character must remain identifiable when scaled down to 44 pixels.
 
@@ -1390,7 +1473,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>日本語プロンプト（貼り付け用）</summary>
 
 ```text
-単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。25人すべてを同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
 
 40代後半の日本人男性、証券会社の引受審査部。髪をきちんと整え、こめかみだけ白髪を白抜きの線で示す。年齢相応の額の横皺。濃い階調のスーツに控えめなネクタイ（小野より一段薄く、柄がある）。相手の話を静かに聞いている、穏やかだが値踏みする目。わずかに口角が上がりかけている。
 
@@ -1404,7 +1487,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
 
 ```text
-A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All 25 portraits must share identical pen weight, hatching density, and level of detail.
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
 
 Japanese man in his late 40s, underwriting review at a securities firm. Neatly groomed hair with grey at the temples indicated by white gaps in the ink. Age-appropriate horizontal lines on the forehead. Dark-toned suit with a restrained patterned tie (one step lighter than Ono's, and not plain). Listening quietly — calm eyes that are nonetheless appraising. The corner of his mouth just beginning to lift.
 
@@ -1429,7 +1512,7 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>日本語プロンプト（貼り付け用）</summary>
 
 ```text
-単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。25人すべてを同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
 
 20代後半の日本人男性、証券会社の若手。短く整えた黒髪、髪はベタ塗り。若く張りのある肌で影の線がほとんど無い。濃い階調のスーツ、白シャツ、細いネクタイ。表情をまったく変えない硬い顔で、緊張が少し出ている。
 
@@ -1443,9 +1526,438 @@ No color at all, not even as an accent. No text, logos, watermarks, signatures, 
 <details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
 
 ```text
-A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All 25 portraits must share identical pen weight, hatching density, and level of detail.
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
 
 Japanese man in his late 20s, a junior at a securities firm. Short neat black hair, filled solid. Young, taut skin with almost no shading lines. Dark-toned suit, white shirt, slim tie. A stiff face that does not change at all, with a trace of tension showing.
+
+Square 1:1 (1024x1024 or larger). Head-and-shoulders bust. Facing the viewer, within 15 degrees of frontal. Leave about 10% headroom above the top of the head; place the eyes at roughly 40% from the top. Shoulders just touch the bottom edge. Background: the white of the paper, left plain — no rooms, furniture, objects, patterns, frames, decorative rules, or text. IMPORTANT: the image will be cropped to a circle, so keep all four corners empty. Place any prop right beside the face or at shoulder-to-chest height. SINCE COLOR IS UNAVAILABLE, distinguish characters by hair shape, glasses shape, facial hair, collar shape, and the tonal value of the clothing (white / mid-grey / dark). The character must remain identifiable when scaled down to 44 pixels.
+
+No color at all, not even as an accent. No text, logos, watermarks, signatures, or frames. No interior or landscape background. No halftone or screentone. No extreme low/high angle, profile, or back view. Do not cover the face with hands. Do not resemble any real person. Avoid over-idealizing — do not make everyone young and conventionally attractive. Age and occupation should read from the appearance.
+```
+
+</details>
+
+---
+
+## 肖像 minato　✅ 用意済み
+
+- **ファイル**: `site/img/characters/minato.jpg`
+- **形**: 正方形 1:1（1024×1024 以上・円形に切り抜いて使う）
+- **誰・何**: 湊 早紀（みなと さき）／大鳥グループ（番外編） ・ 大鳥ビジネスサービス 債権管理 入金消込チーム ・ リーダー
+- 十四人で毎月一万八千行の入金を当ててきた消込チームのリーダー。二十三本の川をさかのぼり、要件定義書を書く。
+- **年齢**: 30歳前後　**性別**: 女性 — 提案（原稿に記載なし）
+- **見分けどころ**: 後ろで一つに結んだ髪＋開襟ブラウス＋首から下げた社員証＋手元のノート
+
+<details><summary>日本語プロンプト（貼り付け用）</summary>
+
+```text
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+
+30歳前後の日本人女性、シェアードサービス会社の入金消込チームのリーダー。黒髪を後ろで低く一つに結び、耳の横に数本のおくれ毛。落ち着いた、少し疲れの残る目元だが、口元は結んで前を見ている。襟の開いたシンプルなブラウス、首から社員証を下げ、胸の前に小さなノートを持つ。
+
+正方形 1:1（1024×1024 以上）。バストアップ。正面から 15 度以内のわずかな斜め。こちらを見ている。頭頂の上に画面の 10 パーセントほど余白を残し、目の高さを上から 40 パーセントあたりに置く。肩の線が下端にわずかにかかる。背景は紙の白のまま（room・家具・小物・模様・枠線・飾り罫・文字を描かない）。**画像は円形に切り抜いて表示するので、四隅には何も置かない。** 小物は顔のすぐ横か、肩から胸の高さに小さく添える。**色が使えないので、髪のかたち・眼鏡のかたち・髭・襟のかたち・服の明るさ（白／中間／濃い）で区別を付ける。** 44 ピクセルまで縮めても誰か分かること。
+
+色を使わない（部分的な差し色も禁止）。文字・ロゴ・透かし・署名・枠線を入れない。背景に室内や風景を描かない。網点やスクリーントーンを貼らない。極端なあおりや俯瞰、横顔、後ろ姿にしない。手で顔を隠さない。実在の人物に似せない。過度な美化（全員を若く整った顔にする）をしない。年齢と職種が見た目に出ていること。
+```
+
+</details>
+
+<details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
+
+```text
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
+
+Japanese woman around 30, leader of the payment-matching team at a shared-services company. Dark hair tied low at the back, a few loose strands by the ears. Calm eyes with a trace of tiredness, mouth set, looking straight ahead. Simple open-collar blouse, ID lanyard around the neck, a small notebook held in front of the chest.
+
+Square 1:1 (1024x1024 or larger). Head-and-shoulders bust. Facing the viewer, within 15 degrees of frontal. Leave about 10% headroom above the top of the head; place the eyes at roughly 40% from the top. Shoulders just touch the bottom edge. Background: the white of the paper, left plain — no rooms, furniture, objects, patterns, frames, decorative rules, or text. IMPORTANT: the image will be cropped to a circle, so keep all four corners empty. Place any prop right beside the face or at shoulder-to-chest height. SINCE COLOR IS UNAVAILABLE, distinguish characters by hair shape, glasses shape, facial hair, collar shape, and the tonal value of the clothing (white / mid-grey / dark). The character must remain identifiable when scaled down to 44 pixels.
+
+No color at all, not even as an accent. No text, logos, watermarks, signatures, or frames. No interior or landscape background. No halftone or screentone. No extreme low/high angle, profile, or back view. Do not cover the face with hands. Do not resemble any real person. Avoid over-idealizing — do not make everyone young and conventionally attractive. Age and occupation should read from the appearance.
+```
+
+</details>
+
+---
+
+## 肖像 saginuma　✅ 用意済み
+
+- **ファイル**: `site/img/characters/saginuma.jpg`
+- **形**: 正方形 1:1（1024×1024 以上・円形に切り抜いて使う）
+- **誰・何**: 鷺沼（さぎぬま）／社外 ・ 夜座コンサルティング ・ シニアコンサルタント
+- いちばん下流の席に座り、麦茶を飲み、「この一行は、どこで生まれましたか」とだけ聞くコンサルタント。
+- **年齢**: 40代　**性別**: 未指定 — 提案（原稿に記載なし）
+- **見分けどころ**: 後ろへ撫でつけた白髪混じりの髪＋細長い顔＋立ち襟の濃い上着＋ステンレスの水筒
+
+<details><summary>日本語プロンプト（貼り付け用）</summary>
+
+```text
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+
+40代の日本人、外部のコンサルタント。背が高く、細長い顔と長い首。白髪の混じった髪を後ろへ撫でつける。表情は静かで、少しだけ口角が上がっている。立ち襟の濃い色の上着を首元まで閉じている。手にステンレスの細長い水筒を持つ。性別を強く示さない描き方でよい。
+
+正方形 1:1（1024×1024 以上）。バストアップ。正面から 15 度以内のわずかな斜め。こちらを見ている。頭頂の上に画面の 10 パーセントほど余白を残し、目の高さを上から 40 パーセントあたりに置く。肩の線が下端にわずかにかかる。背景は紙の白のまま（room・家具・小物・模様・枠線・飾り罫・文字を描かない）。**画像は円形に切り抜いて表示するので、四隅には何も置かない。** 小物は顔のすぐ横か、肩から胸の高さに小さく添える。**色が使えないので、髪のかたち・眼鏡のかたち・髭・襟のかたち・服の明るさ（白／中間／濃い）で区別を付ける。** 44 ピクセルまで縮めても誰か分かること。
+
+色を使わない（部分的な差し色も禁止）。文字・ロゴ・透かし・署名・枠線を入れない。背景に室内や風景を描かない。網点やスクリーントーンを貼らない。極端なあおりや俯瞰、横顔、後ろ姿にしない。手で顔を隠さない。実在の人物に似せない。過度な美化（全員を若く整った顔にする）をしない。年齢と職種が見た目に出ていること。
+```
+
+</details>
+
+<details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
+
+```text
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
+
+Japanese person in their 40s, an outside consultant. Tall, with a long narrow face and long neck. Hair streaked with grey, combed straight back. Quiet expression, the corners of the mouth slightly raised. Dark stand-collar jacket closed to the throat. Holding a slim stainless-steel thermos. Androgynous depiction is fine.
+
+Square 1:1 (1024x1024 or larger). Head-and-shoulders bust. Facing the viewer, within 15 degrees of frontal. Leave about 10% headroom above the top of the head; place the eyes at roughly 40% from the top. Shoulders just touch the bottom edge. Background: the white of the paper, left plain — no rooms, furniture, objects, patterns, frames, decorative rules, or text. IMPORTANT: the image will be cropped to a circle, so keep all four corners empty. Place any prop right beside the face or at shoulder-to-chest height. SINCE COLOR IS UNAVAILABLE, distinguish characters by hair shape, glasses shape, facial hair, collar shape, and the tonal value of the clothing (white / mid-grey / dark). The character must remain identifiable when scaled down to 44 pixels.
+
+No color at all, not even as an accent. No text, logos, watermarks, signatures, or frames. No interior or landscape background. No halftone or screentone. No extreme low/high angle, profile, or back view. Do not cover the face with hands. Do not resemble any real person. Avoid over-idealizing — do not make everyone young and conventionally attractive. Age and occupation should read from the appearance.
+```
+
+</details>
+
+---
+
+## 肖像 koga　✅ 用意済み
+
+- **ファイル**: `site/img/characters/koga.jpg`
+- **形**: 正方形 1:1（1024×1024 以上・円形に切り抜いて使う）
+- **誰・何**: 古賀（こが）／大鳥グループ（番外編） ・ 大鳥ビジネスサービス 入金消込チーム（嘱託）
+- 入金消込を二十八年。四千二百十二行の名義帳と、顧客の「癖」で、溶けた金額を逆算してきた。
+- **年齢**: 60歳　**性別**: 男性 — 提案（原稿に記載なし）
+- **見分けどころ**: 薄くなった頭頂の白髪混じり＋下にずらした細い四角の老眼鏡＋カーディガン＋耳にかけた鉛筆
+
+<details><summary>日本語プロンプト（貼り付け用）</summary>
+
+```text
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+
+60歳の日本人男性、入金消込を28年続けてきた嘱託社員。頭頂が薄く、横の白髪混じりの髪を短く整える。鼻先に下げた細い四角の老眼鏡越しに、上目づかいでこちらを見る。目尻と額に深い皺。ワイシャツの上に厚手のカーディガン。耳に先の丸い鉛筆をかけている。
+
+正方形 1:1（1024×1024 以上）。バストアップ。正面から 15 度以内のわずかな斜め。こちらを見ている。頭頂の上に画面の 10 パーセントほど余白を残し、目の高さを上から 40 パーセントあたりに置く。肩の線が下端にわずかにかかる。背景は紙の白のまま（room・家具・小物・模様・枠線・飾り罫・文字を描かない）。**画像は円形に切り抜いて表示するので、四隅には何も置かない。** 小物は顔のすぐ横か、肩から胸の高さに小さく添える。**色が使えないので、髪のかたち・眼鏡のかたち・髭・襟のかたち・服の明るさ（白／中間／濃い）で区別を付ける。** 44 ピクセルまで縮めても誰か分かること。
+
+色を使わない（部分的な差し色も禁止）。文字・ロゴ・透かし・署名・枠線を入れない。背景に室内や風景を描かない。網点やスクリーントーンを貼らない。極端なあおりや俯瞰、横顔、後ろ姿にしない。手で顔を隠さない。実在の人物に似せない。過度な美化（全員を若く整った顔にする）をしない。年齢と職種が見た目に出ていること。
+```
+
+</details>
+
+<details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
+
+```text
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
+
+Japanese man aged 60, a contract employee who has matched payments for 28 years. Thinning on top, the grey-streaked sides cut short. Looking up over thin rectangular reading glasses pushed down the nose. Deep wrinkles at the eyes and forehead. Thick cardigan over a dress shirt. A blunt pencil tucked behind one ear.
+
+Square 1:1 (1024x1024 or larger). Head-and-shoulders bust. Facing the viewer, within 15 degrees of frontal. Leave about 10% headroom above the top of the head; place the eyes at roughly 40% from the top. Shoulders just touch the bottom edge. Background: the white of the paper, left plain — no rooms, furniture, objects, patterns, frames, decorative rules, or text. IMPORTANT: the image will be cropped to a circle, so keep all four corners empty. Place any prop right beside the face or at shoulder-to-chest height. SINCE COLOR IS UNAVAILABLE, distinguish characters by hair shape, glasses shape, facial hair, collar shape, and the tonal value of the clothing (white / mid-grey / dark). The character must remain identifiable when scaled down to 44 pixels.
+
+No color at all, not even as an accent. No text, logos, watermarks, signatures, or frames. No interior or landscape background. No halftone or screentone. No extreme low/high angle, profile, or back view. Do not cover the face with hands. Do not resemble any real person. Avoid over-idealizing — do not make everyone young and conventionally attractive. Age and occupation should read from the appearance.
+```
+
+</details>
+
+---
+
+## 肖像 kurihara　✅ 用意済み
+
+- **ファイル**: `site/img/characters/kurihara.jpg`
+- **形**: 正方形 1:1（1024×1024 以上・円形に切り抜いて使う）
+- **誰・何**: 栗原（くりはら）／大鳥グループ（番外編） ・ 大鳥ビジネスサービス 入金消込チーム
+- 生成 AI が好きな二年目。社長の「AI で」を付箋に正の字で数え、試作の AI を作る。
+- **年齢**: 24歳　**性別**: 男性 — 提案（原稿に記載なし）
+- **見分けどころ**: 短い黒髪＋フード付きの丸首＋指先に貼った付箋
+
+<details><summary>日本語プロンプト（貼り付け用）</summary>
+
+```text
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+
+24歳の日本人男性、入社二年目。短く刈った黒髪、丸い目で少し得意げな表情。フード付きの丸首の上着。指先に正方形の付箋を一枚貼り付けて持っている。
+
+正方形 1:1（1024×1024 以上）。バストアップ。正面から 15 度以内のわずかな斜め。こちらを見ている。頭頂の上に画面の 10 パーセントほど余白を残し、目の高さを上から 40 パーセントあたりに置く。肩の線が下端にわずかにかかる。背景は紙の白のまま（room・家具・小物・模様・枠線・飾り罫・文字を描かない）。**画像は円形に切り抜いて表示するので、四隅には何も置かない。** 小物は顔のすぐ横か、肩から胸の高さに小さく添える。**色が使えないので、髪のかたち・眼鏡のかたち・髭・襟のかたち・服の明るさ（白／中間／濃い）で区別を付ける。** 44 ピクセルまで縮めても誰か分かること。
+
+色を使わない（部分的な差し色も禁止）。文字・ロゴ・透かし・署名・枠線を入れない。背景に室内や風景を描かない。網点やスクリーントーンを貼らない。極端なあおりや俯瞰、横顔、後ろ姿にしない。手で顔を隠さない。実在の人物に似せない。過度な美化（全員を若く整った顔にする）をしない。年齢と職種が見た目に出ていること。
+```
+
+</details>
+
+<details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
+
+```text
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
+
+Japanese man aged 24, second-year employee. Short cropped dark hair, round eyes, a slightly pleased expression. Hooded crew-neck top. A square sticky note stuck to one fingertip.
+
+Square 1:1 (1024x1024 or larger). Head-and-shoulders bust. Facing the viewer, within 15 degrees of frontal. Leave about 10% headroom above the top of the head; place the eyes at roughly 40% from the top. Shoulders just touch the bottom edge. Background: the white of the paper, left plain — no rooms, furniture, objects, patterns, frames, decorative rules, or text. IMPORTANT: the image will be cropped to a circle, so keep all four corners empty. Place any prop right beside the face or at shoulder-to-chest height. SINCE COLOR IS UNAVAILABLE, distinguish characters by hair shape, glasses shape, facial hair, collar shape, and the tonal value of the clothing (white / mid-grey / dark). The character must remain identifiable when scaled down to 44 pixels.
+
+No color at all, not even as an accent. No text, logos, watermarks, signatures, or frames. No interior or landscape background. No halftone or screentone. No extreme low/high angle, profile, or back view. Do not cover the face with hands. Do not resemble any real person. Avoid over-idealizing — do not make everyone young and conventionally attractive. Age and occupation should read from the appearance.
+```
+
+</details>
+
+---
+
+## 肖像 makabe　✅ 用意済み
+
+- **ファイル**: `site/img/characters/makabe.jpg`
+- **形**: 正方形 1:1（1024×1024 以上・円形に切り抜いて使う）
+- **誰・何**: 真壁（まかべ）／大鳥グループ（番外編） ・ 大鳥ビジネスサービス ・ 社長
+- ホールディングスの経営企画から来た SSC 社長。中期計画に「AI で人員半分」と書き、書き直す。
+- **年齢**: 55歳　**性別**: 男性 — 提案（原稿に記載なし）
+- **見分けどころ**: 白髪混じりの撫でつけた七三＋がっしりした顔＋背広にネクタイ
+
+<details><summary>日本語プロンプト（貼り付け用）</summary>
+
+```text
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+
+55歳の日本人男性、シェアードサービス会社の社長。白髪混じりの髪をきっちり七三に撫でつける。がっしりした顔、太い眉、額の皺。背広にネクタイ、腕を組みかけている。
+
+正方形 1:1（1024×1024 以上）。バストアップ。正面から 15 度以内のわずかな斜め。こちらを見ている。頭頂の上に画面の 10 パーセントほど余白を残し、目の高さを上から 40 パーセントあたりに置く。肩の線が下端にわずかにかかる。背景は紙の白のまま（room・家具・小物・模様・枠線・飾り罫・文字を描かない）。**画像は円形に切り抜いて表示するので、四隅には何も置かない。** 小物は顔のすぐ横か、肩から胸の高さに小さく添える。**色が使えないので、髪のかたち・眼鏡のかたち・髭・襟のかたち・服の明るさ（白／中間／濃い）で区別を付ける。** 44 ピクセルまで縮めても誰か分かること。
+
+色を使わない（部分的な差し色も禁止）。文字・ロゴ・透かし・署名・枠線を入れない。背景に室内や風景を描かない。網点やスクリーントーンを貼らない。極端なあおりや俯瞰、横顔、後ろ姿にしない。手で顔を隠さない。実在の人物に似せない。過度な美化（全員を若く整った顔にする）をしない。年齢と職種が見た目に出ていること。
+```
+
+</details>
+
+<details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
+
+```text
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
+
+Japanese man aged 55, president of the shared-services company. Grey-streaked hair in a neat slicked side part. Broad face, thick brows, lined forehead. Suit and tie, arms about to fold.
+
+Square 1:1 (1024x1024 or larger). Head-and-shoulders bust. Facing the viewer, within 15 degrees of frontal. Leave about 10% headroom above the top of the head; place the eyes at roughly 40% from the top. Shoulders just touch the bottom edge. Background: the white of the paper, left plain — no rooms, furniture, objects, patterns, frames, decorative rules, or text. IMPORTANT: the image will be cropped to a circle, so keep all four corners empty. Place any prop right beside the face or at shoulder-to-chest height. SINCE COLOR IS UNAVAILABLE, distinguish characters by hair shape, glasses shape, facial hair, collar shape, and the tonal value of the clothing (white / mid-grey / dark). The character must remain identifiable when scaled down to 44 pixels.
+
+No color at all, not even as an accent. No text, logos, watermarks, signatures, or frames. No interior or landscape background. No halftone or screentone. No extreme low/high angle, profile, or back view. Do not cover the face with hands. Do not resemble any real person. Avoid over-idealizing — do not make everyone young and conventionally attractive. Age and occupation should read from the appearance.
+```
+
+</details>
+
+---
+
+## 肖像 tojo　✅ 用意済み
+
+- **ファイル**: `site/img/characters/tojo.jpg`
+- **形**: 正方形 1:1（1024×1024 以上・円形に切り抜いて使う）
+- **誰・何**: 東條（とうじょう）／大鳥グループ（番外編） ・ 大鳥ホールディングス 内部監査室 ・ 室長
+- 質問をいつも五つ持ってくる内部監査室長。反対しに来るのではなく、確かめに来る。
+- **年齢**: 50代後半　**性別**: 男性 — 提案（原稿に記載なし）
+- **見分けどころ**: 短く刈った白髪＋太い四角の眼鏡＋濃い背広
+
+<details><summary>日本語プロンプト（貼り付け用）</summary>
+
+```text
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+
+50代後半の日本人男性、内部監査室長。白髪を短く刈る。太い縁の四角い眼鏡。表情は穏やかで無駄がない。濃い色の背広に細いネクタイ。胸ポケットに手帳。
+
+正方形 1:1（1024×1024 以上）。バストアップ。正面から 15 度以内のわずかな斜め。こちらを見ている。頭頂の上に画面の 10 パーセントほど余白を残し、目の高さを上から 40 パーセントあたりに置く。肩の線が下端にわずかにかかる。背景は紙の白のまま（room・家具・小物・模様・枠線・飾り罫・文字を描かない）。**画像は円形に切り抜いて表示するので、四隅には何も置かない。** 小物は顔のすぐ横か、肩から胸の高さに小さく添える。**色が使えないので、髪のかたち・眼鏡のかたち・髭・襟のかたち・服の明るさ（白／中間／濃い）で区別を付ける。** 44 ピクセルまで縮めても誰か分かること。
+
+色を使わない（部分的な差し色も禁止）。文字・ロゴ・透かし・署名・枠線を入れない。背景に室内や風景を描かない。網点やスクリーントーンを貼らない。極端なあおりや俯瞰、横顔、後ろ姿にしない。手で顔を隠さない。実在の人物に似せない。過度な美化（全員を若く整った顔にする）をしない。年齢と職種が見た目に出ていること。
+```
+
+</details>
+
+<details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
+
+```text
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
+
+Japanese man in his late 50s, head of internal audit. Short-cropped white hair. Thick rectangular glasses. Calm, economical expression. Dark suit with a narrow tie; a pocket notebook in the breast pocket.
+
+Square 1:1 (1024x1024 or larger). Head-and-shoulders bust. Facing the viewer, within 15 degrees of frontal. Leave about 10% headroom above the top of the head; place the eyes at roughly 40% from the top. Shoulders just touch the bottom edge. Background: the white of the paper, left plain — no rooms, furniture, objects, patterns, frames, decorative rules, or text. IMPORTANT: the image will be cropped to a circle, so keep all four corners empty. Place any prop right beside the face or at shoulder-to-chest height. SINCE COLOR IS UNAVAILABLE, distinguish characters by hair shape, glasses shape, facial hair, collar shape, and the tonal value of the clothing (white / mid-grey / dark). The character must remain identifiable when scaled down to 44 pixels.
+
+No color at all, not even as an accent. No text, logos, watermarks, signatures, or frames. No interior or landscape background. No halftone or screentone. No extreme low/high angle, profile, or back view. Do not cover the face with hands. Do not resemble any real person. Avoid over-idealizing — do not make everyone young and conventionally attractive. Age and occupation should read from the appearance.
+```
+
+</details>
+
+---
+
+## 肖像 hatori　✅ 用意済み
+
+- **ファイル**: `site/img/characters/hatori.jpg`
+- **形**: 正方形 1:1（1024×1024 以上・円形に切り抜いて使う）
+- **誰・何**: 羽鳥（はとり）／大鳥グループ（番外編） ・ 大鳥フーズ 量販営業課 ・ 課長
+- カモメストア担当の営業課長。協賛金はメールの中、支払案内は三回に一回。
+- **年齢**: 40代　**性別**: 男性 — 提案（原稿に記載なし）
+- **見分けどころ**: 立てた短髪＋開襟シャツ＋困ったように頭をかく手
+
+<details><summary>日本語プロンプト（貼り付け用）</summary>
+
+```text
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+
+40代の日本人男性、食品卸の量販営業課長。短い髪を少し立てる。日に焼けた頬、困ったような笑顔。開襟の半袖シャツ。片手で頭をかいている。
+
+正方形 1:1（1024×1024 以上）。バストアップ。正面から 15 度以内のわずかな斜め。こちらを見ている。頭頂の上に画面の 10 パーセントほど余白を残し、目の高さを上から 40 パーセントあたりに置く。肩の線が下端にわずかにかかる。背景は紙の白のまま（room・家具・小物・模様・枠線・飾り罫・文字を描かない）。**画像は円形に切り抜いて表示するので、四隅には何も置かない。** 小物は顔のすぐ横か、肩から胸の高さに小さく添える。**色が使えないので、髪のかたち・眼鏡のかたち・髭・襟のかたち・服の明るさ（白／中間／濃い）で区別を付ける。** 44 ピクセルまで縮めても誰か分かること。
+
+色を使わない（部分的な差し色も禁止）。文字・ロゴ・透かし・署名・枠線を入れない。背景に室内や風景を描かない。網点やスクリーントーンを貼らない。極端なあおりや俯瞰、横顔、後ろ姿にしない。手で顔を隠さない。実在の人物に似せない。過度な美化（全員を若く整った顔にする）をしない。年齢と職種が見た目に出ていること。
+```
+
+</details>
+
+<details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
+
+```text
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
+
+Japanese man in his 40s, sales section chief at a food wholesaler. Short hair slightly spiked. Sun-worn cheeks, an embarrassed smile. Open-collar short-sleeve shirt. Scratching his head with one hand.
+
+Square 1:1 (1024x1024 or larger). Head-and-shoulders bust. Facing the viewer, within 15 degrees of frontal. Leave about 10% headroom above the top of the head; place the eyes at roughly 40% from the top. Shoulders just touch the bottom edge. Background: the white of the paper, left plain — no rooms, furniture, objects, patterns, frames, decorative rules, or text. IMPORTANT: the image will be cropped to a circle, so keep all four corners empty. Place any prop right beside the face or at shoulder-to-chest height. SINCE COLOR IS UNAVAILABLE, distinguish characters by hair shape, glasses shape, facial hair, collar shape, and the tonal value of the clothing (white / mid-grey / dark). The character must remain identifiable when scaled down to 44 pixels.
+
+No color at all, not even as an accent. No text, logos, watermarks, signatures, or frames. No interior or landscape background. No halftone or screentone. No extreme low/high angle, profile, or back view. Do not cover the face with hands. Do not resemble any real person. Avoid over-idealizing — do not make everyone young and conventionally attractive. Age and occupation should read from the appearance.
+```
+
+</details>
+
+---
+
+## 肖像 otake　✅ 用意済み
+
+- **ファイル**: `site/img/characters/otake.jpg`
+- **形**: 正方形 1:1（1024×1024 以上・円形に切り抜いて使う）
+- **誰・何**: 大竹（おおたけ）／大鳥グループ（番外編） ・ 大鳥工業 営業管理課
+- 年間リベートを年度末に計算している営業管理課の人。「うちのせいですか」と聞く。
+- **年齢**: 50代　**性別**: 男性 — 提案（原稿に記載なし）
+- **見分けどころ**: 薄い頭頂＋立ち襟の作業着＋組んだ腕
+
+<details><summary>日本語プロンプト（貼り付け用）</summary>
+
+```text
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+
+50代の日本人男性、製造業の営業管理課。頭頂の薄い短髪。立ち襟の作業着。腕を組み、口を結んでいる。反対ではない顔。
+
+正方形 1:1（1024×1024 以上）。バストアップ。正面から 15 度以内のわずかな斜め。こちらを見ている。頭頂の上に画面の 10 パーセントほど余白を残し、目の高さを上から 40 パーセントあたりに置く。肩の線が下端にわずかにかかる。背景は紙の白のまま（room・家具・小物・模様・枠線・飾り罫・文字を描かない）。**画像は円形に切り抜いて表示するので、四隅には何も置かない。** 小物は顔のすぐ横か、肩から胸の高さに小さく添える。**色が使えないので、髪のかたち・眼鏡のかたち・髭・襟のかたち・服の明るさ（白／中間／濃い）で区別を付ける。** 44 ピクセルまで縮めても誰か分かること。
+
+色を使わない（部分的な差し色も禁止）。文字・ロゴ・透かし・署名・枠線を入れない。背景に室内や風景を描かない。網点やスクリーントーンを貼らない。極端なあおりや俯瞰、横顔、後ろ姿にしない。手で顔を隠さない。実在の人物に似せない。過度な美化（全員を若く整った顔にする）をしない。年齢と職種が見た目に出ていること。
+```
+
+</details>
+
+<details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
+
+```text
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
+
+Japanese man in his 50s, sales administration at a manufacturer. Short hair thinning on top. Stand-collar work jacket. Arms folded, mouth set — not opposed.
+
+Square 1:1 (1024x1024 or larger). Head-and-shoulders bust. Facing the viewer, within 15 degrees of frontal. Leave about 10% headroom above the top of the head; place the eyes at roughly 40% from the top. Shoulders just touch the bottom edge. Background: the white of the paper, left plain — no rooms, furniture, objects, patterns, frames, decorative rules, or text. IMPORTANT: the image will be cropped to a circle, so keep all four corners empty. Place any prop right beside the face or at shoulder-to-chest height. SINCE COLOR IS UNAVAILABLE, distinguish characters by hair shape, glasses shape, facial hair, collar shape, and the tonal value of the clothing (white / mid-grey / dark). The character must remain identifiable when scaled down to 44 pixels.
+
+No color at all, not even as an accent. No text, logos, watermarks, signatures, or frames. No interior or landscape background. No halftone or screentone. No extreme low/high angle, profile, or back view. Do not cover the face with hands. Do not resemble any real person. Avoid over-idealizing — do not make everyone young and conventionally attractive. Age and occupation should read from the appearance.
+```
+
+</details>
+
+---
+
+## 肖像 sawai　✅ 用意済み
+
+- **ファイル**: `site/img/characters/sawai.jpg`
+- **形**: 正方形 1:1（1024×1024 以上・円形に切り抜いて使う）
+- **誰・何**: 沢井（さわい）／大鳥グループ（番外編） ・ 大鳥リビング 賃貸
+- 収納代行の明細ファイルが自分のパソコンに届く賃貸担当。休むと届かない。
+- **年齢**: 30代　**性別**: 女性 — 提案（原稿に記載なし）
+- **見分けどころ**: 肩までのボブ＋薄手のカーディガン
+
+<details><summary>日本語プロンプト（貼り付け用）</summary>
+
+```text
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+
+30代の日本人女性、不動産会社の賃貸担当。顎の線で切り揃えたボブ。明るく率直な表情。薄手のカーディガン。
+
+正方形 1:1（1024×1024 以上）。バストアップ。正面から 15 度以内のわずかな斜め。こちらを見ている。頭頂の上に画面の 10 パーセントほど余白を残し、目の高さを上から 40 パーセントあたりに置く。肩の線が下端にわずかにかかる。背景は紙の白のまま（room・家具・小物・模様・枠線・飾り罫・文字を描かない）。**画像は円形に切り抜いて表示するので、四隅には何も置かない。** 小物は顔のすぐ横か、肩から胸の高さに小さく添える。**色が使えないので、髪のかたち・眼鏡のかたち・髭・襟のかたち・服の明るさ（白／中間／濃い）で区別を付ける。** 44 ピクセルまで縮めても誰か分かること。
+
+色を使わない（部分的な差し色も禁止）。文字・ロゴ・透かし・署名・枠線を入れない。背景に室内や風景を描かない。網点やスクリーントーンを貼らない。極端なあおりや俯瞰、横顔、後ろ姿にしない。手で顔を隠さない。実在の人物に似せない。過度な美化（全員を若く整った顔にする）をしない。年齢と職種が見た目に出ていること。
+```
+
+</details>
+
+<details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
+
+```text
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
+
+Japanese woman in her 30s, rental-property staff. Bob cut at the jaw line. Bright, frank expression. Light cardigan.
+
+Square 1:1 (1024x1024 or larger). Head-and-shoulders bust. Facing the viewer, within 15 degrees of frontal. Leave about 10% headroom above the top of the head; place the eyes at roughly 40% from the top. Shoulders just touch the bottom edge. Background: the white of the paper, left plain — no rooms, furniture, objects, patterns, frames, decorative rules, or text. IMPORTANT: the image will be cropped to a circle, so keep all four corners empty. Place any prop right beside the face or at shoulder-to-chest height. SINCE COLOR IS UNAVAILABLE, distinguish characters by hair shape, glasses shape, facial hair, collar shape, and the tonal value of the clothing (white / mid-grey / dark). The character must remain identifiable when scaled down to 44 pixels.
+
+No color at all, not even as an accent. No text, logos, watermarks, signatures, or frames. No interior or landscape background. No halftone or screentone. No extreme low/high angle, profile, or back view. Do not cover the face with hands. Do not resemble any real person. Avoid over-idealizing — do not make everyone young and conventionally attractive. Age and occupation should read from the appearance.
+```
+
+</details>
+
+---
+
+## 肖像 udagawa　✅ 用意済み
+
+- **ファイル**: `site/img/characters/udagawa.jpg`
+- **形**: 正方形 1:1（1024×1024 以上・円形に切り抜いて使う）
+- **誰・何**: 宇田川（うだがわ）／大鳥グループ（番外編） ・ 大鳥商事 海外営業
+- 米ドル入金の中継手数料を毎回聞かれ、毎回同じ答えをしていた人。
+- **年齢**: 30代　**性別**: 男性 — 提案（原稿に記載なし）
+- **見分けどころ**: 七三の黒髪＋細い楕円の眼鏡＋背広（ネクタイなし）
+
+<details><summary>日本語プロンプト（貼り付け用）</summary>
+
+```text
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+
+30代の日本人男性、商社の海外営業。黒髪を七三に分ける。細い楕円の眼鏡。考え込むように少し首を傾ける。背広にノーネクタイ。
+
+正方形 1:1（1024×1024 以上）。バストアップ。正面から 15 度以内のわずかな斜め。こちらを見ている。頭頂の上に画面の 10 パーセントほど余白を残し、目の高さを上から 40 パーセントあたりに置く。肩の線が下端にわずかにかかる。背景は紙の白のまま（room・家具・小物・模様・枠線・飾り罫・文字を描かない）。**画像は円形に切り抜いて表示するので、四隅には何も置かない。** 小物は顔のすぐ横か、肩から胸の高さに小さく添える。**色が使えないので、髪のかたち・眼鏡のかたち・髭・襟のかたち・服の明るさ（白／中間／濃い）で区別を付ける。** 44 ピクセルまで縮めても誰か分かること。
+
+色を使わない（部分的な差し色も禁止）。文字・ロゴ・透かし・署名・枠線を入れない。背景に室内や風景を描かない。網点やスクリーントーンを貼らない。極端なあおりや俯瞰、横顔、後ろ姿にしない。手で顔を隠さない。実在の人物に似せない。過度な美化（全員を若く整った顔にする）をしない。年齢と職種が見た目に出ていること。
+```
+
+</details>
+
+<details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
+
+```text
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
+
+Japanese man in his 30s, overseas sales at a trading company. Dark hair in a side part. Thin oval glasses. Head tilted slightly as if reconsidering. Suit with no tie.
+
+Square 1:1 (1024x1024 or larger). Head-and-shoulders bust. Facing the viewer, within 15 degrees of frontal. Leave about 10% headroom above the top of the head; place the eyes at roughly 40% from the top. Shoulders just touch the bottom edge. Background: the white of the paper, left plain — no rooms, furniture, objects, patterns, frames, decorative rules, or text. IMPORTANT: the image will be cropped to a circle, so keep all four corners empty. Place any prop right beside the face or at shoulder-to-chest height. SINCE COLOR IS UNAVAILABLE, distinguish characters by hair shape, glasses shape, facial hair, collar shape, and the tonal value of the clothing (white / mid-grey / dark). The character must remain identifiable when scaled down to 44 pixels.
+
+No color at all, not even as an accent. No text, logos, watermarks, signatures, or frames. No interior or landscape background. No halftone or screentone. No extreme low/high angle, profile, or back view. Do not cover the face with hands. Do not resemble any real person. Avoid over-idealizing — do not make everyone young and conventionally attractive. Age and occupation should read from the appearance.
+```
+
+</details>
+
+---
+
+## 肖像 hinata　✅ 用意済み
+
+- **ファイル**: `site/img/characters/hinata.jpg`
+- **形**: 正方形 1:1（1024×1024 以上・円形に切り抜いて使う）
+- **誰・何**: 日向（ひなた）／大鳥グループ（番外編） ・ 大鳥システムズ SaaS
+- 請求番号を書かずに振り込まれる SaaS の担当。小さく書いた注意書きは誰も読まない。
+- **年齢**: 20代後半　**性別**: 女性 — 提案（原稿に記載なし）
+- **見分けどころ**: 短いショートボブ＋丸首のカットソー
+
+<details><summary>日本語プロンプト（貼り付け用）</summary>
+
+```text
+単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。
+
+20代後半の日本人女性、IT 企業の SaaS 担当。耳の出るショートボブ。はっきりした目元。丸首のカットソー。
+
+正方形 1:1（1024×1024 以上）。バストアップ。正面から 15 度以内のわずかな斜め。こちらを見ている。頭頂の上に画面の 10 パーセントほど余白を残し、目の高さを上から 40 パーセントあたりに置く。肩の線が下端にわずかにかかる。背景は紙の白のまま（room・家具・小物・模様・枠線・飾り罫・文字を描かない）。**画像は円形に切り抜いて表示するので、四隅には何も置かない。** 小物は顔のすぐ横か、肩から胸の高さに小さく添える。**色が使えないので、髪のかたち・眼鏡のかたち・髭・襟のかたち・服の明るさ（白／中間／濃い）で区別を付ける。** 44 ピクセルまで縮めても誰か分かること。
+
+色を使わない（部分的な差し色も禁止）。文字・ロゴ・透かし・署名・枠線を入れない。背景に室内や風景を描かない。網点やスクリーントーンを貼らない。極端なあおりや俯瞰、横顔、後ろ姿にしない。手で顔を隠さない。実在の人物に似せない。過度な美化（全員を若く整った顔にする）をしない。年齢と職種が見た目に出ていること。
+```
+
+</details>
+
+<details><summary>English prompt (for Midjourney / SD など英語が得意な生成器)</summary>
+
+```text
+A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail.
+
+Japanese woman in her late 20s, SaaS account staff at an IT company. Short bob showing the ears. Clear, direct eyes. Crew-neck top.
 
 Square 1:1 (1024x1024 or larger). Head-and-shoulders bust. Facing the viewer, within 15 degrees of frontal. Leave about 10% headroom above the top of the head; place the eyes at roughly 40% from the top. Shoulders just touch the bottom edge. Background: the white of the paper, left plain — no rooms, furniture, objects, patterns, frames, decorative rules, or text. IMPORTANT: the image will be cropped to a circle, so keep all four corners empty. Place any prop right beside the face or at shoulder-to-chest height. SINCE COLOR IS UNAVAILABLE, distinguish characters by hair shape, glasses shape, facial hair, collar shape, and the tonal value of the clothing (white / mid-grey / dark). The character must remain identifiable when scaled down to 44 pixels.
 

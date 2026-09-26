@@ -4,8 +4,8 @@
   "concept": "肖像は「単行本の巻頭に載っている、白黒の登場人物紹介ページの挿絵」。表紙とキービジュアルだけは色を使う（単行本もカバーは色、巻頭の人物紹介は白黒、という作りに合わせる）。",
 
   "style": {
-    "ja": "単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。25人すべてを同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。",
-    "en": "A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All 25 portraits must share identical pen weight, hatching density, and level of detail."
+    "ja": "単行本の巻頭に載る登場人物紹介の挿絵。白と黒だけのペン画。色は一切使わない（モノクロ／グレースケール）。細く均一なペンの線で輪郭と髪を描き、陰影は斜線のハッチングとクロスハッチで作る。網点・スクリーントーン・写真的なぼかしは使わない。ベタ塗りは髪と濃い服の一部だけにとどめ、顔には使わない。紙に黒インクで刷った線に見えること。落ち着いた文芸書の挿絵の品格で、劇画にもアニメ絵にもしない。全員を同じペンの太さ・同じハッチングの密度・同じ描き込み量で揃える。",
+    "en": "A character-introduction illustration of the kind printed in the front matter of a Japanese hardcover novel. Black-and-white pen-and-ink drawing only — no color whatsoever (monochrome / grayscale). Thin, even pen lines for the contours and hair; shading built from parallel hatching and cross-hatching. No halftone dots, no screentone, no photographic blur. Solid black fills only in parts of the hair and dark clothing, never on the face. It must read as black ink printed on paper. The restrained dignity of literary-book illustration — neither gekiga nor anime. All portraits must share identical pen weight, hatching density, and level of detail."
   },
 
   "portraitComposition": {
@@ -141,15 +141,15 @@
     "nishimura": {
       "age": "20代後半", "gender": "female", "genderSource": "提案（原稿に記載なし）",
       "tell": "ヘッドセットのマイクアーム（唯一の装備）＋ショートボブ",
-      "ja": "20代後半の日本人女性、サービスデスク。黒髪のショートボブ、毛先が顎の線で内に入る。髪はベタ塗り。**細いヘッドセットを着け、マイクのアームが頬に沿って口元の横まで伸びている**（25人でこの人だけ。いちばんの目印）。明るい階調のシャツ、襟は小さい。感じのよい、よく通る声が想像できる自然な微笑み。丁寧で機敏な印象。",
-      "en": "Japanese woman in her late 20s, service desk. Short black bob, ends turning inward at the jawline. Hair filled solid black. SHE WEARS A SLIM HEADSET WITH THE BOOM MIC RUNNING ALONG HER CHEEK TO THE CORNER OF HER MOUTH — she is the only one of the 25 with this, and it is the key identifying detail. Light-toned shirt with a small collar. A natural, pleasant smile from which a clear carrying voice can be imagined. Polite and quick."
+      "ja": "20代後半の日本人女性、サービスデスク。黒髪のショートボブ、毛先が顎の線で内に入る。髪はベタ塗り。**細いヘッドセットを着け、マイクのアームが頬に沿って口元の横まで伸びている**（全員でこの人だけ。いちばんの目印）。明るい階調のシャツ、襟は小さい。感じのよい、よく通る声が想像できる自然な微笑み。丁寧で機敏な印象。",
+      "en": "Japanese woman in her late 20s, service desk. Short black bob, ends turning inward at the jawline. Hair filled solid black. SHE WEARS A SLIM HEADSET WITH THE BOOM MIC RUNNING ALONG HER CHEEK TO THE CORNER OF HER MOUTH — she is the only one of the whole cast with this, and it is the key identifying detail. Light-toned shirt with a small collar. A natural, pleasant smile from which a clear carrying voice can be imagined. Polite and quick."
     },
     "ono": {
       "age": "30代後半", "gender": "male", "genderSource": "提案（原稿に記載なし）",
       "glasses": "太い黒縁・角",
       "tell": "太い黒縁の角眼鏡＋最も濃いスーツ＋動かない口元",
-      "ja": "30代後半の日本人男性、公認会計士。黒髪をきっちり整え、乱れが一本もない。太い黒縁の**角ばった**眼鏡（線を二重にして太さを出す。丸眼鏡の桐山・熊谷と形で区別する）。細面で表情がまったく動かない。**25人でいちばん濃い階調のスーツ**（クロスハッチを密に重ねる）、白シャツ、地味なネクタイ。口を閉じたまま相手を見ている。硬質で静かな印象。",
-      "en": "Japanese man in his late 30s, a certified public accountant. Black hair perfectly groomed, not a strand loose. Thick black-rimmed RECTANGULAR glasses (doubled lines for weight; the angular shape distinguishes him from the round-glassed Kiriyama and Kumagai). Narrow face, entirely immobile expression. THE DARKEST SUIT OF THE 25 (dense layered cross-hatching), white shirt, sober tie. Watching the viewer with his mouth closed. Hard-edged and quiet."
+      "ja": "30代後半の日本人男性、公認会計士。黒髪をきっちり整え、乱れが一本もない。太い黒縁の**角ばった**眼鏡（線を二重にして太さを出す。丸眼鏡の桐山・熊谷と形で区別する）。細面で表情がまったく動かない。**全員でいちばん濃い階調のスーツ**（クロスハッチを密に重ねる）、白シャツ、地味なネクタイ。口を閉じたまま相手を見ている。硬質で静かな印象。",
+      "en": "Japanese man in his late 30s, a certified public accountant. Black hair perfectly groomed, not a strand loose. Thick black-rimmed RECTANGULAR glasses (doubled lines for weight; the angular shape distinguishes him from the round-glassed Kiriyama and Kumagai). Narrow face, entirely immobile expression. THE DARKEST SUIT OF THE WHOLE CAST (dense layered cross-hatching), white shirt, sober tie. Watching the viewer with his mouth closed. Hard-edged and quiet."
     },
     "nomura": {
       "age": "40代後半", "gender": "female", "genderSource": "提案（原稿に記載なし）",
@@ -172,9 +172,9 @@
     "kaicho": {
       "age": "60代後半", "gender": "male", "genderSource": "提案（原稿に記載なし）",
       "beard": "短く刈り込んだ白い顎髭",
-      "tell": "白い顎髭（25人で唯一）＋深く日に焼けた顔",
-      "ja": "60代後半の日本人男性、山岳会の会長。短い白髪と、**短く刈り込んだ白い顎髭**（顎髭があるのは25人でこの人だけ。いちばんの目印）。髪も髭も線を疎にして白く残す。深く日に焼けた顔をハッチングで濃く出し、目尻の皺が放射状に深い。中間の濃さのフリースジャケット、襟が高く立っている。豪快で人望のありそうな笑顔。",
-      "en": "Japanese man in his late 60s, chairman of a mountaineering club. Short white hair and A CLOSELY TRIMMED WHITE BEARD — he is the only one of the 25 with a beard, and it is the key identifying detail. Keep both hair and beard sparse in stroke so they read white. Deeply weathered face built up with hatching, with deep radiating crow's feet. Mid-tone fleece jacket with a high standing collar. A broad, well-liked, hearty smile."
+      "tell": "白い顎髭（全員で唯一）＋深く日に焼けた顔",
+      "ja": "60代後半の日本人男性、山岳会の会長。短い白髪と、**短く刈り込んだ白い顎髭**（顎髭があるのは全員でこの人だけ。いちばんの目印）。髪も髭も線を疎にして白く残す。深く日に焼けた顔をハッチングで濃く出し、目尻の皺が放射状に深い。中間の濃さのフリースジャケット、襟が高く立っている。豪快で人望のありそうな笑顔。",
+      "en": "Japanese man in his late 60s, chairman of a mountaineering club. Short white hair and A CLOSELY TRIMMED WHITE BEARD — he is the only one of the whole cast with a beard, and it is the key identifying detail. Keep both hair and beard sparse in stroke so they read white. Deeply weathered face built up with hatching, with deep radiating crow's feet. Mid-tone fleece jacket with a high standing collar. A broad, well-liked, hearty smile."
     },
     "shoken_senior": {
       "age": "40代後半", "gender": "male", "genderSource": "提案（原稿に記載なし）",
@@ -187,6 +187,75 @@
       "tell": "若さと硬い無表情＋細いネクタイ",
       "ja": "20代後半の日本人男性、証券会社の若手。短く整えた黒髪、髪はベタ塗り。若く張りのある肌で影の線がほとんど無い。濃い階調のスーツ、白シャツ、細いネクタイ。表情をまったく変えない硬い顔で、緊張が少し出ている。",
       "en": "Japanese man in his late 20s, a junior at a securities firm. Short neat black hair, filled solid. Young, taut skin with almost no shading lines. Dark-toned suit, white shirt, slim tie. A stiff face that does not change at all, with a trace of tension showing."
+    },
+    "minato": {
+      "age": "30歳前後", "gender": "female", "genderSource": "提案（原稿に記載なし）",
+      "tell": "後ろで一つに結んだ髪＋開襟ブラウス＋首から下げた社員証＋手元のノート",
+      "ja": "30歳前後の日本人女性、シェアードサービス会社の入金消込チームのリーダー。黒髪を後ろで低く一つに結び、耳の横に数本のおくれ毛。落ち着いた、少し疲れの残る目元だが、口元は結んで前を見ている。襟の開いたシンプルなブラウス、首から社員証を下げ、胸の前に小さなノートを持つ。",
+      "en": "Japanese woman around 30, leader of the payment-matching team at a shared-services company. Dark hair tied low at the back, a few loose strands by the ears. Calm eyes with a trace of tiredness, mouth set, looking straight ahead. Simple open-collar blouse, ID lanyard around the neck, a small notebook held in front of the chest."
+    },
+    "saginuma": {
+      "age": "40代", "gender": "unspecified", "genderSource": "提案（原稿に記載なし）",
+      "tell": "後ろへ撫でつけた白髪混じりの髪＋細長い顔＋立ち襟の濃い上着＋ステンレスの水筒",
+      "ja": "40代の日本人、外部のコンサルタント。背が高く、細長い顔と長い首。白髪の混じった髪を後ろへ撫でつける。表情は静かで、少しだけ口角が上がっている。立ち襟の濃い色の上着を首元まで閉じている。手にステンレスの細長い水筒を持つ。性別を強く示さない描き方でよい。",
+      "en": "Japanese person in their 40s, an outside consultant. Tall, with a long narrow face and long neck. Hair streaked with grey, combed straight back. Quiet expression, the corners of the mouth slightly raised. Dark stand-collar jacket closed to the throat. Holding a slim stainless-steel thermos. Androgynous depiction is fine."
+    },
+    "koga": {
+      "age": "60歳", "gender": "male", "genderSource": "提案（原稿に記載なし）",
+      "glasses": "細い四角・鼻先に下げる",
+      "tell": "薄くなった頭頂の白髪混じり＋下にずらした細い四角の老眼鏡＋カーディガン＋耳にかけた鉛筆",
+      "ja": "60歳の日本人男性、入金消込を28年続けてきた嘱託社員。頭頂が薄く、横の白髪混じりの髪を短く整える。鼻先に下げた細い四角の老眼鏡越しに、上目づかいでこちらを見る。目尻と額に深い皺。ワイシャツの上に厚手のカーディガン。耳に先の丸い鉛筆をかけている。",
+      "en": "Japanese man aged 60, a contract employee who has matched payments for 28 years. Thinning on top, the grey-streaked sides cut short. Looking up over thin rectangular reading glasses pushed down the nose. Deep wrinkles at the eyes and forehead. Thick cardigan over a dress shirt. A blunt pencil tucked behind one ear."
+    },
+    "kurihara": {
+      "age": "24歳", "gender": "male", "genderSource": "提案（原稿に記載なし）",
+      "tell": "短い黒髪＋フード付きの丸首＋指先に貼った付箋",
+      "ja": "24歳の日本人男性、入社二年目。短く刈った黒髪、丸い目で少し得意げな表情。フード付きの丸首の上着。指先に正方形の付箋を一枚貼り付けて持っている。",
+      "en": "Japanese man aged 24, second-year employee. Short cropped dark hair, round eyes, a slightly pleased expression. Hooded crew-neck top. A square sticky note stuck to one fingertip."
+    },
+    "makabe": {
+      "age": "55歳", "gender": "male", "genderSource": "提案（原稿に記載なし）",
+      "tell": "白髪混じりの撫でつけた七三＋がっしりした顔＋背広にネクタイ",
+      "ja": "55歳の日本人男性、シェアードサービス会社の社長。白髪混じりの髪をきっちり七三に撫でつける。がっしりした顔、太い眉、額の皺。背広にネクタイ、腕を組みかけている。",
+      "en": "Japanese man aged 55, president of the shared-services company. Grey-streaked hair in a neat slicked side part. Broad face, thick brows, lined forehead. Suit and tie, arms about to fold."
+    },
+    "tojo": {
+      "age": "50代後半", "gender": "male", "genderSource": "提案（原稿に記載なし）",
+      "glasses": "太い四角",
+      "tell": "短く刈った白髪＋太い四角の眼鏡＋濃い背広",
+      "ja": "50代後半の日本人男性、内部監査室長。白髪を短く刈る。太い縁の四角い眼鏡。表情は穏やかで無駄がない。濃い色の背広に細いネクタイ。胸ポケットに手帳。",
+      "en": "Japanese man in his late 50s, head of internal audit. Short-cropped white hair. Thick rectangular glasses. Calm, economical expression. Dark suit with a narrow tie; a pocket notebook in the breast pocket."
+    },
+    "hatori": {
+      "age": "40代", "gender": "male", "genderSource": "提案（原稿に記載なし）",
+      "tell": "立てた短髪＋開襟シャツ＋困ったように頭をかく手",
+      "ja": "40代の日本人男性、食品卸の量販営業課長。短い髪を少し立てる。日に焼けた頬、困ったような笑顔。開襟の半袖シャツ。片手で頭をかいている。",
+      "en": "Japanese man in his 40s, sales section chief at a food wholesaler. Short hair slightly spiked. Sun-worn cheeks, an embarrassed smile. Open-collar short-sleeve shirt. Scratching his head with one hand."
+    },
+    "otake": {
+      "age": "50代", "gender": "male", "genderSource": "提案（原稿に記載なし）",
+      "tell": "薄い頭頂＋立ち襟の作業着＋組んだ腕",
+      "ja": "50代の日本人男性、製造業の営業管理課。頭頂の薄い短髪。立ち襟の作業着。腕を組み、口を結んでいる。反対ではない顔。",
+      "en": "Japanese man in his 50s, sales administration at a manufacturer. Short hair thinning on top. Stand-collar work jacket. Arms folded, mouth set — not opposed."
+    },
+    "sawai": {
+      "age": "30代", "gender": "female", "genderSource": "提案（原稿に記載なし）",
+      "tell": "肩までのボブ＋薄手のカーディガン",
+      "ja": "30代の日本人女性、不動産会社の賃貸担当。顎の線で切り揃えたボブ。明るく率直な表情。薄手のカーディガン。",
+      "en": "Japanese woman in her 30s, rental-property staff. Bob cut at the jaw line. Bright, frank expression. Light cardigan."
+    },
+    "udagawa": {
+      "age": "30代", "gender": "male", "genderSource": "提案（原稿に記載なし）",
+      "glasses": "細い楕円",
+      "tell": "七三の黒髪＋細い楕円の眼鏡＋背広（ネクタイなし）",
+      "ja": "30代の日本人男性、商社の海外営業。黒髪を七三に分ける。細い楕円の眼鏡。考え込むように少し首を傾ける。背広にノーネクタイ。",
+      "en": "Japanese man in his 30s, overseas sales at a trading company. Dark hair in a side part. Thin oval glasses. Head tilted slightly as if reconsidering. Suit with no tie."
+    },
+    "hinata": {
+      "age": "20代後半", "gender": "female", "genderSource": "提案（原稿に記載なし）",
+      "tell": "短いショートボブ＋丸首のカットソー",
+      "ja": "20代後半の日本人女性、IT 企業の SaaS 担当。耳の出るショートボブ。はっきりした目元。丸首のカットソー。",
+      "en": "Japanese woman in her late 20s, SaaS account staff at an IT company. Short bob showing the ears. Clear, direct eyes. Crew-neck top."
     }
   }
 }
